@@ -181,16 +181,11 @@ wifi_off
       var temperature = data[0].Temperature.Metric.Value;
       var weatherText = data[0].WeatherText;
       var temperatureFormat = data[0].Temperature.Metric.Unit;
-      var epochTime = data[0].EpochTime; // Contoh Epoch Time
-
-// Buat objek Date menggunakan Epoch Time
-var date = new Date(epochTime * 1000);
-
-// Konversi ke format waktu yang mudah dibaca
-var formattedTime = date.toLocaleString();
-
+      var reelfeel = data[0].RealFeelTemperature.Metric.Value;
+      var reelfeelphase = data[0].RealFeelTemperature.Metric.Phase;
+      
       var x = document.getElementById('containerAccuWeather')
-      x.innerHTML = "Temperatur : " + temperature + "°" + temperatureFormat + "\nCuaca : " + weatherText + "\n Waktu(Unix Timestamp) : " + formattedTime;
+      x.innerHTML = "Temperatur : " + temperature + "°" + temperatureFormat + "<br>Cuaca : " + weatherText + "<br>ReelFeel® : " + reelfeel + "<br>Fase ReelFeel® : " + reelfeelphase;
     })
     .catch(function(error) {
       alert("Terjadi Kesalahan : \n" + error);
