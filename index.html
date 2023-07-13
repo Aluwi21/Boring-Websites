@@ -104,7 +104,7 @@
       }
     </style>
 </head>
-<body onload="getLocation()">
+<body>
   <div id="online-content">
     <p>Situs Gabut Ku!</p>
 <h1><b>SITUS INI DIBUAT DENGAN TUJUAN GABUT, JADI... KAMU DISINI BISA MENGGUNAKAN <code>alert()</code> UNTUK MENGSPAM, BISA MELIHAT KALENDER, WAKTU, MINGGU & KALENDER & WAKTU LOKAL DLL, J4F(JUST FOR FUN)</b></h1>
@@ -171,39 +171,8 @@ wifi_off
   </a>
   <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
   <script>
-    function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showWeather, handleLocationError);
-  } else {
-    alert('Sepertinya Browser Mu Ini Gak Mendukung \"GeoLocation\".');
-    console.warn("[GeoLocation](error): Your browser doesnt support GEOLOCATION or your browser blocked this website to using LOCATION.ACCESS");
-                          }
-}
-
-function showWeather(position) {
-  var latitude = position.coords.latitude;
-  var longitude = position.coords.longitude;
-
-  // Panggil fungsi untuk mendapatkan data cuaca berdasarkan koordinat lokasi
-  getWeatherData(latitude, longitude);
-}
-
-function handleLocationError(error) {
-  alert("Terjadi Masalah Saat Mengambil Data Dari GeoLocatipn : \n", error.message);
-  console.error(error)
-    }
-function getWeatherData(latitude, longitude) {
-  var apiKey = '0a04B472ecQNwJEotYgRqkaFxkv20Fsk'; // Ganti dengan kunci API AccuWeather Anda
-
-  var url =
-    'https://dataservice.accuweather.com/currentconditions/v1/' +
-    'locations/v1/cities/geoposition/search?apikey=' +
-    apiKey +
-    '&q=' +
-    latitude +
-    '%2C' +
-    longitude;
-
+    function getDefaultWeather() {
+    var url = "https://dataservice.accuweather.com/currentconditions/v1/3461865?apikey=0a04B472ecQNwJEotYgRqkaFxkv20Fsk&language=ID&details=true"
   fetch(url)
     .then(function(response) {
       return response.json();
@@ -217,9 +186,10 @@ function getWeatherData(latitude, longitude) {
       x.innerHTML = "Temperatur : " + temperature + "°" + temperatureFormat + "\nCuaca : " + weatherText;
     })
     .catch(function(error) {
-      alert("Terjadi Kesalahan : " + error);
+      alert("Terjadi Kesalahan : \n" + error);
       console.error(error);
     });
+      return;
     }
         
 function security() {
