@@ -182,10 +182,10 @@ wifi_off
       var weatherText = data[0].WeatherText;
       var temperatureFormat = data[0].Temperature.Metric.Unit;
       var reelfeel = data[0].RealFeelTemperature.Metric.Value;
-      var reelfeelphase = data[0].RealFeelTemperature.Metric.Phase;
+      var reelfeelphrase = data[0].RealFeelTemperature.Metric.Phrase;
       
       var x = document.getElementById('containerAccuWeather')
-      x.innerHTML = "Temperatur : " + temperature + "°" + temperatureFormat + "<br></br>Cuaca : " + weatherText + "<br></br>ReelFeel® : " + reelfeel + "<br></br>Fase ReelFeel® : " + reelfeelphase;
+      x.innerHTML = "Temperatur : " + temperature + "°" + temperatureFormat + "<br></br>Cuaca : " + weatherText + "<br></br>ReelFeel® : " + reelfeel + "<br></br>Frasa ReelFeel® : " + reelfeelphrase;
     })
     .catch(function(error) {
       alert("Terjadi Kesalahan : \n" + error);
