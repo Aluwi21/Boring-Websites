@@ -104,7 +104,7 @@
       }
     </style>
 </head>
-<body>
+<body onload="getDefaultWeather()">
   <div id="online-content">
     <p>Situs Gabut Ku!</p>
 <h1><b>SITUS INI DIBUAT DENGAN TUJUAN GABUT, JADI... KAMU DISINI BISA MENGGUNAKAN <code>alert()</code> UNTUK MENGSPAM, BISA MELIHAT KALENDER, WAKTU, MINGGU & KALENDER & WAKTU LOKAL DLL, J4F(JUST FOR FUN)</b></h1>
@@ -158,7 +158,6 @@ check_circle</span>
           <a href="https://boring-websites.netlify.app/testingSoftHardWare.html" target="_parent"> 
           <button class="buttonASD">Tes Perangkat Lunak/Keras Perangkat Mu!</button>
           </a>
-    <button onclick="getDefaultWeather()">click</button>
     <p id="containerAccuWeather"></p>
   </div>
   <div id="offline-message" class="offline-message">
@@ -182,9 +181,16 @@ wifi_off
       var temperature = data[0].Temperature.Metric.Value;
       var weatherText = data[0].WeatherText;
       var temperatureFormat = data[0].Temperature.Metric.Unit;
+      var epochTime = data[0].EpochTime; // Contoh Epoch Time
+
+// Buat objek Date menggunakan Epoch Time
+var date = new Date(epochTime * 1000);
+
+// Konversi ke format waktu yang mudah dibaca
+var formattedTime = date.toLocaleString();
 
       var x = document.getElementById('containerAccuWeather')
-      x.innerHTML = "Temperatur : " + temperature + "°" + temperatureFormat + "\nCuaca : " + weatherText;
+      x.innerHTML = "Temperatur : " + temperature + "°" + temperatureFormat + "\nCuaca : " + weatherText + "\n Waktu(Unix Timestamp) : " + formattedTime;
     })
     .catch(function(error) {
       alert("Terjadi Kesalahan : \n" + error);
