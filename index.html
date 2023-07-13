@@ -158,6 +158,7 @@ check_circle</span>
           <a href="https://boring-websites.netlify.app/testingSoftHardWare.html" target="_parent"> 
           <button class="buttonASD">Tes Perangkat Lunak/Keras Perangkat Mu!</button>
           </a>
+    <p id="containerAccuWeather"></p>
   </div>
   <div id="offline-message" class="offline-message">
     <div style="display: flex; align-items: center; flex-direction: column; text-align: center; font-size: 50px;" class="material-symbols-outlined">
@@ -191,7 +192,36 @@ function handleLocationError(error) {
   alert("Terjadi Masalah Saat Mengambil Data Dari GeoLocatipn : \n", error.message);
   console.error(error)
     }
-    
+function getWeatherData(latitude, longitude) {
+  var apiKey = '0a04B472ecQNwJEotYgRqkaFxkv20Fsk'; // Ganti dengan kunci API AccuWeather Anda
+
+  var url =
+    'http://dataservice.accuweather.com/currentconditions/v1/' +
+    'locations/v1/cities/geoposition/search?apikey=' +
+    apiKey +
+    '&q=' +
+    latitude +
+    '%2C' +
+    longitude;
+
+  fetch(url)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
+      var temperature = data[0].Temperature.Metric.Value;
+      var weatherText = data[0].WeatherText;
+      var temperatureFormat = data[0].Temperature.Metric.Unit;
+
+      var x = document.getElementById('containerAccuWeather')
+      x.innerHTML = "Temperatur : " + temperature + "°" + temperatureFormat + "\nCuaca : " + weatherText;
+    })
+    .catch(function(error) {
+      alert("Terjadi Kesalahan : " + error);
+      console.error(error);
+    });
+    }
+        
 function security() {
   var password = "administrator000";
   var promptA = prompt("Masukkan Kata Sandi Sebelum Mengakses Terminal");
