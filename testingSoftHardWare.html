@@ -2,9 +2,17 @@
 <html>
         <head>
                 <title>Pengetesan Hardware & Software</title>
+                <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bellota+Text:wght@700&display=swap');
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 700,
+  'GRAD' 200,
+  'opsz' 48
+}
         #container {
                 font-family: 'Urbanist', sans-serif;
         }
@@ -34,11 +42,15 @@
                         <button onclick="startCamera()">Tes Kamera+Mikrofon Mu!</button>
                 <button onclick="getLocation()">Tes Lokasi Mu!</button>
                          <button id="recordButton" class="not-recording" onclick="toggleRecording()">Tes Layar Mu!(Gak Pakek WebRTC Karena Aku Noob :v)</button>
-
+                         <button style="cursor:pointer; border-radius: 800px; background-color: #008CBA; box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); position: absolute; top: 0; left: 0; display: inline-block; padding: 5px 10px; margin-right: 5px;" onclick="refresh()" class="material-symbols-outlined">
+refresh</button>
                <div id="container"></div>
     <div id="waktu"></div>
                 </div>
   <script>
+          function refresh() {
+                  location.reload();
+          }
     let mediaStream;
     let mediaRecorder;
     let recordedChunks = [];
