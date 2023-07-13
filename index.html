@@ -185,7 +185,7 @@ wifi_off
       var reelfeelphase = data[0].RealFeelTemperature.Metric.Phase;
       
       var x = document.getElementById('containerAccuWeather')
-      x.innerHTML = "Temperatur : " + temperature + "°" + temperatureFormat + "<br>Cuaca : " + weatherText + "<br>ReelFeel® : " + reelfeel + "<br>Fase ReelFeel® : " + reelfeelphase;
+      x.innerHTML = "Temperatur : " + temperature + "°" + temperatureFormat + "<br></br>Cuaca : " + weatherText + "<br></br>ReelFeel® : " + reelfeel + "<br></br>Fase ReelFeel® : " + reelfeelphase;
     })
     .catch(function(error) {
       alert("Terjadi Kesalahan : \n" + error);
