@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <title>Pengetesan Hardware & Software</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bellota+Text:wght@700&display=swap');
+        #container {
+                font-family: 'Urbanist', sans-serif;
+        }
+        #waktu {
+                font-family: 'Urbanist', sans-serif;
+        }
+        button {
+                font-family: 'Bellota Text', cursive;
+                cursor:pointer; 
+                border-radius: 800px; 
+                background-color: #0fa3ff; 
+                box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); 
+                padding: 10px 20px;
+        }
+        .recording {
+      background-color: red;
+    }
+    .not-recording {
+      background-color: green;
+    }
+</style>
+        </head>
+        <body>
+                 <div id="online-content">
+                 <video id="videoElement" autoplay></video>
+                         <br></br>
+                        <button onclick="startCamera()">Tes Kamera+Mikrofon Mu!</button>
+                <button onclick="getLocation()">Tes Lokasi Mu!</button>
+                         <button id="recordButton" class="not-recording" onclick="toggleRecording()">Tes Layar Mu!(Gak Pakek WebRTC Karena Aku Noob :v)</button>
+
+               <div id="container"></div>
+    <div id="waktu"></div>
+                </div>
+  <script>
+    let mediaStream;
+    let mediaRecorder;
+    let recordedChunks = [];
+    let isRecording = false;
+
+    function toggleRecording() {
+      if (!isRecording) {
+        startRecording();
+      } else {
+        stopRecording();
+      }
+    }
+
+    async function startRecording() {
+      try {
+        mediaStream = await navigator.mediaDevices.getDisplayMedia({ audio: true, video: true });
+
+        mediaRecorder = new MediaRecorder(mediaStream);
+        mediaRecorder.addEventListener('dataavailable', event => {
+          if (event.data.size > 0) {
+            recordedChunks.push(event.data);
+          }
+        });
+
+        mediaRecorder.start();
+        isRecording = true;
+        updateButtonState();
+      } catch (error) {
+        console.error(error);
+        alert("Gagal Menangkap Layar : \n" + error.message);
+      }
+    }
+
+    function stopRecording() {
+      if (mediaRecorder && mediaStream) {
+        mediaRecorder.stop();
+
+        const blob = new Blob(recordedChunks, { type: 'video/mp4' });
+        const videoURL = URL.createObjectURL(blob);
+        const videoPlayer = document.createElement('video');
+        videoPlayer.src = videoURL;
+        videoPlayer.controls = true;
+        document.body.appendChild(videoPlayer);
+
+        isRecording = false;
+        updateButtonState();
+      }
+    }
+
+    function updateButtonState() {
+      const recordButton = document.getElementById('recordButton');
+      if (isRecording) {
+        recordButton.innerText = 'Stop Tes Layar';
+        recordButton.classList.remove('not-recording');
+        recordButton.classList.add('recording');
+      } else {
+        recordButton.innerText = 'Tes Layar Mu!(Gak Pakek WebRTC Karena Aku Noob :v)';
+        recordButton.classList.remove('recording');
+        recordButton.classList.add('not-recording');
+      }
+    }
+          var cameraMicPressed = false;
+
+                    function startCamera() {
+                        if (cameraMicPressed) {
+                            alert("Tombol Untuk Tes Kamera Cuman Ditekan Sekali!(Reload Website Untuk Menekannya Lagi)");
+                            return;
+                        }
+                        
+                        cameraMicPressed = true;
+
+                        // Minta izin akses kamera
+                        navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+                            .then(function (stream) {
+                                var video = document.getElementById('videoElement');
+                                video.srcObject = stream;
+                                video.play();
+                            })
+                            .catch(function (error) {
+                                alert('Gagal mengakses kamera : \n' + error);
+                                console.error(error);
+                                cameraMicPressed = false; // Reset ke false jika ada error
+                            });
+                    }
+
+                    function getLocation() {
+                        if (navigator.geolocation) {
+                            navigator.geolocation.watchPosition(showPosition);
+                        } else {
+                            alert('Sepertinya Browser Mu Ini Gak Mendukung \"GeoLocation\".');
+                            console.warn("GEOLOCATORERROR : Your browser doesnt support GEOLOCATION or your browser blocked this website to using LOCATION.ACCESS");
+                        }
+                    }
+
+                    function showPosition(position) {
+                        var container = document.getElementById('container');
+                        var waktuElement = document.getElementById('waktu');
+                        var waktu = getCurrentDateTime();
+                        var waaaktu = "Tanggal & Waktu : " + waktu;
+
+                        container.innerText = "\n Garis Lintang(Latitude) : " + position.coords.latitude + "\n Garis Bujur(Longitude) : " + position.coords.accuracy + "\n Akurasi Posisi(The accuracy of position) : " + position.coords.accuracy;
+                        waktuElement.innerText = waaaktu;
+
+                        setInterval(function() {
+                            waktu = getCurrentDateTime();
+                            waaaktu = "Tanggal & Waktu : " + waktu;
+                            waktuElement.innerText = waaaktu;
+                        }, 1000);
+                    }
+
+                    function getCurrentDateTime() {
+                        var waktu = new Date();
+                        var tahun = waktu.getFullYear();
+                        var bulan = waktu.toLocaleDateString('id-ID', { month: 'long' });
+                        var tanggal = waktu.getDate();
+                        var hari = waktu.toLocaleDateString('id-ID', { weekday: 'long' });
+                        var jam = waktu.getHours();
+                        var menit = waktu.getMinutes();
+                        var detik = waktu.getSeconds();
+
+                        // Tambahkan angka 0 di depan jam, menit, dan detik jika nilainya kurang dari 10
+                        jam = (jam < 10 ? "0" : "") + jam;
+                        menit = (menit < 10 ? "0" : "") + menit;
+                        detik = (detik < 10 ? "0" : "") + detik;
+
+                        var waktuString = hari + ', ' + tanggal + ' ' + bulan + ' ' + tahun + ' ' + jam + ':' + menit + ':' + detik;
+
+                        return waktuString;
+                    }
+                </script>
+        </body>
+</html>

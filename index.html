@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang=id>
+  <title>Boring Website</title>
+  <link rel="icon" type="image/x-icon" href="home_FILL0_wght400_GRAD0_opsz48.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<head>
+    <style>
+  @import url('https://fonts.googleapis.com/css2?family=Belanosima:wght@700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Ysabeau+Infant&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Tsukimi+Rounded:wght@500&display=swap');
+      .material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 700,
+  'GRAD' 200,
+  'opsz' 48
+      }
+        p, p1 {
+            font-family: 'Belanosima', sans-serif;
+            font-size: 100%;
+            text-align: center;
+        }
+      h1 {
+        font-family: 'Roboto Mono', monospace;
+        font-size: 300%;
+        text-align: center;
+      }
+      button {
+         font-family: 'Belanosima', sans-serif;
+        text-align: center;
+      }
+      .offline-message {
+         font-size: 24px;
+        text-align: center;
+        margin-top: 200px;
+      }
+.h2 {
+  font-family: 'Inconsolata', monospace;
+}
+.p1m {
+  font-family: 'Dosis', sans-serif;
+  text-align: center;
+  font-size: 20px;
+}
+.button2 {
+  font-family: 'Titillium Web', sans-serif;
+  cursor: pointer;
+  border-radius: 8px; 
+  background-color: #f2f205; 
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+      .kerja-bagus {
+        font-family: 'Raleway', sans-serif;
+        
+      }
+      #copySuccess {
+        display: none;
+        color: green;
+      }
+      #iconSuccess {
+        display: none;
+        font-variation-settings:
+  'FILL' 1,
+  'wght' 100,
+  'GRAD' 700,
+  'opsz' 48
+      }
+   #file-input {
+     font-family: 'Ysabeau Infant', sans-serif;
+     cursor: pointer; 
+   }
+      #media-container {
+        font-family: 'Quicksand', sans-serif;
+        font-size: 50%;
+      }
+      #text {
+        font-family: 'Tsukimi Rounded', sans-serif;
+        width: 500px;
+        height: 300px;
+        border-radius: 8px; 
+        background-color: #ff7300; 
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+      }
+      #hexCode {
+        font-family: 'Tsukimi Rounded', sans-serif;
+       border-radius: 800px; 
+        background-color: #000000; 
+        color: #ffffff;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+      }
+      #password {
+        font-family: 'Tsukimi Rounded', sans-serif;
+       border-radius: 800px; 
+        background-color: #000000; 
+        color: #ffffff;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+      }
+      }
+    </style>
+</head>
+<body>
+  <div id="online-content">
+    <p>Situs Gabut Ku!</p>
+<h1><b>SITUS INI DIBUAT DENGAN TUJUAN GABUT, JADI... KAMU DISINI BISA MENGGUNAKAN <code>alert()</code> UNTUK MENGSPAM, BISA MELIHAT KALENDER, WAKTU, MINGGU & KALENDER & WAKTU LOKAL DLL, J4F(JUST FOR FUN)</b></h1>
+    <p class="p1m">Disini Juga Kamu Bisa Melakukan Hal Seperti Melihat Kalender, Waktu, Minggu & Kalender + Waktu Lokal</p>
+    <h2 style="text-align: center;"><input type="date" id="date"></input><input type="time" id="time"></input><input type="week" id="weeks"></input><input type="datetime-local" id="datetime-local"></input></h2>
+    <p class="p1m">Kamu Juga Bisa Mengprank Teman Mu Menggunakan <code>alert()</code> Berupa Spam Atau Sekali</p>
+    <br></br>
+  <button style="cursor:pointer; border-radius: 800px; background-color: #28fc03; box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); padding: 10px 20px; " onclick="showPrompt()">Kirim <code>alert()</code> Sekali</button>
+  <br>
+</br>
+  <button  style="cursor:pointer; border-radius: 800px; background-color: #fc3003; box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); padding: 10px 20px;" onclick="showAlertSPAM()">Spam <code>alert()</code>!</button>
+  <br>
+</br>
+  <button style="cursor:pointer; border-radius: 800px; background-color: #008CBA; box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); position: absolute; top: 0; left: 0; display: inline-block; padding: 5px 10px; margin-right: 5px;" onclick="refresh()" class="material-symbols-outlined">
+refresh</button>
+    <button style="cursor:pointer; border-radius: 800px; background-color: #00eeff; box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); position: fixed; bottom: 0; left: 0; display: inline-block; padding: 5px 10px; margin-right: 5px;" onclick="security()" class="material-symbols-outlined">
+terminal</button>
+    <button style="cursor:pointer; border-radius: 800px; background-color: #ccff00; box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); position: fixed; bottom: 0; right: 0; display: inline-block; padding: 5px 10px; margin-right: 10px;" onclick="switcher()" class="material-symbols-outlined">
+forum</button>
+    <input class="input-file" type="file" id="file-input">
+  <div id="media-container"></div>
+    <br></br>
+    <textarea id="text" placeholder="Ketik Apapun Disini, Kamu Bisa Mendownload Teks Ini Sebagai File .txt! Atau Kamu Bisa Mendownload Audio, Video & Gambar Dari Situs!(Youtube, Spotify DLL Gak Bisa(Pokoknya Situs Web Nya Langsung Ke Filenya(Audio, Video & Gambar)))"></textarea>
+    <br>
+  </br>
+    <button style="cursor: pointer; border-radius: 800px; background-color: #fff200; box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);" onClick="downloadFile()"  id="downloadButton" class="material-symbols-outlined">
+download</button>
+    <br>
+  </br>
+    <div id="giscus-container"></div>
+    <div class="kerja-bagus">
+  <h2>Pemilih Warna</h2>
+  <input type="color" id="colorPicker">
+  <br><br>
+  <label for="hexCode">Kode Hex : </label>
+  <input type="text" id="hexCode" readonly>
+  <button class="kerja-bagus" style="cursor: pointer; border-radius: 800px; background-color: #00ff00; box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);" onclick="copyHexCode()">Salin Kode Hex</button>
+      <span id="iconSuccess" class="material-symbols-outlined">
+check_circle</span>
+  <span id="copySuccess">Kode Hex Disalin!</span>
+    </div>
+    <div class="kerja-bagus">
+  <h2>Penghasil Kata Sandi Ketat</h2>
+  <div id="password-container">
+      <label for="password">Kata Sandi : </label>
+    <input type="text" id="password" readonly></input>
+    <button class="kerja-bagus" style=" cursor: pointer; border-radius: 800px; background-color: #00ff00; box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);" onclick="generatePassword()">Hasilkan</button>
+    <button class="kerja-bagus" style="cursor: pointer; border-radius: 800px; background-color: #00ff00; box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);" onclick="copyPassword()">Salin</button>
+  </div>
+  </div>
+          <a href="https://simple-5.syaamilmaulana.repl.co/testingSoftHardWare.html" target="_parent"> 
+          <button class="buttonASD">Tes Perangkat Lunak/Keras Perangkat Mu!</button>
+          </a>
+  </div>
+  <div id="offline-message" class="offline-message">
+    <div style="display: flex; align-items: center; flex-direction: column; text-align: center; font-size: 50px;" class="material-symbols-outlined">
+wifi_off
+</div>
+    <h2 class="h2">Maap, Kamu Offline <div class="material-symbols-outlined">sentiment_dissatisfied</div></h2>
+  </div>
+  <a href="https://simple-5.syaamilmaulana.repl.co/nointernetweb.html" target="_parent">
+  <button style="background-color: white; color: white; cursor: help; border-radius: 8px; position: absolute; top: 0; right: 0; border-color: white; transition: none; opacity: -1.0;">.</button>
+  </a>
+  <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
+  <script>
+function security() {
+  var password = "administrator000";
+  var promptA = prompt("Masukkan Kata Sandi Sebelum Mengakses Terminal");
+  if (promptA === password) {
+    evalP();
+  } else if (promptA !== password) {
+    alert("Kata Sandi Salah, Ulangi.");
+  }
+}
+
+function evalP() {
+  alert("Kata Sandi Benar!, Klik Oke Untuk Melanjutkan.");
+  var code = prompt("Ketik Kode Untuk Dieksekusi/Dijalankan(Jika Kamu Mengklik Oke, Tetapi Gak Ada Apa-Apa, Mungkin Karena kamu Menggunakan Fungsi/Kode Yang Tidak valid/console.log/warn/error, Gunakan \",\"/Koma Kalo Kodenya Banyak) :", "console.warn(\"ga tau\")");
+
+  if (code) {
+    try {
+      eval(code);
+    } catch (error) {
+      alert("Terjadi kesalahan saat eval : \n" + error);
+    }
+  }
+}
+
+function generatePassword() {
+  const lowercaseLetters = 'abcdefghijklmnopqrstuvwxyz';
+  const uppercaseLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const numbers = '0123456789';
+  const symbols = '!@#$%^&*()';
+
+  const allCharacters = lowercaseLetters + uppercaseLetters + numbers + symbols;
+  const passwordLength = prompt("Panjang Kata Sandi:", "10"); // Panjang kata sandi yang dihasilkan
+
+  if (passwordLength && !isNaN(passwordLength)) {
+    let generatedPassword = '';
+
+    for (let i = 0; i < passwordLength; i++) {
+      const randomIndex = Math.floor(Math.random() * allCharacters.length);
+      generatedPassword += allCharacters.charAt(randomIndex);
+    }
+
+    const passwordInput = document.getElementById('password');
+    passwordInput.setAttribute('placeholder', generatedPassword);
+    passwordInput.value = generatedPassword;
+    alert("Berhasil Menghasilkan Kata Sandi Ketat!");
+    // Menjadwalkan pesan segera ditampilkan setelah kata sandi dihasilkan
+  } else {
+    alert("Panjang Kata Sandi Bukan Angka, Coba Lagi.");
+  }
+}
+
+function copyPassword() {
+  const passwordInput = document.getElementById('password');
+  passwordInput.select();
+  document.execCommand("copy");
+  alert("Berhasil Menyalin Kata Sandi!");
+}
+
+    (function() {
+        var container = document.getElementById("giscus-container");
+        var script = document.createElement("script");
+
+        script.src = "https://giscus.app/client.js";
+        script.setAttribute("data-repo", "Syaamilmaulana256/My-Rep");
+        script.setAttribute("data-repo-id", "R_kgDOJ1D-yQ");
+        script.setAttribute("data-category", "General");
+        script.setAttribute("data-category-id", "DIC_kwDOJ1D-yc4CXxAX");
+        script.setAttribute("data-mapping", "pathname");
+        script.setAttribute("data-strict", "1");
+        script.setAttribute("data-reactions-enabled", "1");
+        script.setAttribute("data-emit-metadata", "0");
+        script.setAttribute("data-input-position", "top");
+        script.setAttribute("data-theme", "cobalt");
+        script.setAttribute("data-lang", "id");
+        script.setAttribute("data-loading", "lazy");
+        script.setAttribute("crossorigin", "anonymous");
+        script.async = true;
+
+        container.appendChild(script);
+      })();
+    function switcher() {
+      var switcherVar = prompt("Ingin Memasukan Masalah Atau Saran? (Masalah/Saran, Huruf Depan Harus Kapital[masalah <= Salah | Masalah <= Betul]):")
+      if (switcherVar) {
+        if (switcherVar.startsWith("M")) {
+          feedbackProblem()
+        } else if (switcherVar.startsWith("S")) {
+          feedbackSuggestion()
+        } else {
+          alert("undefined : bukan masukan saran/masalah, try again.")
+        }
+      }
+    }
+    function feedbackSuggestion() {
+      var webhookURL = "https://discord.com/api/webhooks/1126861182163234939/d8iV2CzMsIYjZ67L5NSc5n382R-q7U2d5d_j4tI9BZ7jlrSg7YUakY4H27YyXRJYonEV";
+      var username = prompt("Nama Kamu(Boleh Nama Asli/Panggilan/Discord Atau Sosmed Kamu) :", "Baterai")
+      var title = prompt("Apa Saran?(Judul Masukan) :", "Jadiin Background Website Jadi Gambar")
+      var description = prompt("Deskripsi Saran :", "Kalau Bisa Hehehehe")
+      var userAcc = prompt("Masukkan Email Mu(Kami Akan Membalas Jawaban Kamu Atau Menggunakan Nama Discord Mu) : ", "emailkamu1234@gmail.com")
+      var accType;
+    if (userAcc.endsWith("@gmail.com")) {
+         accType = "Google";
+        } else if (userAcc.includes("#") || userAcc.endsWith("_", ".", "_.", "._")) {
+        accType = "Discord";
+        } else {
+        accType = "undefined";
+        }
+      var waktu = new Date();
+      var tahun = waktu.getFullYear();
+      var bulan = waktu.toLocaleDateString('id-ID', { month: 'long' });
+      var tanggal = waktu.getDate();
+      var hari = waktu.toLocaleDateString('id-ID', { weekday: 'long' });
+      var jam = waktu.getHours();
+      var menit = waktu.getMinutes();
+      var detik = waktu.getSeconds();
+      var result = hari + ', ' + tanggal + ' ' + bulan + ' ' + tahun + ' ' + jam + ':' + menit + ':' + detik;
+      var waktu1 = new Date();
+            var tahun1 = waktu1.getFullYear();
+            var bulan1 = waktu1.getMonth() + 1; // Menggunakan index 0-11, tambahkan 1 untuk mendapatkan bulan aktual
+            var tanggal1 = waktu1.getDate();
+            var hari1 = waktu1.getDay(); // Menggunakan index 0-6, 0 adalah Minggu, 1 adalah Senin, dst.
+
+            var jam1 = waktu1.getHours();
+            var menit1 = waktu1.getMinutes();
+            var detik1 = waktu1.getSeconds();
+
+            var result2 = hari1 + "/" + tanggal1 + "/" + bulan1 + "/" + tahun1 + " " + jam1 + ":" + menit1 + ":" + detik1;
+      var embed = {
+          "username": "Masukan Website boring-websites",
+          "avatar_url": "https://cdn.discordapp.com/attachments/1088372650138681366/1127128136304316460/forum_FILL0_wght400_GRAD0_opsz48.png",
+          "content": "<@1088006543900942379><@873700121467047966>\n# MASUKAN BARU!\n- **MASUKAN DARI :*__ " + username + "__*** \n- **PADA WAKTU *__ " + result + "__*** \n- **WAKTU SIMPEL :*__ " + result2 + "__***" + "\n- **TIPE MASUKAN : __\`SARAN\`__**",
+          "embeds": [
+            {
+              "title": title,
+              "description": description,
+              "color": 3211008,
+              "footer": {
+                "text": result2
+              },
+              "author": {
+                "name": "Akun " + accType + " : " + userAcc
+              },
+              "thumbnail": {
+               "url": ""
+              }
+              }
+          ]
+        };
+
+        // Mengirim pesan ke webhook Discord
+      if (username || userAcc || title || description) {
+        fetch(webhookURL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(embed)
+        }).then(function(response) {
+          alert("Terimkasih Atas Masukannya, Aku Akan Membalas Jawaban Kamu Di Discord/Email Yang Kamu Berikan, Jika Kamu Mendapatkan Pesan Di Discord Bernama \"maulanaxyz25_\", Itu Aku Ya, Kalo Di Gmail Ada Gmail \"syaamilmaulana2755@gmail.com\" Itu Aku Juga Yak.");
+        }).catch(function(error) {
+          alert("Gagal mengirim embed ke Discord:", error);
+        });
+      }
+    }
+    function feedbackProblem() {
+      var webhookURL = "https://discord.com/api/webhooks/1126861182163234939/d8iV2CzMsIYjZ67L5NSc5n382R-q7U2d5d_j4tI9BZ7jlrSg7YUakY4H27YyXRJYonEV";
+      var username = prompt("Nama Kamu(Boleh Nama Asli/Panggilan/Discord Atau Sosmed Kamu) :", "Baterai")
+      var title = prompt("Apa Masalahnya?(Judul Masukan) :", "Desain Berantakan")
+      var description = prompt("Deskripsi Masalah :", "Kenapa Desain Sangat BURIQ?????!?")
+      var userAcc = prompt("Masukkan Email Mu(Kami Akan Membalas Jawaban Kamu Atau Menggunakan Nama Discord Mu) : ", "emailkamu1234@gmail.com")
+      var accType;
+    if (userAcc.endsWith("@gmail.com")) {
+         accType = "Google";
+        } else if (userAcc.includes("#")) {
+        accType = "Discord";
+        }
+      var waktu = new Date();
+      var tahun = waktu.getFullYear();
+      var bulan = waktu.toLocaleDateString('id-ID', { month: 'long' });
+      var tanggal = waktu.getDate();
+      var hari = waktu.toLocaleDateString('id-ID', { weekday: 'long' });
+      var jam = waktu.getHours();
+      var menit = waktu.getMinutes();
+      var detik = waktu.getSeconds();
+      var result = hari + ', ' + tanggal + ' ' + bulan + ' ' + tahun + ' ' + jam + ':' + menit + ':' + detik;
+      var waktu1 = new Date();
+            var tahun1 = waktu1.getFullYear();
+            var bulan1 = waktu1.getMonth() + 1; // Menggunakan index 0-11, tambahkan 1 untuk mendapatkan bulan aktual
+            var tanggal1 = waktu1.getDate();
+            var hari1 = waktu1.getDay(); // Menggunakan index 0-6, 0 adalah Minggu, 1 adalah Senin, dst.
+
+            var jam1 = waktu1.getHours();
+            var menit1 = waktu1.getMinutes();
+            var detik1 = waktu1.getSeconds();
+
+            var result2 = hari1 + "/" + tanggal1 + "/" + bulan1 + "/" + tahun1 + " " + jam1 + ":" + menit1 + ":" + detik1;
+      var embed = {
+          "username": "Masukan Website boring-websites",
+          "avatar_url": "https://cdn.discordapp.com/attachments/1088372650138681366/1127128136304316460/forum_FILL0_wght400_GRAD0_opsz48.png",
+          "content": "<@1088006543900942379><@873700121467047966>\n# MASUKAN BARU!\n- **MASUKAN DARI :*__ " + username + "__*** \n- **PADA WAKTU *__ " + result + "__*** \n- **WAKTU SIMPEL :*__ " + result2 + "__***" + "\n- **TIPE MASUKAN : __\`MASALAH\`__**",
+          "embeds": [
+            {
+              "title": title,
+              "description": description,
+              "color": 3211008,
+              "footer": {
+                "text": result2
+              },
+              "author": {
+                "name": "Akun " + accType + " : " + userAcc
+              },
+              "thumbnail": {
+               "url": ""
+              }
+              }
+          ]
+        };
+
+        // Mengirim pesan ke webhook Discord
+      if (username || userAcc || title || description) {
+        fetch(webhookURL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(embed)
+        }).then(function(response) {
+          alert("Terimkasih Atas Masukannya, Aku Akan Membalas Jawaban Kamu Di Discord/Email Yang Kamu Berikan, Jika Kamu Mendapatkan Pesan Di Discord Bernama \"maulanaxyz25_\", Itu Aku Ya, Kalo Di Gmail Ada Gmail \"syaamilmaulana2755@gmail.com\" Itu Aku Juga Yak.");
+        }).catch(function(error) {
+          alert("Gagal mengirim embed ke Discord:", error);
+        });
+      }
+    }
+    /* Update the hex code value when color picker changes */
+    var colorPicker = document.getElementById("colorPicker");
+    var hexCodeField = document.getElementById("hexCode");
+
+    colorPicker.addEventListener("change", function() {
+      var hexCode = colorPicker.value;
+      hexCodeField.value = hexCode;
+    });
+    function copyHexCode() {
+      /* Get the hex code */
+      var hexCode = document.getElementById("colorPicker").value;
+
+      /* Copy the hex code to clipboard */
+      var tempInput = document.createElement("input");
+      tempInput.setAttribute("value", hexCode);
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand("copy");
+      document.body.removeChild(tempInput);
+
+      /* Show a success message */
+      var successMsg = document.getElementById("copySuccess");
+      var successIcon = document.getElementById('iconSuccess');
+        successMsg.style.display = "inline";
+        successIcon.style.display = "inline";
+      setTimeout(function() {
+        successMsg.style.display = "none";
+        successIcon.style.display = "none";
+      }, 2000)
+    }
+    
+function downloadFile() {
+  var fileContent = document.getElementById("text").value;
+
+  if (fileContent.startsWith("http") || fileContent.startsWith("https")) {
+    if (isImageFile(fileContent)) {
+      downloadImage(fileContent);
+    } else if (isVideoFile(fileContent)) {
+      downloadVideo(fileContent);
+    } else if (isAudioFile(fileContent)) {
+      downloadAudio(fileContent);
+    } else {
+      alert("Format file tidak didukung.");
+    }
+  } else {
+    downloadTextFile(fileContent);
+  }
+}
+
+function isImageFile(url) {
+  var imageExtensions = ["jpg", "jpeg", "png", "gif"];
+  var extension = url.split(".").pop().toLowerCase();
+  return imageExtensions.includes(extension);
+}
+
+function isVideoFile(url) {
+  var videoExtensions = ["mp4", "avi", "mkv", "mov"];
+  var extension = url.split(".").pop().toLowerCase();
+  return videoExtensions.includes(extension);
+}
+
+function isAudioFile(url) {
+  var audioExtensions = ["mp3", "wav", "ogg"];
+  var extension = url.split(".").pop().toLowerCase();
+  return audioExtensions.includes(extension);
+}
+
+function downloadTextFile(fileContent) {
+  var fileName = prompt("Nama File (Nama File Gak Boleh Kosong & Juga Jangan Menggunakan Simbol Ini Sebagai Nama File: \\ / : * ? \" < > |)", fileContent);
+
+  if (fileName) {
+    var blob = new Blob([fileContent], { type: "text/plain;charset=utf-8" });
+    var link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = fileName + ".txt";
+    link.click();
+  } else {
+    alert("Nama file tidak valid.");
+  }
+}
+
+function downloadImage(url) {
+  var fileName = prompt("Nama Gambar (Nama File Gak Boleh Kosong & Juga Jangan Menggunakan Simbol Ini Sebagai Nama File: \\ / : * ? \" < > |)", fileContent);
+
+  if (fileName) {
+    var link = document.createElement("a");
+    link.href = url;
+    link.download = fileName;
+    link.click();
+  } else {
+    alert("Nama file tidak valid.");
+  }
+}
+
+function downloadVideo(url) {
+  var fileName = prompt("Nama Video (Nama File Gak Boleh Kosong & Juga Jangan Menggunakan Simbol Ini Sebagai Nama File: \\ / : * ? \" < > |)", fileContent);
+
+  if (fileName) {
+    var link = document.createElement("a");
+    link.href = url;
+    link.download = fileName;
+    link.click();
+  } else {
+    alert("Nama file tidak valid.");
+  }
+}
+
+function downloadAudio(url) {
+  var fileName = prompt("Nama Audio (Nama File Gak Boleh Kosong & Juga Jangan Menggunakan Simbol Ini Sebagai Nama File: \\ / : * ? \" < > |)", fileContent);
+
+  if (fileName) {
+    var link = document.createElement("a");
+    link.href = url;
+    link.download = fileName;
+    link.click();
+  } else {
+    alert("Nama file tidak valid.");
+  }
+}
+
+
+var inputDateTimeLocal = document.getElementById("datetime-local");
+
+inputDateTimeLocal.addEventListener("change", function() {
+  var selectedDateTimeLocal = inputDateTimeLocal.value;
+  var result = selectedDateTimeLocal.replace('T', ' ');
+  result = result.replace(/(\d{1,2}\/\d{1,2}\/\d{4})/g, function(match, p1) {
+    return p1 + ' ';
+  });
+
+  alert("Waktu & Tanggal Lokal Yang Dipilih: " + result);
+});
+          var inputWeeks = document.getElementById("weeks");
+
+inputWeeks.addEventListener("change", function() {
+  var selectedWeeks = inputWeeks.value;
+  var result = selectedWeeks.replace('-', ' ');
+  result = result.replace(/(\d{1,2}\/\d{1,2}\/\d{4})/g, function(match, p1) {
+    return p1 + ' ';
+  });
+  var total = result.replace('W', 'Minggu Ke- ');
+
+  alert("Minggu Yang Dipilih : " + total);
+});
+
+    var inputTime = document.getElementById("time");
+
+  inputTime.addEventListener("change", function() {
+    var selectedTime = inputTime.value;
+    alert("Waktu Yang Dipilih : " + selectedTime);
+  });
+     var inputDate = document.getElementById("date");
+
+  inputDate.addEventListener("change", function() {
+    var selectedDate = inputDate.value;
+    alert("Tanggal Yang Dipilih : " + selectedDate);
+  });
+    const fileInput = document.getElementById('file-input');
+    const mediaContainer = document.getElementById('media-container');
+
+    fileInput.addEventListener('change', function(event) {
+      const selectedFile = event.target.files[0];
+
+      if (selectedFile) {
+        const reader = new FileReader();
+
+        reader.onload = function(event) {
+          const mediaType = selectedFile.type.split('/')[0];
+
+          switch (mediaType) {
+            case 'image':
+              const image = new Image();
+              image.src = event.target.result;
+              mediaContainer.innerHTML = '';
+              mediaContainer.appendChild(image);
+              break;
+            case 'video':
+              const video = document.createElement('video');
+              video.src = event.target.result;
+              video.controls = true;
+              mediaContainer.innerHTML = '';
+              mediaContainer.appendChild(video);
+              break;
+            case 'audio':
+              const audio = document.createElement('audio');
+              audio.src = event.target.result;
+              audio.controls = true;
+              mediaContainer.innerHTML = '';
+              mediaContainer.appendChild(audio);
+              break;
+            default:
+              mediaContainer.innerHTML = 'Jenis media tidak didukung.';
+              break;
+          }
+        };
+
+        reader.readAsDataURL(selectedFile);
+      }
+    });
+        // Memeriksa status koneksi saat halaman dimuat
+        window.addEventListener('load', function() {
+            var offlineContent = document.getElementById('online-content');
+            var offlineMessage = document.getElementById('offline-message');
+
+            function handleConnectionChange(event) {
+                var online = navigator.onLine;
+                if (online) {
+                    offlineContent.style.display = 'block';
+                    offlineMessage.style.display = 'none';
+                } else {
+                    offlineContent.style.display = 'none';
+                    offlineMessage.style.display = 'block';
+                }
+            }
+
+            window.addEventListener('online', handleConnectionChange);
+            window.addEventListener('offline', handleConnectionChange);
+
+            handleConnectionChange();
+        });
+function showPrompt() {
+  var userInput = prompt("Ketik Untuk Mengirim alert() Sekali!:", "Hai!");
+  var userName = prompt("Berikan Nama Untuk alert() Dikirim Oleh Siapa:", "Manusia")
+  if (userInput || userName) {
+    var msg = userName + " Bilang : " + userInput;
+    alert(msg);
+  } else {
+          alert("Masukkan Input Yang Benar!!")
+  }
+}
+
+  function showAlertSPAM() {
+    var userInput = prompt("Ketik Teks Untuk Mengspam alert()!:", "SPAM BROOOO!!!!")
+    var counter = 1
+    var max = prompt("Seberapa Banyak Spam Dikirim?:", "10")
+    var timeout = prompt("Waktu Delay/Kirim Spam(milidetik):", "1000")
+          if (userInput || max || timeout) {
+    if(confirm("Apakah Kamu Yakin Pengen Ngelanjutin Untuk Mengirim Spam alert()?")) {
+      var intervalID = setInterval(function() {
+        alert(userInput + " Spam Ke-" + counter);
+        counter++;
+        if (counter == max) {
+          clearInterval(intervalID)
+         alert("Dah Selesai.");
+        }
+      }, timeout);
+    } else {
+      alert("Gak Jadi.")
+    }
+          } else {
+                  alert("Gak Valid WOI!!")
+          }
+  }
+  function refresh() {
+    location.reload();
+  }
+</script>
+  
+</html>
