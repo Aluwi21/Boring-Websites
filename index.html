@@ -170,6 +170,28 @@ wifi_off
   </a>
   <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
   <script>
+    function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showWeather, handleLocationError);
+  } else {
+    alert('Sepertinya Browser Mu Ini Gak Mendukung \"GeoLocation\".');
+    console.warn("[GeoLocation](error): Your browser doesnt support GEOLOCATION or your browser blocked this website to using LOCATION.ACCESS");
+                          }
+}
+
+function showWeather(position) {
+  var latitude = position.coords.latitude;
+  var longitude = position.coords.longitude;
+
+  // Panggil fungsi untuk mendapatkan data cuaca berdasarkan koordinat lokasi
+  getWeatherData(latitude, longitude);
+}
+
+function handleLocationError(error) {
+  alert("Terjadi Masalah Saat Mengambil Data Dari GeoLocatipn : \n", error.message);
+  console.error(error)
+    }
+    
 function security() {
   var password = "administrator000";
   var promptA = prompt("Masukkan Kata Sandi Sebelum Mengakses Terminal");
