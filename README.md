@@ -22,10 +22,20 @@ Netlify menyediakan rencana gratis yang cukup berfungsi dengan fitur-fitur utama
 Dengan antarmuka pengguna yang ramah dan dukungan yang baik, Netlify menjadi pilihan populer bagi pengembang web untuk menyebarkan situs web statis dengan mudah dan cepat.
 * Source/Sumber : **ChatGPT**
 # Kenapa Harus Netlify? Kan Ada Replit & Glitch
-- Karena Mereka Berdua(Replit & Glitch) Sendiri Sangat **LAMBAT & LAG & GAK SUPPORT [`RANGE REQUEST`](https://www.google.com/search?q=what+is+range+request%3F&sxsrf=AB5stBgKx3AGs8PQI9kRpEbFP-sHSNxwZw%3A1689218593669&ei=IW6vZPDEKNuN4-EPxfaw4AI&ved=0ahUKEwiw2eTR3YqAAxXbxjgGHUU7DCwQ4dUDCA4&uact=5&oq=what+is+range+request%3F&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIGCAAQFhAeMgYIABAWEB4yCAgAEBYQHhAKOgcIIxDqAhAnOhUILhADEI8BEOoCELQCEIwDEOUCGAE6FQgAEAMQjwEQ6gIQtAIQjAMQ5QIYAUoECEEYAFDtClj_Q2C_W2gBcAF4AYAB2haIAYJLkgEHNy0xLjAuM5gBAKABAbABFMABAdoBBggBEAEYCw&sclient=gws-wiz-serp)**
+- Karena Mereka Berdua(Replit & Glitch) Sendiri Sangat **LAMBAT & GAK SUPPORT [`RANGE REQUEST`](https://www.google.com/search?q=what+is+range+request%3F&sxsrf=AB5stBgKx3AGs8PQI9kRpEbFP-sHSNxwZw%3A1689218593669&ei=IW6vZPDEKNuN4-EPxfaw4AI&ved=0ahUKEwiw2eTR3YqAAxXbxjgGHUU7DCwQ4dUDCA4&uact=5&oq=what+is+range+request%3F&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIGCAAQFhAeMgYIABAWEB4yCAgAEBYQHhAKOgcIIxDqAhAnOhUILhADEI8BEOoCELQCEIwDEOUCGAE6FQgAEAMQjwEQ6gIQtAIQjAMQ5QIYAUoECEEYAFDtClj_Q2C_W2gBcAF4AYAB2haIAYJLkgEHNy0xLjAuM5gBAKABAbABFMABAdoBBggBEAEYCw&sclient=gws-wiz-serp)**
 # Tapi Bang, Nanti Kan Ada Yang Ngambil Data Lu
 - Penmikiran Kalian Gitu Amat, Ya Biarin Lah, Kan **Berbagi Itu Indah.**
-# Package &Bahasa Progam
+# Package & Bahasa Progam
 - Bahasa Program : **[`HTML`](https://www.google.com/search?q=apa+itu+html&sxsrf=AB5stBjfMhBo4i-DbSTsXsNo0GO-es3L3Q%3A1689218827633&ei=C2-vZKKnJuqK4-EPp6-C2Aw&oq=apa+itu+&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQARgAMgcIABCKBRBDMgcIABCKBRBDMgcIABCKBRBDMgcIABCKBRBDMgcIABCKBRBDMgcIABCKBRBDMgcIABCKBRBDMgcIABCKBRBDMgcIABCKBRBDMgcIABCKBRBDOgcIIxDqAhAnOhUIABADEI8BEOoCELQCEIwDEOUCGAE6FQguEAMQjwEQ6gIQtAIQjAMQ5QIYAUoECEEYAFDwFljOMmCfT2gBcAF4AIABwRaIAapEkgEHNi0xLjktM5gBAKABAbABFMABAdoBBggBEAEYCw&sclient=gws-wiz-serp)**, **[`CSS`](https://www.google.com/search?q=apa+itu+css&sxsrf=AB5stBjfMhBo4i-DbSTsXsNo0GO-es3L3Q%3A1689218827633&ei=C2-vZKKnJuqK4-EPp6-C2Aw&oq=apa+itu+&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQARgAMgcIABCKBRBDMgcIABCKBRBDMgcIABCKBRBDMgcIABCKBRBDMgcIABCKBRBDMgcIABCKBRBDMgcIABCKBRBDMgcIABCKBRBDMgcIABCKBRBDMgcIABCKBRBDOgcIIxDqAhAnOhUIABADEI8BEOoCELQCEIwDEOUCGAE6FQguEAMQjwEQ6gIQtAIQjAMQ5QIYAUoECEEYAFDwFljOMmCfT2gBcAF4AIABwRaIAapEkgEHNi0xLjktM5gBAKABAbABFMABAdoBBggBEAEYCw&sclient=gws-wiz-serp)** & **[`JS`](https://www.google.com/search?q=apa+itu+js&sxsrf=AB5stBjfMhBo4i-DbSTsXsNo0GO-es3L3Q%3A1689218827633&ei=C2-vZKKnJuqK4-EPp6-C2Aw&oq=apa+itu+&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQARgAMgcIABCKBRBDMgcIABCKBRBDMgcIABCKBRBDMgcIABCKBRBDMgcIABCKBRBDMgcIABCKBRBDMgcIABCKBRBDMgcIABCKBRBDMgcIABCKBRBDMgcIABCKBRBDOgcIIxDqAhAnOhUIABADEI8BEOoCELQCEIwDEOUCGAE6FQguEAMQjwEQ6gIQtAIQjAMQ5QIYAUoECEEYAFDwFljOMmCfT2gBcAF4AIABwRaIAapEkgEHNi0xLjktM5gBAKABAbABFMABAdoBBggBEAEYCw&sclient=gws-wiz-serp)**
 - Package : **`Nothing`**
-## Udah Itu Aja Bye!
+# Database?
+- Uh... Selama Ini Aku **GAK PERNAH** Banget Pakek Database Karena Gak Tau Cara Setupnya :v
+# Fitur & Rahasia :
+- Menggunakan Fon [`Google Fonts`](https://fonts.google.com/)
+- Menggunakan Ikon [`Google Icons`](https://fonts.google.com/icons)
+- Ada **`1 Tombol Rahasia Menuju Easter Egg`**
+- Nama Asli Dari [`Boring Websites`](https://boring-websites.netlify.app/) Sebenarnya **`Simple-5`** Ya Karena Aku Punya Repl Terakhir Angka 4, [Cek Replit Ku](https://replit.com/@SyaamilMaulana/), Terus Diganti Ke **`Situs Gabut`** Ya Karena **`Simple-5`** Buriq, Karena Namanya Kek Gak Masuk Akal Akhirnya Diganti Ke ***`Boring-Websites`***.
+- Karena Aku Lebih Suka *All In One*, Jadi Skrip Jawa & Gaya Kertas Internet **Bukan Terletak** **~~Terletak~~** Di **~~script.js~~** & **~~style.css~~** Tapi Di **`index.html`**
+- Pakek Skrip Jawa & Gaya Kertas Internet
+# Oke Sekian :]
+- Jum'at. 14 Juli 2023 10.55
