@@ -184,9 +184,10 @@ wifi_off
       var realfeel = data[0].RealFeelTemperature.Metric.Value;
       var realfeelphrase = data[0].RealFeelTemperature.Metric.Phrase;
       var realfeelshade = data[0].RealFeelTemperatureShade.Metric.Value;
+      var realfeelshadephrase = data[0].RealFeelTemperatureShade.Metric.Phrase;
             
       var x = document.getElementById('containerAccuWeather')
-      x.innerHTML = "Temperatur : " + temperature + "°" + temperatureFormat + "<br>Cuaca : " + weatherText + "<br>RealFeel® : " + realfeel + "<br>Frasa RealFeel® : " + realfeelphrase + "<br>RealFeel Shade™ : " + realfeelshade;
+      x.innerHTML = "Temperatur : " + temperature + "°" + temperatureFormat + "<br>Cuaca : " + weatherText + "<br>RealFeel® : " + realfeel + "<br>Frasa RealFeel® : " + realfeelphrase + "<br>RealFeel Shade™ : " + realfeelshade + "<br>Frasa RealFeel Shade™ : " + realfeelshadephrase;
     })
     .catch(function(error) {
       alert("Terjadi Kesalahan : \n" + error);
