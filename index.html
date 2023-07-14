@@ -172,7 +172,7 @@ wifi_off
   <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
   <script>
     function getDefaultWeather() {
-    var url = "https://dataservice.accuweather.com/currentconditions/v1/3461865?apikey=0a04B472ecQNwJEotYgRqkaFxkv20Fsk&language=ID&details=true";
+    var url = "https://dataservice.accuweather.com/currentconditions/v1/3461865?apikey=HXapWyl4ytt9K1jQcbmogRMji2men1o5&language=ID&details=true";
   fetch(url)
     .then(function(response) {
       return response.json();
@@ -181,11 +181,12 @@ wifi_off
       var temperature = data[0].Temperature.Metric.Value;
       var weatherText = data[0].WeatherText;
       var temperatureFormat = data[0].Temperature.Metric.Unit;
-      var reelfeel = data[0].RealFeelTemperature.Metric.Value;
-      var reelfeelphrase = data[0].RealFeelTemperature.Metric.Phrase;
-      
+      var realfeel = data[0].RealFeelTemperature.Metric.Value;
+      var realfeelphrase = data[0].RealFeelTemperature.Metric.Phrase;
+      var realfeelshade = data[0].RealFeelTemperatureShade.Metric.Value;
+            
       var x = document.getElementById('containerAccuWeather')
-      x.innerHTML = "Temperatur : " + temperature + "°" + temperatureFormat + "<br></br>Cuaca : " + weatherText + "<br></br>ReelFeel® : " + reelfeel + "<br></br>Frasa ReelFeel® : " + reelfeelphrase;
+      x.innerHTML = "Temperatur : " + temperature + "°" + temperatureFormat + "<br>Cuaca : " + weatherText + "<br>RealFeel® : " + realfeel + "<br>Frasa RealFeel® : " + realfeelphrase + "<br>RealFeel Shade™ : " + realfeelshade;
     })
     .catch(function(error) {
       alert("Terjadi Kesalahan : \n" + error);
