@@ -170,9 +170,7 @@ check_circle</i>
       <i class="material-symbols-outlined">priority</i>
       <span>Tes Software/Hardware Mu!</span>
     </button>
-          </a>
-    <a href="https://boring-websites.netlify.app/developeronly" target="_parent">ONLY DEVELOPER CAN CLICK THIS!</a>
-    <p id="containerAccuWeather"></p>
+      <p id="containerAccuWeather"></p>
   </div>
   <div id="offline-message" class="offline-message">
     <div style="display: flex; align-items: center; flex-direction: column; text-align: center; font-size: 50px;" class="material-symbols-outlined">
@@ -184,28 +182,7 @@ wifi_off
   <button style="background-color: white; color: white; cursor: help; border-radius: 8px; position: absolute; top: 0; right: 0; border-color: white; transition: none; opacity: -1.0;">.</button>
   </a>
   <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
-  <script type="module">
-    // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyBxc6sDh46cFy_gc3BV84gSMgmRxCKsN2g",
-    authDomain: "boring-websites.firebaseapp.com",
-    projectId: "boring-websites",
-    storageBucket: "boring-websites.appspot.com",
-    messagingSenderId: "590754864482",
-    appId: "1:590754864482:web:3d57338fac1f579496a03b",
-    measurementId: "G-W2DK5NXZF3"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
+  <script>
     function getDefaultWeather() {
     var url = "https://dataservice.accuweather.com/currentconditions/v1/3461865?apikey=HXapWyl4ytt9K1jQcbmogRMji2men1o5&language=ID&details=true";
   fetch(url)
