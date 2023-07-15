@@ -6,9 +6,11 @@
     <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-analytics.js"></script>
   </head>
   <body onload="devchecker()">
+    <div id="accessContent">
     TEST
     <input type="file" id="fileInput">
     <div id="container"></div>
+    </div>
   <script type="module">
     function devchecker() {
       var pwp = prompt("pw : ")
@@ -17,9 +19,14 @@
         alert("please click \"oke\" button to next")
       } else if (pwp !== pwr) {
         alert("GO BACK YOU FCK!")
+        noaccess()
       }
     }
     devchecker();
+    function noaccess() {
+      var x = document.getElementById("accessContent")
+      x.innerHTML = "<a href=\"https:\/\/boring-websites.netlify.app\" target=\"_parent\">GO BACK YOU FCK!</a>"
+    }
     // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-analytics.js";
