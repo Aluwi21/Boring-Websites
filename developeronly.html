@@ -10,6 +10,7 @@
       TEST
       <input type="file" id="fileInput">
       <div id="container"></div>
+      <button onclick="getDataFromStorage()">GET DATA</button>
     </div>
     <script type="module">
       // Import the functions you need from the SDKs you need
@@ -50,8 +51,6 @@
         var x = document.getElementById("accessContent")
         x.innerHTML = "<a href=\"https:\/\/boring-websites.netlify.app\" target=\"_parent\">GO BACK YOU FCK!</a>"
       }
-
-      function getDataFromStorage(fileName) {
         // Dapatkan referensi ke Firebase Storage
         var storageRef = firebase.storage().ref();
 
@@ -67,10 +66,11 @@
 
           // Unggah file ke Firebase Storage
           fileRef.put(file).then(function(snapshot) {
-            alert('File berhasil diunggah ke Firebase Storage.');
+            alert("File Berhasil Diunggah Ke Firebase Storage.");
           });
         });
-
+        function getDataFromStorage() {
+        var filename = prompt("Nama File(nama_file.format_file/file.mp4) : ")
         // Dapatkan referensi file dari Firebase Storage
         var fileRef = storageRef.child(fileName);
         var x = document.getElementById("container");
@@ -78,10 +78,10 @@
         // Unduh file dari Firebase Storage
         fileRef.getDownloadURL().then(function(url) {
           // Gunakan URL untuk melakukan operasi yang diinginkan (misalnya menampilkan gambar atau mengunduh file)
-          x.innerHTML = 'URL file: ' + url;
+          x.innerHTML = "URL File : " + url;
         }).catch(function(error) {
           // Tangani kesalahan jika terjadi
-          alert("ERROR : \n" + error)
+          alert("Terjadi Kesalahan : \n" + error)
           console.error(error);
         });
       }
