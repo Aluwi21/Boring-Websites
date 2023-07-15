@@ -7,7 +7,16 @@
     <h1>Cuaca Saat Ini Di Ngabab</h1>
     <div id="AccuWeather">
     </div>
+    <p1>Ingin Mengetahui Cuaca Di Lokasi Mu?, Klik Tombol Dibawah</p1>
+    <button onclick="getCustomWeather()">Dapatkan Kostum Cuaca</button>
+    <div id="AccuWeatherCustom">
+    </div>
     <script>
+      function getCustomWeather() {
+        var url = prompt("Ma
+  var regex = /\/(\w+(?:-\w+)?)\//;
+  var matches = url.match(regex);
+  var result = matches && matches.length > 1 ? matches[1] : '';
       function getDefaultWeather() {
     var url = "https://dataservice.accuweather.com/currentconditions/v1/3431603?apikey=HXapWyl4ytt9K1jQcbmogRMji2men1o5&language=ID&details=true";
   fetch(url)
