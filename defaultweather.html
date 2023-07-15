@@ -5,12 +5,11 @@
   </head>
   <body onload="getDefaultWeather()">
     <h1>Cuaca Saat Ini Di Ngabab</h1>
-    <div id="AccuWeather">
-    </div>
+    <div id="AccuWeather"></div>
     <br></br>
     <p1>Ingin Mengetahui Cuaca Di Lokasi Mu?, Klik Tombol Dibawah</p1>
     <br></br>
-    <button id="videoAction" onclick="getCustomWeather()" disabled="true">Dapatkan Kostum Cuaca!(Lihat Video Instruksi Untuk Mengklik Tombol Ini)</button>
+    <button id="videoAction" onclick="getCustomWeather()" disabled>Dapatkan Kostum Cuaca!(Lihat Video Instruksi Untuk Mengklik Tombol Ini)</button>
     <br></br>
     <div id="AccuWeatherCustom">
     </div>
@@ -27,10 +26,40 @@
       });
       function getCustomWeather() {
         var url = prompt("Masukkan Link AccuWeather Yang Mengarah Ke Lokasi Cuaca Mu : ")
+        if (url) {
   var regex = /\/(\w+(?:-\w+)?)\//;
+  var regex2 = /\/id\/id\/(\d+)/;
   
   var matches = url.match(regex);
-  var result = matches && matches.length > 1 ? matches[1] : '';
+  var matches3 = url.match(regex2);
+  var result2 = matches3 && matches3.length > 1 ? matches[1] : '';
+  var result1 = matches && matches.length > 1 ? matches[1] : '';
+        
+        } else {
+          alert("Ga Valid!, Bahasa Atau Lainnya Yang Salah, COBA LAGI")
+        }
+        var URL = "https://dataservice.accuweather.com/currentconditions/v1/3431603?apikey=HXapWyl4ytt9K1jQcbmogRMji2men1o5&language=ID&details=true";
+  fetch(URL)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
+      var temperature = data[0].Temperature.Metric.Value;
+      var weatherText = data[0].WeatherText;
+      var temperatureFormat = data[0].Temperature.Metric.Unit;
+      var realfeel = data[0].RealFeelTemperature.Metric.Value;
+      var realfeelphrase = data[0].RealFeelTemperature.Metric.Phrase;
+      var realfeelshade = data[0].RealFeelTemperatureShade.Metric.Value;
+      var realfeelshadephrase = data[0].RealFeelTemperatureShade.Metric.Phrase;
+            
+      var x = document.getElementById('AccuWeatherCustom');
+      x.innerHTML = "Temperatur : " + temperature + "°" + temperatureFormat + "<br>Cuaca : " + weatherText + "<br>RealFeel® : " + realfeel + "<br>Frasa RealFeel® : " + realfeelphrase + "<br>RealFeel Shade™ : " + realfeelshade + "<br>Frasa RealFeel Shade™ : " + realfeelshadephrase;
+    })
+    .catch(function(error) {
+      alert("Terjadi Kesalahan : \n" + error);
+      console.error(error);
+    });
+          }
       function getDefaultWeather() {
     var url = "https://dataservice.accuweather.com/currentconditions/v1/3431603?apikey=HXapWyl4ytt9K1jQcbmogRMji2men1o5&language=ID&details=true";
   fetch(url)
