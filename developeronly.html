@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <title>DEVELOPER ONLY</title>
+  <head>
+    
+  </head>
+  <body onload="devchecker()">
+    <input type="file" id="fileInput">
+    <div id="container"></div>
+  </body>
+  <script type="module">
+    function devchecker() {
+      var pwp = prompt("pw : ")
+      var pwr = "siapa_sangka1234"
+      if (pwp === pwr) {
+        alert("please click \"oke\" button to next")
+      } else if (pwp !== pwr) {
+        alert("GO BACK YOU FCK!")
+      }
+    }
+    // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyBxc6sDh46cFy_gc3BV84gSMgmRxCKsN2g",
+    authDomain: "boring-websites.firebaseapp.com",
+    projectId: "boring-websites",
+    storageBucket: "boring-websites.appspot.com",
+    messagingSenderId: "590754864482",
+    appId: "1:590754864482:web:3d57338fac1f579496a03b",
+    measurementId: "G-W2DK5NXZF3"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+    function getDataFromStorage(fileName) {
+      // Dapatkan referensi ke Firebase Storage
+var storageRef = firebase.storage().ref();
+
+// Dapatkan referensi ke elemen input file
+var fileInput = document.getElementById('fileInput');
+
+// Tangani peristiwa pengunggahan saat pengguna memilih file
+fileInput.addEventListener('change', function(e) {
+  var file = e.target.files[0];
+  
+  // Buat referensi file di Firebase Storage
+  var fileRef = storageRef.child(file.name);
+  
+  // Unggah file ke Firebase Storage
+  fileRef.put(file).then(function(snapshot) {
+    alert('File berhasil diunggah ke Firebase Storage.');
+  });
+});
+    
+  // Dapatkan referensi file dari Firebase Storage
+  var fileRef = storageRef.child(fileName);
+      var x = document.getElementById("container");
+  
+  // Unduh file dari Firebase Storage
+  fileRef.getDownloadURL().then(function(url) {
+    // Gunakan URL untuk melakukan operasi yang diinginkan (misalnya menampilkan gambar atau mengunduh file)
+    x.innerHTML = 'URL file:', url;
+  }).catch(function(error) {
+    // Tangani kesalahan jika terjadi
+    alert("ERROR : \n", error)
+    console.error(error);
+  });
+    }
+      
+  </script>
+</html>
