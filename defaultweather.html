@@ -4,6 +4,8 @@
     <title>Cuaca Default</title>
   </head>
   <body>
+    <div id="main-content">
+    </div>
     <script>
       function getLocation() {
         var url1 = "https://weather-api-checker.netlify.app/"
@@ -13,8 +15,8 @@
     })
     .then(function(data) {
       var locator = data[0].Location;
-      var xx = document.getElementById("result");
-      xx.innerHTML = 
+      var xx = document.getElementById("main-content");
+      xx.innerHTML = "<h1>Cuaca Saat Ini Di " + locator + "</h1>";
     }
       function getDefaultWeather() {
     var url = "https://dataservice.accuweather.com/currentconditions/v1/3461865?apikey=HXapWyl4ytt9K1jQcbmogRMji2men1o5&language=ID&details=true";
