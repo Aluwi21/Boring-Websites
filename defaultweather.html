@@ -57,15 +57,15 @@
         var url = prompt("Masukkan Link AccuWeather Yang Mengarah Ke Lokasi Cuaca Mu : ");
         if (url) {
           var regex = /\/id\/id\/(\w+)/;
-          var regex2 = /(\d+)/;
+          var regex1 = /(\d+)/;
 
           var matches = url.match(regex);
-          var matches3 = url.match(regex2);
-          var result2 = matches3 && matches3.length > 1 ? matches3[1] : '';
-          var result1 = matches && matches.length > 1 ? matches[1] : ''
-          var res1 = result1.charAt(0).toUpperCase() + result1.slice(1);
-        
-          var URL = "https://dataservice.accuweather.com/currentconditions/v1/" + result2 + "?apikey=HXapWyl4ytt9K1jQcbmogRMji2men1o5&language=ID&details=true";
+          var matches1 = url.match(regex1);
+          var mixed1 = matches1 && matches1.length > 1 ? matches1[1] : '';
+          var mixed = matches && matches.length > 1 ? matches[1] : ''
+          var capitalmixed1 = mixed.charAt(0).toUpperCase() + mixed.slice(1);
+         alert(mixed1 + "|" + capitalmixed1)
+          var URL = "https://dataservice.accuweather.com/currentconditions/v1/" + mixed1 + "?apikey=HXapWyl4ytt9K1jQcbmogRMji2men1o5&language=ID&details=true";
 
           fetch(URL)
             .then(function (response) {
@@ -82,7 +82,7 @@
 
               var x = document.getElementById('AccuWeatherCustom');
               var xx = document.getElementById('locator');
-              xx.textContent = "Cuaca Saat Ini Di " + res1;
+              xx.textContent = "Cuaca Saat Ini Di " + mixed;
               xx.classList.add("titleh");
               x.innerHTML = "Temperatur : " + temperature + "°" + temperatureFormat + "<br>Cuaca : " + weatherText + "<br>RealFeel® : " + realfeel + "<br>Frasa RealFeel® : " + realfeelphrase + "<br>RealFeel Shade™ : " + realfeelshade + "<br>Frasa RealFeel Shade™ : " + realfeelshadephrase;
             })
