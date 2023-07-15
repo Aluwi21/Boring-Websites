@@ -43,9 +43,9 @@
           var matches = url.match(regex);
           var matches3 = url.match(regex2);
           var result2 = matches3 && matches3.length > 1 ? matches3[1] : '';
-          var result1 = matches && matches.length > 1 ? matches[1] : '';
-
-          alert(result1 + "  " + result2);
+          var result1 = matches && matches.length > 1 ? matches[1] : ''
+          var res1 = result1.charAt(0).toUpperCase() + result1.slice(1);
+          alert(res1 + " " + result2);
 
           var URL = "https://dataservice.accuweather.com/currentconditions/v1/" + result2 + "?apikey=HXapWyl4ytt9K1jQcbmogRMji2men1o5&language=ID&details=true";
 
@@ -64,7 +64,7 @@
 
               var x = document.getElementById('AccuWeatherCustom');
               var xx = document.getElementById('locator');
-              xx.textContent = "Cuaca Saat Ini Di " + result1;
+              xx.textContent = "Cuaca Saat Ini Di " + res1;
               x.innerHTML = "Temperatur : " + temperature + "°" + temperatureFormat + "<br>Cuaca : " + weatherText + "<br>RealFeel® : " + realfeel + "<br>Frasa RealFeel® : " + realfeelphrase + "<br>RealFeel Shade™ : " + realfeelshade + "<br>Frasa RealFeel Shade™ : " + realfeelshadephrase;
             })
             .catch(function (error) {
