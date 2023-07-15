@@ -22,6 +22,12 @@
       var video = document.getElementById('instruction-video');
       var actionButton = document.getElementById('action-button');
 
+      video.addEventListener('timeupdate', function() {
+        if (video.currentTime === video.duration) {
+          actionButton.disabled = false;
+        }
+      });
+
       video.addEventListener('ended', function() {
         actionButton.disabled = false;
       });
