@@ -4,105 +4,101 @@
     <title>Cuaca Default</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <style>
-.material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 1,
-  'wght' 700,
-  'GRAD' 200,
-  'opsz' 48
-}
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 200, 'opsz' 48;
+      }
     </style>
   </head>
   <body onload="getDefaultWeather()">
     <h1>Cuaca Saat Ini Di Ngabab</h1>
     <div id="AccuWeather"></div>
-    <br></br>
-    <p1>Ingin Mengetahui Cuaca Di Lokasi Mu?, Klik Tombol Dibawah</p1>
-    <br></br>
+    <br />
+    <p>Ingin Mengetahui Cuaca Di Lokasi Mu?, Klik Tombol Dibawah</p>
+    <br />
     <button id="videoAction" onclick="getCustomWeather()">Dapatkan Kostum Cuaca!(LIHAT INSTRUKSI DIBAWAH BIAR GA SALAH PAHAM)</button>
-    <br></br>
+    <br />
     <h2>INSTRUKSI :</h2>
-    <p2 style="font-size: 16px;">
+    <p style="font-size: 16px;">
       1. Buka Website <a href="https://www.accuweather.com/" target="_parent">AccuWeather</a>
-      <br></br>
+      <br />
       2. Lalu Cari Lokasi Kalian, Misalnya "Pujon" Nanti Muncul Banyak Pilihan Dari Kata "Pujon", Tapi Kalo Kalian Males, Tekat Tombol Yang Ada Di Kotak Pencarian "gunakan lokasi Anda saat ini" Klik Dan Izinkan Akses Lokasi.
-    <br></br>
+      <br />
       3. Kalo Udah Muncul Cuaca Di Lokasi Kalian, Kalian Tekan Link Nya(Yang Ada Gambar Nya Gembok Disampingnya Ada Tulisan Tekan Itu)
-    <br></br>
+      <br />
       4. Terus Tekan Gambar Salin Gitu Kek Gini <span class="material-symbols-outlined">content_copy</span>
-    <br></br>
+      <br />
       5. Kalo Udah Kembali Kesini Terus Udah Deh.
-    </p2>
-    </p2>
-    <br></br>
-    <h3 id="locator"></h2>
-    <div id="AccuWeatherCustom">
-    </div>
+    </p>
+    <br />
+    <h3 id="locator"></h3>
+    <div id="AccuWeatherCustom"></div>
+
     <script>
       function getCustomWeather() {
-  var url = prompt("Masukkan Link AccuWeather Yang Mengarah Ke Lokasi Cuaca Mu : ");
-  if (url) {
-    var regex = /\/(\w+(?:-\w+)?)\//;
-    var regex2 = /\/id\/id\/(\d+)/;
+        var url = prompt("Masukkan Link AccuWeather Yang Mengarah Ke Lokasi Cuaca Mu : ");
+        if (url) {
+          var regex = /\/(\w+(?:-\w+)?)\//;
+          var regex2 = /\/id\/id\/(\d+)/;
 
-    var matches = url.match(regex);
-    var matches3 = url.match(regex2);
-    var result2 = matches3 && matches3.length > 1 ? matches3[1] : '';
-    var result1 = matches && matches.length > 1 ? matches[1] : '';
+          var matches = url.match(regex);
+          var matches3 = url.match(regex2);
+          var result2 = matches3 && matches3.length > 1 ? matches3[1] : '';
+          var result1 = matches && matches.length > 1 ? matches[1] : '';
 
-    alert(result1 + "  " + result2);
+          alert(result1 + "  " + result2);
 
-    var URL = "https://dataservice.accuweather.com/currentconditions/v1/" + result2 + "?apikey=HXapWyl4ytt9K1jQcbmogRMji2men1o5&language=ID&details=true";
-    
-    fetch(URL)
-      .then(function(response) {
-        return response.json();
-      })
-      .then(function(data) {
-        var temperature = data[0].Temperature.Metric.Value;
-        var weatherText = data[0].WeatherText;
-        var temperatureFormat = data[0].Temperature.Metric.UnitCode;
-        var realfeel = data[0].RealFeelTemperature.Metric.Value;
-        var realfeelphrase = data[0].RealFeelTemperature.Metric.Phrase;
-        var realfeelshade = data[0].RealFeelTemperatureShade.Metric.Value;
-        var realfeelshadephrase = data[0].RealFeelTemperatureShade.Metric.Phrase;
+          var URL = "https://dataservice.accuweather.com/currentconditions/v1/" + result2 + "?apikey=HXapWyl4ytt9K1jQcbmogRMji2men1o5&language=ID&details=true";
 
-        var x = document.getElementById('AccuWeatherCustom');
-        var xx = document.getElementById('locator');
-        xx.textContent = "Cuaca Saat Ini Di " + result1;
-        x.innerHTML = "Temperatur : " + temperature + "°" + temperatureFormat + "<br>Cuaca : " + weatherText + "<br>RealFeel® : " + realfeel + "<br>Frasa RealFeel® : " + realfeelphrase + "<br>RealFeel Shade™ : " + realfeelshade + "<br>Frasa RealFeel Shade™ : " + realfeelshadephrase;
-      })
-      .catch(function(error) {
-        alert("Terjadi Kesalahan : \n" + error);
-        console.error(error);
-      });
-  } else {
-    alert("Ga Valid!, Bahasa Atau Lainnya Yang Salah, COBA LAGI");
-  }
-}
-      function getDefaultWeather() {
-    var url = "https://dataservice.accuweather.com/currentconditions/v1/3461865?apikey=HXapWyl4ytt9K1jQcbmogRMji2men1o5&language=ID&details=true";
-  fetch(url)
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(data) {
-      var temperature = data[0].Temperature.Metric.Value;
-      var weatherText = data[0].WeatherText;
-      var temperatureFormat = data[0].Temperature.Metric.Unit;
-      var realfeel = data[0].RealFeelTemperature.Metric.Value;
-      var realfeelphrase = data[0].RealFeelTemperature.Metric.Phrase;
-      var realfeelshade = data[0].RealFeelTemperatureShade.Metric.Value;
-      var realfeelshadephrase = data[0].RealFeelTemperatureShade.Metric.Phrase;
-            
-      var x = document.getElementById('AccuWeather');
-      x.innerHTML = "Temperatur : " + temperature + "°" + temperatureFormat + "<br>Cuaca : " + weatherText + "<br>RealFeel® : " + realfeel + "<br>Frasa RealFeel® : " + realfeelphrase + "<br>RealFeel Shade™ : " + realfeelshade + "<br>Frasa RealFeel Shade™ : " + realfeelshadephrase;
-    })
-    .catch(function(error) {
-      alert("Terjadi Kesalahan : \n" + error);
-      console.error(error);
-    });
+          fetch(URL)
+            .then(function (response) {
+              return response.json();
+            })
+            .then(function (data) {
+              var temperature = data[0].Temperature.Metric.Value;
+              var weatherText = data[0].WeatherText;
+              var temperatureFormat = data[0].Temperature.Metric.UnitCode;
+              var realfeel = data[0].RealFeelTemperature.Metric.Value;
+              var realfeelphrase = data[0].RealFeelTemperature.Metric.Phrase;
+              var realfeelshade = data[0].RealFeelTemperatureShade.Metric.Value;
+              var realfeelshadephrase = data[0].RealFeelTemperatureShade.Metric.Phrase;
+
+              var x = document.getElementById('AccuWeatherCustom');
+              var xx = document.getElementById('locator');
+              xx.textContent = "Cuaca Saat Ini Di " + result1;
+              x.innerHTML = "Temperatur : " + temperature + "°" + temperatureFormat + "<br>Cuaca : " + weatherText + "<br>RealFeel® : " + realfeel + "<br>Frasa RealFeel® : " + realfeelphrase + "<br>RealFeel Shade™ : " + realfeelshade + "<br>Frasa RealFeel Shade™ : " + realfeelshadephrase;
+            })
+            .catch(function (error) {
+              alert("Terjadi Kesalahan : \n" + error);
+              console.error(error);
+            });
+        } else {
+          alert("Ga Valid!, Bahasa Atau Lainnya Yang Salah, COBA LAGI");
         }
+      }
+
+      function getDefaultWeather() {
+        var url = "https://dataservice.accuweather.com/currentconditions/v1/3461865?apikey=HXapWyl4ytt9K1jQcbmogRMji2men1o5&language=ID&details=true";
+        fetch(url)
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (data) {
+            var temperature = data[0].Temperature.Metric.Value;
+            var weatherText = data[0].WeatherText;
+            var temperatureFormat = data[0].Temperature.Metric.Unit;
+            var realfeel = data[0].RealFeelTemperature.Metric.Value;
+            var realfeelphrase = data[0].RealFeelTemperature.Metric.Phrase;
+            var realfeelshade = data[0].RealFeelTemperatureShade.Metric.Value;
+            var realfeelshadephrase = data[0].RealFeelTemperatureShade.Metric.Phrase;
+
+            var x = document.getElementById('AccuWeather');
+            x.innerHTML = "Temperatur : " + temperature + "°" + temperatureFormat + "<br>Cuaca : " + weatherText + "<br>RealFeel® : " + realfeel + "<br>Frasa RealFeel® : " + realfeelphrase + "<br>RealFeel Shade™ : " + realfeelshade + "<br>Frasa RealFeel Shade™ : " + realfeelshadephrase;
+          })
+          .catch(function (error) {
+            alert("Terjadi Kesalahan : \n" + error);
+            console.error(error);
+          });
+      }
     </script>
   </body>
 </html>
