@@ -7,14 +7,17 @@
     <h1>Cuaca Saat Ini Di Ngabab</h1>
     <div id="AccuWeather">
     </div>
-    <br>
+    <br></br>
     <p1>Ingin Mengetahui Cuaca Di Lokasi Mu?, Klik Tombol Dibawah</p1>
-    <button id="videoAction" onclick="getCustomWeather() disabled">Dapatkan Kostum Cuaca!(Lihat Instruksi Di Video Untuk Mengklik Tombol Ini)</button>
+    <br></br>
+    <button id="videoAction" onclick="getCustomWeather()" disabled="true">Dapatkan Kostum Cuaca!(Lihat Video Instruksi Untuk Mengklik Tombol Ini)</button>
+    <br></br>
+    <div id="AccuWeatherCustom">
+    </div>
+    <br></br>
     <video id="instruction-video" width="320" height="240" controls>
       <source src="f386374f-47e5-4116-b780-f8468aff09b5.mp4" type="video/mp4">
     </video>
-    <div id="AccuWeatherCustom">
-    </div>
     <script>
       var video = document.getElementById('instruction-video');
       var actionButton = document.getElementById('action-button');
@@ -23,8 +26,9 @@
         actionButton.disabled = false;
       });
       function getCustomWeather() {
-        var url = prompt("Ma
+        var url = prompt("Masukkan Link AccuWeather Yang Mengarah Ke Lokasi Cuaca Mu : ")
   var regex = /\/(\w+(?:-\w+)?)\//;
+  
   var matches = url.match(regex);
   var result = matches && matches.length > 1 ? matches[1] : '';
       function getDefaultWeather() {
