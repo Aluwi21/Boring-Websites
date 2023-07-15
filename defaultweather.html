@@ -4,8 +4,7 @@
     <title>Cuaca Default</title>
   </head>
   <body onload="getDefaultWeather()">
-    <div id="texxt">
-    </div>
+    <h1 id="texxt"></h1>
     <div id="AccuWeather">
     </div>
     tes
@@ -41,7 +40,7 @@
       var realfeelshade = data[0].RealFeelTemperatureShade.Metric.Value;
       var realfeelshadephrase = data[0].RealFeelTemperatureShade.Metric.Phrase;
             
-      var x = document.getElementById('AccuWeather')
+      var x = document.getElementById('AccuWeather');
       x.innerHTML = "Temperatur : " + temperature + "°" + temperatureFormat + "<br>Cuaca : " + weatherText + "<br>RealFeel® : " + realfeel + "<br>Frasa RealFeel® : " + realfeelphrase + "<br>RealFeel Shade™ : " + realfeelshade + "<br>Frasa RealFeel Shade™ : " + realfeelshadephrase;
     })
     .catch(function(error) {
