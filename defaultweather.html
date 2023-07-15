@@ -4,27 +4,10 @@
     <title>Cuaca Default</title>
   </head>
   <body onload="getDefaultWeather()">
-    <h1 id="texxt"></h1>
+    <h1>Cuaca Saat Ini Di Ngabab</h1>
     <div id="AccuWeather">
     </div>
-    tes
     <script>
-        var url = "https://weather-api-checker.netlify.app/";
-  fetch(url)
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(data) {
-      var locator = data[0].Location;
-      
-      var xx = document.getElementById("texxt");
-      xx.innerHTML = "Cuaca Saat Ini Di " + locator;
-    }
-      .catch(function(error) {
-      alert("Terjadi Kesalahan : \n" + error);
-      console.error(error);
-    });
-          
       function getDefaultWeather() {
     var url = "https://dataservice.accuweather.com/currentconditions/v1/3461865?apikey=HXapWyl4ytt9K1jQcbmogRMji2men1o5&language=ID&details=true";
   fetch(url)
