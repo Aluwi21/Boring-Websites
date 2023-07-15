@@ -132,8 +132,13 @@
   <button style="cursor:pointer; border-radius: 800px; background-color: #00eeff; box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); position: absolute; top: 0; display: inline-block; padding: 5px 10px; margin-right: 5px; position: absolute; top: 0; left: 50px; z-index: 1;" onclick="security()" class="material-symbols-outlined">
     terminal
   </button>
-    <button style="cursor:pointer; border-radius: 800px; background-color: #ccff00; box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); position: fixed; bottom: 0; right: 0; display: inline-block; padding: 5px 10px; margin-right: 10px;" onclick="switcher()" class="material-symbols-outlined">
-forum</button>
+    <button style="cursor:pointer; border-radius: 800px; background-color: #00eeff; box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); position: absolute; top: 0; display: inline-block; padding: 5px 10px; margin-right: 5px; position: absolute; top: 0; left: 50px; z-index: 1;" onclick="security()" class="material-symbols-outlined">
+    terminal
+    </button>
+    <a href="https://boring-websites.netlify.app/defaultweather" target="_parent">
+    <button style="cursor:pointer; border-radius: 800px; background-color: #99ff00; box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); position: fixed; bottom: 0; right: 0; display: inline-block; padding: 5px 10px; margin-right: 10px;" class="material-symbols-outlined">
+cloud</button>
+  </a>
     <input class="input-file" type="file" id="file-input">
   <div id="media-container"></div>
     <br></br>
@@ -171,43 +176,19 @@ check_circle</i>
       <span>Tes Software/Hardware Mu!</span>
     </button>
           </a>
-      <p id="containerAccuWeather"></p>
   </div>
   <div id="offline-message" class="offline-message">
     <div style="display: flex; align-items: center; flex-direction: column; text-align: center; font-size: 50px;" class="material-symbols-outlined">
 wifi_off
 </div>
-    <h2 class="h2">Maap, Kamu Offline <div class="material-symbols-outlined">sentiment_dissatisfied</div></h2>
+    <h2 class="h2">Maaf, Kamu Offline <div class="material-symbols-outlined">sentiment_dissatisfied</div></h2>
+    <footer>Cek Internet Mu, Jangan Di-Reload Saat Internet Udah Normal.</footer>
   </div>
   <a href="https://boring-websites.netlify.app/nointernetweb.html" target="_parent">
   <button style="background-color: white; color: white; cursor: help; border-radius: 8px; position: absolute; top: 0; right: 0; border-color: white; transition: none; opacity: -1.0;">.</button>
   </a>
   <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
   <script>
-    function getDefaultWeather() {
-    var url = "https://dataservice.accuweather.com/currentconditions/v1/3461865?apikey=HXapWyl4ytt9K1jQcbmogRMji2men1o5&language=ID&details=true";
-  fetch(url)
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(data) {
-      var temperature = data[0].Temperature.Metric.Value;
-      var weatherText = data[0].WeatherText;
-      var temperatureFormat = data[0].Temperature.Metric.Unit;
-      var realfeel = data[0].RealFeelTemperature.Metric.Value;
-      var realfeelphrase = data[0].RealFeelTemperature.Metric.Phrase;
-      var realfeelshade = data[0].RealFeelTemperatureShade.Metric.Value;
-      var realfeelshadephrase = data[0].RealFeelTemperatureShade.Metric.Phrase;
-            
-      var x = document.getElementById('containerAccuWeather')
-      x.innerHTML = "Temperatur : " + temperature + "°" + temperatureFormat + "<br>Cuaca : " + weatherText + "<br>RealFeel® : " + realfeel + "<br>Frasa RealFeel® : " + realfeelphrase + "<br>RealFeel Shade™ : " + realfeelshade + "<br>Frasa RealFeel Shade™ : " + realfeelshadephrase;
-    })
-    .catch(function(error) {
-      alert("Terjadi Kesalahan : \n" + error);
-      console.error(error);
-    });
-    }
-        
 function security() {
   var password = "administrator000";
   var promptA = prompt("Masukkan Kata Sandi Sebelum Mengakses Terminal");
