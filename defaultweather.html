@@ -38,7 +38,7 @@
         var url = prompt("Masukkan Link AccuWeather Yang Mengarah Ke Lokasi Cuaca Mu : ");
         if (url) {
           var regex = /\/(\w+(?:-\w+)?)\//;
-          var regex2 = /(\d+)\\;
+          var regex2 = /\(\d+\)\\;
 
           var matches = url.match(regex);
           var matches3 = url.match(regex2);
