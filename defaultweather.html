@@ -3,26 +3,28 @@
   <head>
     <title>Cuaca Default</title>
   </head>
-  <body>
-    <div id="main-content">
+  <body onload="getDefaultWeather()">
+    <div id="texxt">
+    </div>
+    <div id="AccuWeather">
     </div>
     <script>
-      function getLocation() {
-        var url1 = "https://weather-api-checker.netlify.app/"
-        fetch(url1)
+        var url = "https://weather-api-checker.netlify.app/";
+  fetch(url)
     .then(function(response) {
       return response.json();
     })
     .then(function(data) {
       var locator = data[0].Location;
-      var xx = document.getElementById("main-content");
+      
+      var xx = document.getElementById("texxt");
       xx.innerHTML = "<h1>Cuaca Saat Ini Di " + locator + "</h1>";
     }
-          .catch(function(error) {
+      .catch(function(error) {
       alert("Terjadi Kesalahan : \n" + error);
       console.error(error);
     });
-          }
+          
       function getDefaultWeather() {
     var url = "https://dataservice.accuweather.com/currentconditions/v1/3461865?apikey=HXapWyl4ytt9K1jQcbmogRMji2men1o5&language=ID&details=true";
   fetch(url)
@@ -38,7 +40,7 @@
       var realfeelshade = data[0].RealFeelTemperatureShade.Metric.Value;
       var realfeelshadephrase = data[0].RealFeelTemperatureShade.Metric.Phrase;
             
-      var x = document.getElementById('containerAccuWeather')
+      var x = document.getElementById('AccuWeather')
       x.innerHTML = "Temperatur : " + temperature + "°" + temperatureFormat + "<br>Cuaca : " + weatherText + "<br>RealFeel® : " + realfeel + "<br>Frasa RealFeel® : " + realfeelphrase + "<br>RealFeel Shade™ : " + realfeelshade + "<br>Frasa RealFeel Shade™ : " + realfeelshadephrase;
     })
     .catch(function(error) {
