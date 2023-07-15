@@ -83,6 +83,7 @@
               var x = document.getElementById('AccuWeatherCustom');
               var xx = document.getElementById('locator');
               xx.textContent = "Cuaca Saat Ini Di " + res1;
+              xx.clasList.Add("titleh");
               x.innerHTML = "Temperatur : " + temperature + "°" + temperatureFormat + "<br>Cuaca : " + weatherText + "<br>RealFeel® : " + realfeel + "<br>Frasa RealFeel® : " + realfeelphrase + "<br>RealFeel Shade™ : " + realfeelshade + "<br>Frasa RealFeel Shade™ : " + realfeelshadephrase;
             })
             .catch(function (error) {
