@@ -37,7 +37,7 @@
       function getCustomWeather() {
         var url = prompt("Masukkan Link AccuWeather Yang Mengarah Ke Lokasi Cuaca Mu : ");
         if (url) {
-          var regex = /\/(\w+(?:-\w+)?)\//;
+          var regex = /(\w+(?:-\w+)?)/;
           var regex2 = /(\d+)/;
 
           var matches = url.match(regex);
@@ -56,7 +56,7 @@
             .then(function (data) {
               var temperature = data[0].Temperature.Metric.Value;
               var weatherText = data[0].WeatherText;
-              var temperatureFormat = data[0].Temperature.Metric.UnitCode;
+              var temperatureFormat = data[0].Temperature.Metric.Unit;
               var realfeel = data[0].RealFeelTemperature.Metric.Value;
               var realfeelphrase = data[0].RealFeelTemperature.Metric.Phrase;
               var realfeelshade = data[0].RealFeelTemperatureShade.Metric.Value;
