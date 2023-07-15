@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cuaca Default</title>
+  </head>
+  <body>
+    <script>
+      function getLocation() {
+        var url1 = "https://weather-api-checker.netlify.app/"
+        fetch(url)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
+      var locator = data[0].Location;
+      var xx = document.getElementById("result");
+      xx.innerHTML = 
+    }
+      function getDefaultWeather() {
+    var url = "https://dataservice.accuweather.com/currentconditions/v1/3461865?apikey=HXapWyl4ytt9K1jQcbmogRMji2men1o5&language=ID&details=true";
+  fetch(url)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
+      var temperature = data[0].Temperature.Metric.Value;
+      var weatherText = data[0].WeatherText;
+      var temperatureFormat = data[0].Temperature.Metric.Unit;
+      var realfeel = data[0].RealFeelTemperature.Metric.Value;
+      var realfeelphrase = data[0].RealFeelTemperature.Metric.Phrase;
+      var realfeelshade = data[0].RealFeelTemperatureShade.Metric.Value;
+      var realfeelshadephrase = data[0].RealFeelTemperatureShade.Metric.Phrase;
+            
+      var x = document.getElementById('containerAccuWeather')
+      x.innerHTML = "Temperatur : " + temperature + "°" + temperatureFormat + "<br>Cuaca : " + weatherText + "<br>RealFeel® : " + realfeel + "<br>Frasa RealFeel® : " + realfeelphrase + "<br>RealFeel Shade™ : " + realfeelshade + "<br>Frasa RealFeel Shade™ : " + realfeelshadephrase;
+    })
+    .catch(function(error) {
+      alert("Terjadi Kesalahan : \n" + error);
+      console.error(error);
+    });
+        }
+    </script>
+  </body>
+</html>
