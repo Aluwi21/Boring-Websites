@@ -15,22 +15,7 @@
     <div id="AccuWeatherCustom">
     </div>
     <br></br>
-    <video id="instruction-video" width="320" height="240" controls>
-      <source src="f386374f-47e5-4116-b780-f8468aff09b5.mp4" type="video/mp4">
-    </video>
     <script>
-      var video = document.getElementById('instruction-video');
-      var actionButton = document.getElementById('action-button');
-
-      video.addEventListener('timeupdate', function() {
-        if (video.currentTime === video.duration) {
-          actionButton.disabled = false;
-        }
-      });
-
-      video.addEventListener('ended', function() {
-        actionButton.disabled = false;
-      });
       function getCustomWeather() {
         var url = prompt("Masukkan Link AccuWeather Yang Mengarah Ke Lokasi Cuaca Mu : ")
         if (url) {
