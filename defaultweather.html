@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@800&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@1,500&display=swap');
       .material-symbols-outlined {
         font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 200, 'opsz' 48;
       }
@@ -12,13 +13,17 @@
         font-family: 'Oxanium', cursive;
         text-align: center;
       }
+     .paragraph {
+       font-family: 'Barlow', sans-serif;
+       tet-align: center;
+     }
     </style>
   </head>
   <body onload="getDefaultWeather()">
     <h1 class="titleh">Cuaca Saat Ini Di Ngabab</h1>
     <div id="AccuWeather"></div>
     <br />
-    <p>Ingin Mengetahui Cuaca Di Lokasi Mu?, Klik Tombol Dibawah</p>
+    <p class="paragraph">Ingin Mengetahui Cuaca Di Lokasi Mu?, Klik Tombol Dibawah</p>
     <br />
     <button id="videoAction" onclick="getCustomWeather()">Dapatkan Kostum Cuaca!(LIHAT INSTRUKSI DIBAWAH BIAR GA SALAH PAHAM)</button>
     <br />
