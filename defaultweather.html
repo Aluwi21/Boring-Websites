@@ -8,10 +8,19 @@
     <div id="AccuWeather">
     </div>
     <p1>Ingin Mengetahui Cuaca Di Lokasi Mu?, Klik Tombol Dibawah</p1>
-    <button onclick="getCustomWeather()">Dapatkan Kostum Cuaca</button>
+    <button id="videoAction" onclick="getCustomWeather() disabled">Dapatkan Kostum Cuaca!(Lihat Instruksi Di Video Untuk Mengklik Tombol Ini)</button>
+    <video id="instruction-video" width="320" height="240" controls>
+      <source src="video-instruksi.mp4" type="video/mp4">
+    </video>
     <div id="AccuWeatherCustom">
     </div>
     <script>
+      var video = document.getElementById('instruction-video');
+      var actionButton = document.getElementById('action-button');
+
+      video.addEventListener('ended', function() {
+        actionButton.disabled = false;
+      });
       function getCustomWeather() {
         var url = prompt("Ma
   var regex = /\/(\w+(?:-\w+)?)\//;
