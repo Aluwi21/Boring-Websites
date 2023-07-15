@@ -37,7 +37,7 @@
       function getCustomWeather() {
         var url = prompt("Masukkan Link AccuWeather Yang Mengarah Ke Lokasi Cuaca Mu : ");
         if (url) {
-          var regex = \/\/(\w+(?:-\w+)?)\/;
+          var regex = /\/id\/id\/(\w+)/;
           var regex2 = /(\d+)/;
 
           var matches = url.match(regex);
