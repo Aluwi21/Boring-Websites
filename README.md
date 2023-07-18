@@ -35,7 +35,7 @@ Dengan antarmuka pengguna yang ramah dan dukungan yang baik, Netlify menjadi pil
 - Menggunakan Ikon [`Google Icons`](https://fonts.google.com/icons)
 - Ada **`1 Tombol Rahasia Menuju Easter Egg`**
 - Nama Asli Dari [`Boring Websites`](https://boring-websites.netlify.app/) Sebenarnya **`Simple-5`** Ya Karena Aku Punya Repl Terakhir Angka 4, [Cek Replit Ku](https://replit.com/@SyaamilMaulana/), Terus Diganti Ke **`Situs Gabut`** Ya Karena **`Simple-5`** Buriq, Karena Namanya Kek Gak Masuk Akal Akhirnya Diganti Ke ***`Boring-Websites`***.
-- Karena Aku Lebih Suka *All In One*, Jadi Skrip Jawa & Gaya Kertas Internet **Bukan Terletak** **~~Terletak~~** Di **~~script.js~~** & **~~style.css~~** Tapi Di **`index.html`**
+- Karena Aku Lebih Suka *All In Three*, Jadi Skrip Jawa & Gaya Kertas Internet **~~Bukan Terletak~~** **Terletak** Di **script.js** & **style.css** ~~Tapi~~ **Bukan** Di **~~index.html~~**
 - Pakek Skrip Jawa & Gaya Kertas Internet
 # Oke Sekian :]
-- Jum'at. 14 Juli 2023 10.55
+- Selasa, 18 Juli 2023 13.23
