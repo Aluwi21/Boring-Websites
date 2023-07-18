@@ -112,7 +112,7 @@
     }
     </style>
 </head>
-<body onload="getDefaultWeather()">
+<body>
   <div id="online-content">
     <p>Situs Gabut Ku!</p>
 <h1><b>SITUS INI DIBUAT DENGAN TUJUAN GABUT, JADI... KAMU DISINI BISA MENGGUNAKAN <code>alert()</code> UNTUK MENGSPAM, BISA MELIHAT KALENDER, WAKTU, MINGGU & KALENDER & WAKTU LOKAL DLL, J4F(JUST FOR FUN)</b></h1>
@@ -175,6 +175,7 @@ check_circle</i>
       <span>Tes Software/Hardware Mu!</span>
     </button>
           </a>
+    <button onclick="requestNotificationPermission()">kirim notif</button>
   </div>
   <div id="offline-message" class="offline-message">
     <div style="display: flex; align-items: center; flex-direction: column; text-align: center; font-size: 50px;" class="material-symbols-outlined">
@@ -188,6 +189,68 @@ wifi_off
   </a>
   <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
   <script>
+     function requestNotificationPermission() {
+      if ('Notification' in window) {
+        Notification.requestPermission()
+          .then(function (permission) {
+            if (permission === 'granted') {
+              showCustomNotification();
+            } else {
+              alert("Kamu Menolak Akses Lokasi!");
+              console.error("NOTIFICATION.ACCESS denied.")
+            }
+          });
+      } else {
+        alert("Browser Ini Gak Mendukung API Notifikasi.");
+        console.warn("Browser Doesnt Support NOTIFICATION.API.");
+      }
+    }
+
+    function showCustomNotification() {
+      if ('Notification' in window) {
+        const notificationText = prompt("Masukkan Teks Notifikasi : ");
+        if (notificationText) {
+          const options = {
+            body: notificationText,
+            icon: 'path/ke/gambar/icon-notifikasi.png' // Ganti dengan path gambar ikon notifikasi
+          };
+
+          // Tambahkan tombol ke notifikasi
+          options.actions = [
+            { action: 'action-yes', title: 'Ya' },
+            { action: 'action-no', title: 'Tidak' }
+          ];
+
+          const notificationPromise = new Promise(function(resolve, reject) {
+            const notification = new Notification("Notifikasi Dengan Tombol", options);
+            notification.onclick = function(event) {
+              if (event.action === 'action-yes') {
+                alert("Kamu Memilih \"Ya\"");
+              } else if (event.action === 'action-no') {
+                alert("Kamu Memilih \"Tidak\"");
+                console.log("Terpilih \"Tidak\"");
+              } else {
+                alert("Kamu Mengklik Notifikasi");
+                console.log("Notifikasi Di Klik");
+              }
+              resolve();
+            };
+          });
+
+          // Tambahan untuk menangani ketika notifikasi ditutup tanpa interaksi
+          notificationPromise.then(function() {
+            console.log("Notifikasi Ditutup");
+            alert("Kamu Menutup Notifikasi");
+          });
+        } else {
+          alert("Masukkan Teks Notifikasi Yang Valid!");
+          console.warn("Invalid Input!");
+        }
+      } else {
+        alert("Browser Ini Gak Mendukung API Notifikasi.");
+        console.warn("Browser Doesnt Support NOTIFICATION.API.");
+      }
+    }
 function security() {
   var password = "administrator000";
   var promptA = prompt("Masukkan Kata Sandi Sebelum Mengakses Terminal");
