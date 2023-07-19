@@ -52,78 +52,84 @@ refresh</button>
                   location.reload();
           }
     let mediaStream;
-let mediaRecorder;
-let recordedChunks = [];
-let isRecording = false;
+    let mediaRecorder;
+    let recordedChunks = [];
+    let isRecording = false;
 
-function toggleRecording() {
-  if (!isRecording) {
-    startRecording();
-  } else {
-    stopRecording();
-  }
-}
-
-async function startRecording() {
-  try {
-    if (isDeviceSupported()) {
-      mediaStream = await navigator.mediaDevices.getDisplayMedia({ audio: true, video: true });
-
-      mediaRecorder = new MediaRecorder(mediaStream);
-      mediaRecorder.addEventListener('dataavailable', event => {
-        if (event.data.size > 0) {
-          recordedChunks.push(event.data);
-        }
-      });
-
-      mediaRecorder.start();
-      isRecording = true;
-      updateButtonState();
-    } else {
-      alert("Karena OS[Operating System/Sistem Operasi] Mu iOS/Android, Jadi Pengetesan Layar Gak Mendukung Di Perangkat Ini.");
+    function toggleRecording() {
+      if (!isRecording) {
+        startRecording();
+      } else {
+        stopRecording();
+      }
     }
-  } catch (error) {
-    console.error(error);
-    alert("Gagal Menangkap Layar : \n" + error.message);
-  }
-}
 
-function stopRecording() {
-  if (mediaRecorder && mediaStream) {
-    mediaRecorder.stop();
+    async function startRecording() {
+      try {
+        if (isDeviceSupported()) {
+          mediaStream = await navigator.mediaDevices.getDisplayMedia({ audio: true, video: true });
 
-    const blob = new Blob(recordedChunks, { type: 'video/mp4' });
-    const videoURL = URL.createObjectURL(blob);
-    const videoPlayer = document.createElement('video');
-    videoPlayer.src = videoURL;
-    videoPlayer.controls = true;
-    document.body.appendChild(videoPlayer);
+          mediaRecorder = new MediaRecorder(mediaStream);
+          mediaRecorder.addEventListener('dataavailable', event => {
+            if (event.data.size > 0) {
+              recordedChunks.push(event.data);
+            }
+          });
 
-    isRecording = false;
-    updateButtonState();
-  }
-}
+          mediaRecorder.start();
+          isRecording = true;
+          updateButtonState();
+        } else {
+          alert("Karena OS[Operating System/Sistem Operasi] Mu iOS/Android, Jadi Pengetesan Layar Gak Mendukung Di Perangkat Ini.");
+        }
+      } catch (error) {
+        console.error(error);
+        alert("Gagal Menangkap Layar : \n" + error.message);
+      }
+    }
 
-function updateButtonState() {
-  const recordButton = document.getElementById('recordButton');
-  if (isRecording) {
-    recordButton.innerText = 'Stop Tes Layar';
-    recordButton.classList.remove('not-recording');
-    recordButton.classList.add('recording');
-  } else {
-    recordButton.innerText = 'Tes Layar Mu!(Gak Pakek WebRTC Karena Aku Noob :v)';
-    recordButton.classList.remove('recording');
-    recordButton.classList.add('not-recording');
-  }
-}
+    function stopRecording() {
+      if (mediaRecorder && mediaStream) {
+        mediaRecorder.stop();
 
-function isDeviceSupported() {
-  const userAgent = navigator.userAgent.toLowerCase();
-  const isAndroid = userAgent.includes("android");
-  const isiOS = /(iphone|ipad|ipod|macintosh)/.test(userAgent);
-  
-  return !(isAndroid || isiOS);
-}
+        const blob = new Blob(recordedChunks, { type: 'video/mp4' });
+        const videoURL = URL.createObjectURL(blob);
+        const videoPlayer = document.createElement('video');
+        videoPlayer.src = videoURL;
+        videoPlayer.controls = true;
+        document.body.appendChild(videoPlayer);
+
+        isRecording = false;
+        updateButtonState();
+
+        // Hapus video pemutar setelah perekaman selesai
+        videoPlayer.addEventListener('ended', () => {
+          videoPlayer.remove();
+          URL.revokeObjectURL(videoURL);
+        });
+      }
+    }
+
+    function updateButtonState() {
+      const recordButton = document.getElementById('recordButton');
+      if (isRecording) {
+        recordButton.innerText = 'Stip Tes Layar';
+        recordButton.classList.remove('not-recording');
+        recordButton.classList.add('recording');
+      } else {
+        recordButton.innerText = 'Tes Layar Mu!(Gak Pakek WebRTC Karena Aku Noob :v)';
+        recordButton.classList.remove('recording');
+        recordButton.classList.add('not-recording');
+      }
+    }
+
+    function isDeviceSupported() {
+      const userAgent = navigator.userAgent.toLowerCase();
+      const isAndroid = userAgent.includes("android");
+      const isiOS = /(iphone|ipad|ipod|macintosh)/.test(userAgent);
+      
+      return !(isAndroid || isiOS);
+    }
 
           var cameraMicPressed = false;
 
