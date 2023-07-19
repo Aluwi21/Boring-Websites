@@ -2,16 +2,13 @@ self.addEventListener('notificationclick', function (event) {
   event.notification.close();
 
   if (event.action === 'action-yes') {
-    alert("Tombol \"Ya\" Diklik.");
-    console.log('"Ya" Button Clicked.')
+    console.log('Tombol "Ya" Diklik.')
     // Lakukan tindakan sesuai dengan tombol "Ya" di sini
   } else if (event.action === 'action-no') {
-     alert("Tombol \"Tidak\" Diklik.");
-    console.log('"Tidak" Button Clicked.')
+   console.log('Tombol "Tidak" Diklik')
     // Lakukan tindakan sesuai dengan tombol "Tidak" di sini
   } else {
-    alert("Notfikasi Diklik.");
-    console.log('"ONLY-notfication" clicked')
+    console.log('Hanya Notifikasi Saja Yang Diklik.')
     // Lakukan tindakan sesuai dengan notifikasi diklik di sini
   }
 });
