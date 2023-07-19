@@ -48,6 +48,38 @@ refresh</button>
     <div id="waktu"></div>
                 </div>
   <script>
+          async function requestSensorPermission() {
+      if ('Sensor' in window) {
+        try {
+          const permissionStatus = await navigator.permissions.request({
+            name: 'accelerometer'
+          });
+
+          if (permissionStatus.state === 'granted') {
+            const sensor = new Sensor('accelerometer');
+
+            sensor.addEventListener('reading', event => {
+              const accelerationX = event.target.x;
+              const accelerationY = event.target.y;
+              const accelerationZ = event.target.z;
+
+              // Lakukan sesuatu dengan data sensor yang diterima
+              console.log('X:', accelerationX);
+              console.log('Y:', accelerationY);
+              console.log('Z:', accelerationZ);
+            });
+
+            sensor.start();
+          } else {
+            console.error('');
+          }
+        } catch (error) {
+          console.error('Terjadi kesalahan dalam permintaan izin', error);
+        }
+      } else {
+        console.log('Browser tidak mendukung Sensor API');
+      }
+          }
           function refresh() {
                   location.reload();
           }
