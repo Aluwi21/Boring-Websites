@@ -113,11 +113,11 @@ refresh</button>
     function updateButtonState() {
       const recordButton = document.getElementById('recordButton');
       if (isRecording) {
-        recordButton.innerText = 'Stip Tes Layar';
+        recordButton.innerText = 'Stop Tes Layar';
         recordButton.classList.remove('not-recording');
         recordButton.classList.add('recording');
       } else {
-        recordButton.innerText = 'Tes Layar Mu!(Gak Pakek WebRTC Karena Aku Noob :v)';
+        recordButton.innerText = 'Tes Layar Mu!(WebRTC)';
         recordButton.classList.remove('recording');
         recordButton.classList.add('not-recording');
       }
