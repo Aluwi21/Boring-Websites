@@ -54,7 +54,7 @@ refresh</button>
           async function requestSensorPermission() {
       if ('Sensor' in window) {
         try {
-          const permissionStatus = await navigator.permission.request({
+          const permissionStatus = await navigator.permission.query({
             name: 'accelerometer'
           });
 
