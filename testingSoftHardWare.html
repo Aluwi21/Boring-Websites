@@ -44,47 +44,10 @@
                          <button id="recordButton" class="not-recording" onclick="toggleRecording()">Tes Layar Mu!(WebRTC)</button>
                          <button style="cursor:pointer; border-radius: 800px; background-color: #008CBA; box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); position: absolute; top: 0; right: 0; display: inline-block; padding: 5px 10px; margin-right: 5px;" onclick="refresh()" class="material-symbols-outlined">
 refresh</button>
-                         <button onclick="requestSensorPermission()">Tes Sensor Mu!(Sensor Akselerometer)</button>
-               <div id="container"></div>
+                         <div id="container"></div>
     <div id="waktu"></div>
-                         <h id="tittle"></h>
-                         <div id="containerSensor"></div>
-                </div>
+                         </div>
   <script>
-          async function requestSensorPermission() {
-      if ('Sensor' in window) {
-        try {
-          const permissionStatus = await navigator.permission.query({
-            name: 'accelerometer'
-          });
-
-          if (permissionStatus.state === 'granted') {
-            const sensor = new Sensor('accelerometer');
-
-            sensor.addEventListener('reading', event => {
-              var c = document.getElementById("containerSensor");
-              const accelerationX = event.target.x;
-              const accelerationY = event.target.y;
-              const accelerationZ = event.target.z;
-
-                    c.innerText = "X : " + accelerationX + "\nY : " + accelerationY + "\nZ : " + accelerationZ;
-                 document.getElementById("tittle").innerText = "SENSOR AKSELEROMETER";
-            });
-
-            sensor.start();
-          } else {
-            alert("Kamu Menolak Website Untuk Menggunakan Akses Sensor Gerakan!");
-            console.error('Browser denied access to using MOVEMENT.SENSOR.ACCESS');
-          }
-        } catch (error) {
-          alert("Terjadi Kesalahan : \n" + error);
-          console.error(error);
-        }
-      } else {
-        alert("Browsef Mu Tidak Mendukung API Sensor.");
-        console.error('Browser Doesnt Support <sensor_api>');
-      }
-          }
           function refresh() {
                   location.reload();
           }
