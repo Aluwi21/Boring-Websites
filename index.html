@@ -252,7 +252,7 @@ check_circle</i>
           <a href="https://boring-websites.netlify.app/testsofthardwarebrowser.html" target="_parent"> 
     <button class="buttonASD">
       <i class="material-symbols-outlined">priority</i>
-      <span>Tes Software/Hardware/Browser Mu!</span>
+      Tes Software/Hardware/Browser Mu!
     </button>
           </a>
     <button onclick="requestNotificationPermission()">kirim notif</button>
@@ -280,64 +280,6 @@ wifi_off
   </a>
   <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
   <script>
-   if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function () {
-        navigator.serviceWorker.register('service-worker.js').then(function (registration) {
-          alert("Service-Worker Telah Berhasil Didaftarkan : " + registration.scope);
-          console.log("service-worker registered successfully : " + registration.scope);
-        }, function (err) {
-          console.error("service-worker registered failed : " + err);
-        });
-      });
-    } else {
-     alert("Browser Mu Tidak Mendukung Service Worker.");
-      console.warn("Browser Doesnt Support [service-worker]");
-    }
-
-    function requestNotificationPermission() {
-      if ('Notification' in window) {
-        Notification.requestPermission()
-          .then(function (permission) {
-            if (permission === 'granted') {
-              alert("Notifikasi Diizinkan!");
-              console.log("Diizinkan.");
-              sendNotification();
-            } else {
-              alert("Notifikasi Ditolak!");
-              console.warn("Ditolak.");
-            }
-          });
-      } else {
-        alert("Browser Mu Tidak Mendukung API Notifikasi");
-        console.warn("Browser Doesnt Support NOTIFICATION.API");
-      }
-    }
-
-    function sendNotification() {
-      if ('serviceWorker' in navigator && 'PushManager' in window) {
-        var notificationTitle = prompt("Masukkan Judul Notifikasi : ");
-        var notificationText = prompt("Masukkan Teks Notifikasi : ");
-        navigator.serviceWorker.ready
-          .then(function (registration) {
-            const options = {
-              body: notificationText,
-              icon: 'home_FILL0_wght400_GRAD0_opsz48.png',
-              actions: [
-                { action: 'action-yes', title: 'Ya' },
-                { action: 'action-no', title: 'Tidak' }
-              ]
-            };
-            registration.showNotification(notificationTitle, options);
-          })
-          .catch(function (error) {
-            alert("Terjadi Kesalahan Saat Mengirim Notifikasi : " + error);
-            console.error(error);
-          });
-      } else {
-        alert("Browser Mu SAMA SEKALI Tidak Mendukung API Notifikasi Atau Service Worker.");
-        console.error("Browser Doesnt Support NOTIFICATION.API Or [service-worker].");
-      }
-    }
 function security() {
   var password = "administrator000";
   var promptA = prompt("Masukkan Kata Sandi Sebelum Mengakses Terminal");
