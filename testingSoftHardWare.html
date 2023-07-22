@@ -59,7 +59,7 @@ refresh</button>
         }
 
         function playYouTubeVideo() {
-            const userInput = prompt("Masukkan VIDEO_ID YouTube:");
+            var userInput = prompt("Masukkan VIDEO_ID YouTube:");
             
             if (userInput === null) {
                 alert("Gak Jadi Karena Kamu Membatalkannya.");
@@ -70,7 +70,7 @@ refresh</button>
             if (isValidVideoID(userInput)) {
                 // Jika VIDEO_ID valid, sematkan video YouTube menggunakan iframe
                 const cccx = document.getElementById("iframec")
-                    cccx.innerHTML = "<iframe width=\"560\" height=\"315\" src=\"" + ${userInput} + "\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>"
+                    cccx.innerHTML = "<iframe width=\"560\" height=\"315\" src=\"" + userInput + "\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>"
             } else {
                 alert("ID Video Youtube Tidak Valid!");
                     console.error('Invalid youtube.VIDEO_ID.');
