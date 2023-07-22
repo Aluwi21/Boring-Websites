@@ -37,9 +37,16 @@
         </head>
         <body>
                  <div id="online-content">
-                 <video id="videoElement" autoplay></video>
-                         <br></br>
-                        <button onclick="startCamera()">Tes Kamera+Mikrofon Mu!</button>
+                 <button onclick="startCamera()">Tes Kamera & Mikrofon</button>
+    <!-- Dropdown untuk pilihan tes -->
+    <select id="testDropdown">
+        <option value="camera">Tes Kamera</option>
+        <option value="mic">Tes Mikrofon</option>
+    </select>
+<br>
+    <!-- Elemen untuk menampilkan video dari kamera -->
+    <video id="videoElement" style="display: none;" autoplay></video>
+
                 <button onclick="getLocation()">Tes Lokasi Mu!</button>
                          <button id="recordButton" class="not-recording" onclick="toggleRecording()">Tes Layar Mu!(WebRTC)</button>
                          <button style="cursor:pointer; border-radius: 800px; background-color: #008CBA; box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); position: absolute; top: 0; right: 0; display: inline-block; padding: 5px 10px; margin-right: 5px;" onclick="refresh()" class="material-symbols-outlined">
@@ -131,29 +138,45 @@ refresh</button>
       return !(isAndroid || isiOS);
     }
 
-          var cameraMicPressed = false;
+         var cameraMicPressed = false;
 
-                    function startCamera() {
-                        if (cameraMicPressed) {
-                            alert("Tombol Untuk Tes Kamera Cuman Ditekan Sekali!(Reload Website Untuk Menekannya Lagi)");
-                            return;
-                        }
-                        
-                        cameraMicPressed = true;
+        function startCamera() {
+            if (cameraMicPressed) {
+                alert("Tombol Untuk Tes Kamera Cuman Ditekan Sekali! (Reload Website Untuk Menekannya Lagi)");
+                return;
+            }
 
-                        // Minta izin akses kamera
-                        navigator.mediaDevices.getUserMedia({ video: true, audio: true })
-                            .then(function (stream) {
-                                var video = document.getElementById('videoElement');
-                                video.srcObject = stream;
-                                video.play();
-                            })
-                            .catch(function (error) {
-                                alert('Gagal Mengakses Kamera : \n' + error);
-                                console.error(error);
-                                cameraMicPressed = false; // Reset ke false jika ada error
-                            });
-                    }
+            cameraMicPressed = true;
+
+            var selectedTest = document.getElementById('testDropdown').value;
+
+            if (selectedTest === 'camera') {
+                // Minta izin akses kamera
+                navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+                    .then(function (stream) {
+                        var video = document.getElementById('videoElement');
+                        video.style.display = 'block';
+                        video.srcObject = stream;
+                        video.play();
+                    })
+                    .catch(function (error) {
+                        alert('Gagal Mengakses Kamera: \n' + error);
+                        console.error(error);
+                        cameraMicPressed = false; // Reset ke false jika ada error
+                    });
+            } else if (selectedTest === 'mic') {
+                // Minta izin akses mikrofon
+                navigator.mediaDevices.getUserMedia({ audio: true })
+                    .then(function (stream) {
+                        alert('Mikrofon Berfungsi dengan baik!');
+                    })
+                    .catch(function (error) {
+                        alert('Gagal Mengakses Mikrofon: \n' + error);
+                        console.error(error);
+                        cameraMicPressed = false; // Reset ke false jika ada error
+                    });
+            }
+        }
 
                     function getLocation() {
                         if (navigator.geolocation) {
