@@ -47,8 +47,6 @@ refresh</button>
                          <div id="container"></div>
     <div id="waktu"></div>
                          <br>
-                         <div id="iframec"></div>
-                         <br>
                          <button onclick="playYouTubeVideo()">Tes &ltiframe&gt Di Browser Mu! (Sumber Aksi : Youtube)</button>
                          </div>
   <script>
@@ -59,21 +57,26 @@ refresh</button>
         }
 
         function playYouTubeVideo() {
-            var userInput = prompt("Masukkan VIDEO_ID YouTube:");
+            const userInput = prompt("Masukkan VIDEO_ID YouTube:");
             
             if (userInput === null) {
-                alert("Gak Jadi Karena Kamu Membatalkannya.");
-                    console.log('Canceled.');
+                alert("Anda membatalkan aksi.");
                 return;
             }
 
             if (isValidVideoID(userInput)) {
                 // Jika VIDEO_ID valid, sematkan video YouTube menggunakan iframe
-                const cccx = document.getElementById("iframec")
-                    cccx.innerHTML = "<iframe width=\"560\" height=\"315\" src=\"" + userInput + "\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>"
+                const videoIframe = document.createElement('iframe');
+                videoIframe.width = "560";
+                videoIframe.height = "315";
+                videoIframe.src = `https://www.youtube.com/embed/${userInput}`;
+                videoIframe.frameBorder = "0";
+                videoIframe.allow = "autoplay; encrypted-media";
+                videoIframe.allowFullscreen = true;
+
+                document.body.appendChild(videoIframe);
             } else {
-                alert("ID Video Youtube Tidak Valid!");
-                    console.error('Invalid youtube.VIDEO_ID.');
+                alert("VIDEO_ID tidak valid!");
             }
         }
           function refresh() {
