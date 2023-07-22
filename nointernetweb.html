@@ -21,9 +21,36 @@
   'wght' 700,
   'GRAD' 200,
   'opsz' 48
+}
+  body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Memastikan footer di bagian bawah halaman */
+}
+
+.content {
+    flex: 1; /* Membuat konten utama mengisi sisa ruang */
+    text-align: center;
+    padding: 20px;
+}
+
+footer {
+    text-align: center;
+    background-color: #f0f0f0;
+    padding: 10px;
+}
+
+.small-text {
+    font-size: 12px; /* Mengatur ukuran teks menjadi lebih kecil */
+    margin: 0; /* Menghapus margin bawaan */
+}
+  
 </style>
     </head>
 <body>
+  <div id="content">
   <a href="https://boring-websites.netlify.app" target="_parent">
     <button style="cursor:pointer; border-radius: 8px; background-color: blue; box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); position: absolute; top: 0; left: 0; display: inline-block; padding: 5px 10px; margin-right: 5px;" class="material-symbols-outlined">arrow_back_ios</button>
   </a>
@@ -33,7 +60,10 @@ wifi_off
 </div>
   
     <h2 class="h2">Maaf, Kamu Offline <div class="material-symbols-outlined">sentiment_dissatisfied</div></h2>
-    <footer>Cek</footer>
+    <div id="small-text">
+    <footer>Jangan Di-Reload Saat Internet Udah Normal.</footer>
+    </div>
+    </div>
   </div>
    </body>
     </html>
