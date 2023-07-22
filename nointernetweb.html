@@ -50,6 +50,63 @@ footer {
   font-family: 'Agdasima', sans-serif;
 }
   
+.marquee-containerr {
+width: 100%;
+overflow: hidden;
+}
+@keyframes animation1 {
+0% {
+color: #FF0000;
+}
+1% {
+color: #00FF00;
+}
+2% {
+color: #0000FF;
+}
+3% {
+color: #FFFF00;
+}
+4% {
+color: #00FFFF;
+}
+5% {
+color: #FF00FF;
+}
+6% {
+color: #000000;
+}
+7% {
+color: #FFFFFF;
+}
+8% {
+color: #808080;
+}
+9% {
+color: #000080;
+}
+10% {
+color: #808000;
+}
+11% {
+color: #008080;
+}
+12% {
+color: #800000;
+}
+13% {
+color: #800080;
+}
+14% {
+color: #00FF00;
+}
+15% {
+color: #FFA500
+}
+}
+.color-changing {
+animation: animation1 1s linear infinite;
+}
 </style>
     </head>
 <body>
@@ -58,12 +115,18 @@ footer {
     <button style="cursor:pointer; border-radius: 8px; background-color: blue; box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); position: absolute; top: 0; left: 0; display: inline-block; padding: 5px 10px; margin-right: 5px;" class="material-symbols-outlined">arrow_back_ios</button>
   </a>
   <div class="message">
+<div class="marquee-containerr">
+<marquee behavior="scroll" directions="left" class="color-changing">
+Kamu Offline, Periksa Internet Apakah Tersedia & Bisa Dikakses...
+</marquee>
+</div>
+
  <div style="display: flex; align-items: center; flex-direction: column; text-align: center; font-size: 50px;" class="material-symbols-outlined">
 wifi_off
 </div>
   
     <h2 class="h2">Maaf, Kamu Offline <div class="material-symbols-outlined">sentiment_dissatisfied</div></h2>
-    <div id="small-text">
+    <div class="small-text">
     <footer>Jangan Di-Reload Saat Internet Udah Normal.</footer>
       <br>
     <footer>*Note : Halaman Ini Memang Kayak Gini, Ya Karena Halaman Ini Halaman <bold>EASTER EGG NOMOR PERTAMA DI BORING-WEBSITES</bold></footer>
