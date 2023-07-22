@@ -49,7 +49,7 @@ refresh</button>
                          <br>
                          <div id="iframec"></div>
                          <br>
-                         <button onclick="playYouTubeVideo()">Tes <code>\<iframe\></code> (Sumber Aksi : Youtube)!</button>
+                         <button onclick="playYouTubeVideo()">Tes \<iframe\> Di Browser Mu! (Sumber Aksi : Youtube)</button>
                          </div>
   <script>
           function isValidVideoID(input) {
@@ -70,7 +70,7 @@ refresh</button>
             if (isValidVideoID(userInput)) {
                 // Jika VIDEO_ID valid, sematkan video YouTube menggunakan iframe
                 const cccx = document.getElementById("iframec")
-                    cccx.innerHTML = "<iframe width="560" height="315" src=\"" + ${userInput} + "\" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>"
+                    cccx.innerHTML = "<iframe width=\"560\" height=\"315\" src=\"" + ${userInput} + "\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>"
             } else {
                 alert("ID Video Youtube Tidak Valid!");
                     console.error('Invalid youtube.VIDEO_ID.');
