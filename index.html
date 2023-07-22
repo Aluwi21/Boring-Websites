@@ -15,6 +15,7 @@
   @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Tsukimi+Rounded:wght@500&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Signika+Negative:wght@700&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Agdasima:wght@700&display=swap');
       .material-symbols-outlined {
   font-variation-settings:
   'FILL' 1,
@@ -41,6 +42,24 @@
         text-align: center;
         margin-top: 200px;
       }
+      .content {
+    flex: 1; /* Membuat konten utama mengisi sisa ruang */
+    text-align: center;
+    padding: 20px;
+}
+
+footer {
+    text-align: center;
+    background-color: #f0f0f0;
+    padding: 10px;
+  font-family: 'Agdasima', sans-serif;
+}
+
+.small-text {
+    font-size: 12px; /* Mengatur ukuran teks menjadi lebih kecil */
+    margin: 0; /* Menghapus margin bawaan */
+  font-family: 'Agdasima', sans-serif;
+}
 .h2 {
   font-family: 'Inconsolata', monospace;
 }
@@ -178,13 +197,19 @@ check_circle</i>
           </a>
     <button onclick="requestNotificationPermission()">kirim notif</button>
   </div>
+  <div id="content">
   <div id="offline-message" class="offline-message">
     <div style="display: flex; align-items: center; flex-direction: column; text-align: center; font-size: 50px;" class="material-symbols-outlined">
 wifi_off
 </div>
+    <div id="small-text">
     <h2 class="h2">Maaf, Kamu Offline <div class="material-symbols-outlined">sentiment_dissatisfied</div></h2>
-    <footer>Cek Internet Mu, Jangan Di-Reload Saat Internet Udah Normal.</footer>
+    <footer>Jangan Di-Reload Saat Internet Udah Normal.</footer>
+    <br>
+    <footer>*Note : Ini Baru Halaman Asli Dari <bold>Boring-Websites</bold> Saat Kamu <bold>Offline</bold></footer></footer>
+    </div>
   </div>
+    </div>
   <a href="https://boring-websites.netlify.app/nointernetweb.html" target="_parent">
   <button style="background-color: white; color: white; cursor: help; border-radius: 8px; position: absolute; top: 0; right: 0; border-color: white; transition: none; opacity: -1.0;">.</button>
   </a>
