@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
         <head>
-                <title>Pengetesan Hardware & Software</title>
+                <title>Pengetesan Hardware, Software & Browser</title>
                 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@500&display=swap');
@@ -46,8 +46,36 @@
 refresh</button>
                          <div id="container"></div>
     <div id="waktu"></div>
+                         <br>
+                         <div id="iframec"></div>
+                         <br>
+                         <button onclick="playYouTubeVideo()">Tes <code>\<iframe\></code> (Sumber Aksi : Youtube)!</button>
                          </div>
   <script>
+          function isValidVideoID(input) {
+            // Regex untuk mendeteksi VIDEO_ID YouTube yang valid (11 karakter alfanumerik)
+            const regex = /^[a-zA-Z0-9_-]{11}$/;
+            return regex.test(input);
+        }
+
+        function playYouTubeVideo() {
+            const userInput = prompt("Masukkan VIDEO_ID YouTube:");
+            
+            if (userInput === null) {
+                alert("Gak Jadi Karena Kamu Membatalkannya.");
+                    console.log('Canceled.');
+                return;
+            }
+
+            if (isValidVideoID(userInput)) {
+                // Jika VIDEO_ID valid, sematkan video YouTube menggunakan iframe
+                const cccx = document.getElementById("iframec")
+                    cccx.innerHTML = "<iframe width="560" height="315" src=\"" + ${userInput} + "\" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>"
+            } else {
+                alert("ID Video Youtube Tidak Valid!");
+                    console.error('Invalid youtube.VIDEO_ID.');
+            }
+        }
           function refresh() {
                   location.reload();
           }
