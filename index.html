@@ -129,7 +129,66 @@ footer {
     cursor: pointer;
     padding: 10px 20px;
     }
-
+.marquee-containerr {
+width: 100%;
+overflow: hidden;
+}
+.marquee-offline {
+  animation: animation1;
+}
+@keyframes animation1 {
+0% {
+color: #FF0000;
+}
+1% {
+color: #00FF00;
+}
+2% {
+color: #0000FF;
+}
+3% {
+color: #FFFF00;
+}
+4% {
+color: #00FFFF;
+}
+5% {
+color: #FF00FF;
+}
+6% {
+color: #000000;
+}
+7% {
+color: #FFFFFF;
+}
+8% {
+color: #808080;
+}
+9% {
+color: #000080;
+}
+10% {
+color: #808000;
+}
+11% {
+color: #008080;
+}
+12% {
+color: #800000;
+}
+13% {
+color: #800080;
+}
+14% {
+color: #00FF00;
+}
+15% {
+color: #FFA500
+}
+}
+.color-changing {
+animation: animation1 8s linear infinite;
+}
     </style>
 </head>
 <body>
@@ -199,10 +258,15 @@ check_circle</i>
   </div>
   <div id="content">
   <div id="offline-message" class="offline-message">
+<div class="marquee-containerr">
+<marquee behavior="scroll" directions="left" class="color-changing">
+Kamu Offline, Periksa Internet Apakah Tersedia & Bisa Dikases...
+</marquee>
+</div>
     <div style="display: flex; align-items: center; flex-direction: column; text-align: center; font-size: 50px;" class="material-symbols-outlined">
 wifi_off
 </div>
-    <div id="small-text">
+    <div class="small-text">
     <h2 class="h2">Maaf, Kamu Offline <div class="material-symbols-outlined">sentiment_dissatisfied</div></h2>
     <footer>Jangan Di-Reload Saat Internet Udah Normal.</footer>
     <br>
