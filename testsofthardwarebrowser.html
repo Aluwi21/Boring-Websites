@@ -78,7 +78,7 @@ refresh</button>
                         if (permission === 'granted') {
                             alert("Notifikasi Diizinkan!");
                             console.log("Diizinkan.");
-                        sendNotification();
+                        sendNotification()
                         } else {
                             alert("Notifikasi Ditolak!");
                             console.warn("Ditolak.");
@@ -100,7 +100,7 @@ refresh</button>
                     .then(function (registration) {
                         const options = {
                             body: notificationText,
-                            icon: 'home_FILL0_wght400_GRAD0_opsz48.png',
+                            icon: 'home_FILL1_wght700_GRAD200_opsz48.png',
                             actions: [
                                 { action: 'action-1', title: action1Title },
                                 { action: 'action-2', title: action2Title }
@@ -119,7 +119,7 @@ refresh</button>
                 navigator.serviceWorker.onmessage = event => {
             if (event.data.action === 'tampilkan_teks') {
                 const teksElement = document.getElementById('teksElement');
-                teksElement.innerHTML = `<strong>Judul:</strong> ${event.data.judul}<br><strong>Isi:</strong> ${event.data.isi}<br><strong>Tombol Yang Dipilih:</strong> ${event.data.teks}`;
+                teksElement.innerHTML = "<strong>Judul:</strong> `${event.data.judul}`<br><strong>Isi:</strong> `${event.data.isi}`<br><strong>Tombol Yang Dipilih:</strong> `${event.data.teks}`";
             }
         };
           function isValidVideoID(input) {
