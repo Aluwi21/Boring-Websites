@@ -1,14 +1,26 @@
 self.addEventListener('notificationclick', function (event) {
   event.notification.close();
 
-  if (event.action === 'action-yes') {
-    console.log('Tombol "Ya" Diklik.')
-    // Lakukan tindakan sesuai dengan tombol "Ya" di sini
-  } else if (event.action === 'action-no') {
-   console.log('Tombol "Tidak" Diklik')
-    // Lakukan tindakan sesuai dengan tombol "Tidak" di sini
+  if (event.action === 'action-1') {
+    console.log('Tombol ' + event.action + ' Diklik.');
+    event.waitUntil(clients.matchAll().then(clients => {
+      clients.forEach(client => {
+        client.postMessage({ action: 'tampilkan_teks', teks: 'Kamu Menekan Tombol"' + event.action + '"', judul: event.notification.title, isi: event.notification.body });
+      });
+    }));
+  } else if (event.action === 'action-2') {
+    console.log('Tombol ' + event.action + ' Diklik');
+    event.waitUntil(clients.matchAll().then(clients => {
+      clients.forEach(client => {
+        client.postMessage({ action: 'tampilkan_teks', teks: 'Kamu Menekan Tombol"' + event.action + '"', judul: event.notification.title, isi: event.notification.body });
+      });
+    }));
   } else {
-    console.log('Hanya Notifikasi Saja Yang Diklik.')
-    // Lakukan tindakan sesuai dengan notifikasi diklik di sini
+    console.log('Hanya Notifikasi Saja Yang Diklik.');
+    event.waitUntil(clients.matchAll().then(clients => {
+      clients.forEach(client => {
+        client.postMessage({ action: 'tampilkan_teks', teks: 'Kamu Hanya Mengklik Notifikasi', judul: event.notification.title, isi: event.notification.body });
+      });
+    }));
   }
 });
