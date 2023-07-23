@@ -62,7 +62,6 @@ refresh</button>
                 navigator.serviceWorker.register('service-worker.js').then(function (registration) {
                     alert("Service-Worker Telah Berhasil Didaftarkan : " + registration.scope);
                     console.log("service-worker registered successfully : " + registration.scope);
-                        requestNotificationPermission();
                 }, function (err) {
                     console.error("service-worker registered failed : " + err);
                 });
