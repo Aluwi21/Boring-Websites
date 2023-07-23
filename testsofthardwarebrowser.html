@@ -78,7 +78,7 @@ refresh</button>
                         if (permission === 'granted') {
                             alert("Notifikasi Diizinkan!");
                             console.log("Diizinkan.");
-                        sendNotification()
+                            sendNotification();
                         } else {
                             alert("Notifikasi Ditolak!");
                             console.warn("Ditolak.");
@@ -115,8 +115,10 @@ refresh</button>
             } else {
                 alert("Browser Mu SAMA SEKALI Tidak Mendukung API Notifikasi Atau Service Worker.");
                 console.error("Browser Doesn't Support NOTIFICATION.API Or [service-worker].");
-                                }
-                navigator.serviceWorker.onmessage = event => {
+            }
+        }
+
+        navigator.serviceWorker.onmessage = event => {
             if (event.data.action === 'tampilkan_teks') {
                 const teksElement = document.getElementById('textElement');
                 teksElement.innerHTML = "<strong>Judul :</strong> " + `${event.data.judul}` + "<br><strong>Pesan :</strong> " + `${event.data.isi}` + "<br><strong>Tombol Yang Dipilih :</strong> " + `${event.data.teks}`;
