@@ -96,12 +96,13 @@ refresh</button>
                 var notificationText = prompt("Masukkan Teks Notifikasi : ");
                 var action1Title = prompt("Masukkan Nama Untuk Tombol 1 : ");
                 var action2Title = prompt("Masukkan Nama Untuk Tombol 2 : ");
+                    if (notificationTitle || notificationText || action1Title || action2Title) {
                 navigator.serviceWorker.ready
                     .then(function (registration) {
                         const options = {
                             body: notificationText,
-                            icon: 'notification_FILL1_wght700_GRAD200_opsz48.png',
-                            badge: 'notification_FILL1_wght700_GRAD200_opsz48.png',
+                            icon: 'notifications_FILL1_wght700_GRAD200_opsz48.png',
+                            badge: 'notifications_FILL1_wght700_GRAD200_opsz48.png',
                             actions: [
                                 { action: 'action-1', title: action1Title },
                                 { action: 'action-2', title: action2Title }
@@ -117,6 +118,9 @@ refresh</button>
                 alert("Browser Mu SAMA SEKALI Tidak Mendukung API Notifikasi Atau Service Worker.");
                 console.error("Browser Doesn't Support NOTIFICATION.API Or [service-worker].");
             }
+        }
+        } else {
+                alert("Isi Yang Betul/Valid Woi");
         }
 
         navigator.serviceWorker.onmessage = event => {
