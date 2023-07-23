@@ -111,17 +111,17 @@ refresh</button>
                         registration.showNotification(notificationTitle, options);
                     })
                     } else {
-                            alert("Isi Yang Betul/Valid Woi!");
-                    }
+                            alert("Masukkan Input Yang Valid!")
+                    },
                     .catch(function (error) {
                         alert("Terjadi Kesalahan Saat Mengirim Notifikasi : " + error);
                         console.error(error);
                     });
-            } else {
+                    } else {
                 alert("Browser Mu SAMA SEKALI Tidak Mendukung API Notifikasi Atau Service Worker.");
                 console.error("Browser Doesn't Support NOTIFICATION.API Or [service-worker].");
             }
-          }
+            
 
         navigator.serviceWorker.onmessage = event => {
             if (event.data.action === 'tampilkan_teks') {
