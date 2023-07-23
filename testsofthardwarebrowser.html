@@ -53,7 +53,7 @@ refresh</button>
                          <button onclick="playYouTubeVideo()">Tes &ltiframe&gt Di Browser Mu! (Sumber Aksi : Youtube)</button>
                          </div>
                 <br>
-                <div id="textElemement"></div>
+                <div id="textElement"></div>
                 <br>
                 <button onclick="requestNotificationPermission()">Tes Notifikasi Mu!(Service-Worker, Notification API & Push API)</button>
   <script>
@@ -118,8 +118,8 @@ refresh</button>
                                 }
                 navigator.serviceWorker.onmessage = event => {
             if (event.data.action === 'tampilkan_teks') {
-                const teksElement = document.getElementById('teksElement');
-                teksElement.innerHTML = "<strong>Judul:</strong> `${event.data.judul}`<br><strong>Isi:</strong> `${event.data.isi}`<br><strong>Tombol Yang Dipilih:</strong> `${event.data.teks}`";
+                const teksElement = document.getElementById('textElement');
+                teksElement.innerHTML = "<strong>Judul :</strong> " + `${event.data.judul}` + "<br><strong>Pesan :</strong> " + `${event.data.isi}` + "<br><strong>Tombol Yang Dipilih :</strong> " + `${event.data.teks}`;
             }
         };
           function isValidVideoID(input) {
