@@ -107,7 +107,6 @@ function sendNotification() {
           const options = {
             body: notificationText,
             icon: 'notifications_FILL1_wght700_GRAD200_opsz48.png',
-            badge: 'notifications_FILL1_wght700_GRAD200_opsz48.png',
             actions: [
               { action: 'action-1', title: action1Title },
               { action: 'action-2', title: action2Title }
@@ -131,7 +130,7 @@ function sendNotification() {
         navigator.serviceWorker.onmessage = event => {
             if (event.data.action === 'tampilkan_teks') {
                 const teksElement = document.getElementById('textElement');
-                teksElement.innerHTML = "<strong>Judul :</strong> " + `${event.data.judul}` + "<br><strong>Pesan :</strong> " + `${event.data.isi}` + "<br><strong>Tombol Yang Dipilih :</strong> " + `${event.data.teks}`;
+                teksElement.innerHTML = "Judul Notifikasi : " + `${event.data.judul}` + "<br>Pesan Notifikasi : " + `${event.data.isi}` + "<br>Tombol Yang Diklik : " + `${event.data.teks}` + "<br>Ikon Notifikasi : <img src=" + '"notifications_FILL1_wght700_GRAD200_opsz48.png"' + "></img>";
             }
         };
           function isValidVideoID(input) {
