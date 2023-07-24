@@ -133,7 +133,48 @@ function sendNotification() {
                 teksElement.innerHTML = "Judul Notifikasi : " + `${event.data.judul}` + "<br>Pesan Notifikasi : " + `${event.data.isi}` + "<br>Tombol Yang Diklik : " + `${event.data.teks}` + "<br>Ikon Notifikasi : <i class=" + '"material-symbols-outlined"' + ">notifications</i>";
             }
         };
+function extractVideoIDFromURL(url) {
+  // Regex untuk mendeteksi Video ID dari URL YouTube (termasuk URL pendek)
+  const regex = /(?:youtu\.be\/|youtube(?:-nocookie)?\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/;
+  const match = url.match(regex);
+  return match ? match[1] : null;
+}
 
+function isValidVideoID(input) {
+  // Regex untuk mendeteksi VIDEO_ID YouTube yang valid (11 karakter alfanumerik)
+  const regex = /^[a-zA-Z0-9_-]{11}$/;
+  return regex.test(input);
+}
+
+function playYouTubeVideo() {
+  const userInput = prompt("Masukkan URL/Link Video YouTube Untuk Mengetes /<iframe/> Browser Mu :");
+
+  if (userInput === null) {
+    alert("Kamu Membatalkan Tes.");
+    console.log('Canceled.');
+    return;
+  }
+
+  // Ekstrak Video ID dari URL
+  const videoID = extractVideoIDFromURL(userInput);
+
+  if (videoID && isValidVideoID(videoID)) {
+    // Jika Video ID valid, sematkan video YouTube menggunakan iframe
+    const videoIframe = document.createElement('iframe');
+    videoIframe.width = "560";
+    videoIframe.height = "315";
+    videoIframe.src = `https://www.youtube.com/embed/${videoID}`;
+    videoIframe.frameBorder = "0";
+    videoIframe.allow = "autoplay; encrypted-media";
+    videoIframe.allowFullscreen = true;
+
+    document.body.appendChild(videoIframe);
+  } else {
+    alert("URL/Link Youtube Yang Kamu Berikan Tidak Valid Atau Tidak Mengandung ID Video YouTube!");
+    console.error('Invalid URL/Link Youtube.');
+  }
+          }
+          
           function refresh() {
                   location.reload();
           }
