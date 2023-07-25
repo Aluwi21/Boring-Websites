@@ -8,6 +8,36 @@
     </div>
   </body>
   <script>
+    // Ganti 'YOUR_API_KEY' dengan API Key yang Anda dapatkan dari GIPHY
+    const inputaa = document.getElementById("inputt").value;
+    if (inputaa) {
+        const apiKey = 'YOUR_API_KEY';
+        const searchTerm = inputaa; // Ganti dengan kata kunci pencarian Anda
+
+        // URL untuk memuat data dari API GIPHY
+        const apiUrl = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${searchTerm}`;
+
+        // Fungsi untuk mengambil data dari API dan menampilkan GIF
+        async function fetchAndDisplayGIFs() {
+            try {
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+                const gifContainer = document.getElementById('gif-container');
+
+                data.data.forEach((gif) => {
+                    const gifUrl = gif.images.fixed_height.url;
+                    const img = document.createElement('img');
+                    img.src = gifUrl;
+                    gifContainer.appendChild(img);
+                });
+            } catch (error) {
+              alert("There is a problem when fetching the data!");
+              console.error('error when fetching the data.');
+            }
+        }
+
+        // Panggil fungsi untuk mengambil dan menampilkan GIF
+        fetchAndDisplayGIFs();
     const imput = prompt("Enter PIN : ")
     const pwreal = "0101"
     if (imput === pwreal) {
