@@ -97,15 +97,20 @@ refresh</button>
 function sendNotification() {
   if ('serviceWorker' in navigator && 'PushManager' in window) {
     var notificationTitle = prompt("Masukkan Judul Notifikasi : ");
-          console.log('Judul Notifikasi Diubah Ke : ' + notificationTitle);
+          
     var notificationDesc = prompt("Masukkan Teks Notifikasi : ");
-          console.log('Deskripsi Notifikasi Diubah Ke : ' + notificationDesc);
+         
     var button1Title = prompt("Masukkan Nama Untuk Tombol 1 : ");
-          console.log('Tombol-1 Notifikasi Diubah Ke : ' + button1Title);
+          
     var button2Title = prompt("Masukkan Nama Untuk Tombol 2 : ");
-          console.log('Tombol-2 Notifikasi Diubah Ke : ' + button2Title);
+          
     
     if (notificationTitle && notificationDesc && button1Title && button2Title) {
+                console.log('Judul Notifikasi Diubah Ke : ' + notificationTitle);
+                console.log('Deskripsi Notifikasi Diubah Ke : ' + notificationDesc);
+                console.log('Tombol-1 Notifikasi Diubah Ke : ' + button1Title);
+                console.log('Tombol-2 Notifikasi Diubah Ke : ' + button2Title);
+            
       navigator.serviceWorker.ready
         .then(function (registration) {
           const options = {
