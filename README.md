@@ -1,7 +1,7 @@
 # Boring-Websites
 - Ini Adalah Repository Untuk boring-websites.
 # Tujuan Dibuat
-- Tujuan Repository Ini Dibuat Adalah **Agar Netlify Bisa Menyimpan Data Disini(Mungkin?)**
+- Tujuan Repository Ini Dibuat Adalah **Agar Netlify Bisa Mengupdate/Mengdowngrade Apapun Ke Website Jika Kode Di Repository Ini Diubah**
 # Apa Itu Netlify?
 Netlify adalah platform pengembangan web yang menyediakan berbagai layanan hosting dan alat pengembangan untuk situs web modern. Dengan Netlify, Anda dapat dengan mudah menyebarkan situs web statis, mengelola domain, mengaktifkan HTTPS, melakukan otomatisasi, dan banyak lagi.
 
@@ -34,12 +34,14 @@ Dengan antarmuka pengguna yang ramah dan dukungan yang baik, Netlify menjadi pil
 - Menggunakan Fon [`Google Fonts`](https://fonts.google.com/)
 - Menggunakan Ikon [`Google Icons`](https://fonts.google.com/icons)
 - Ada **`1 Tombol Rahasia Menuju Easter Egg`**
-- Nama Asli Dari [`Boring Websites`](https://boring-websites.netlify.app/) Sebenarnya **`Simple-5`** Ya Karena Aku Punya Repl Terakhir Angka 4, [Cek Replit Ku](https://replit.com/@SyaamilMaulana/), Terus Diganti Ke **`Situs Gabut`** Ya Karena **`Simple-5`** Buriq, Karena Namanya Kek Gak Masuk Akal Akhirnya Diganti Ke ***`Boring-Websites`***.
+- Nama Asli Dari [`Boring Websites`](https://boring-websites.netlify.app/) Sebenarnya **`Simple-5`** Ya Karena Aku Punya Repl Terakhir Angka 4, [Cek Replit Ku](https://replit.com/@SyaamilMaulana/), Terus Diganti Ke **`Situs Gabut Ku!`** Ya Karena **`Simple-5`** Buriq, Karena Namanya Kek Gak Masuk Akal Akhirnya Diganti Ke ***`Boring-Websites`***.
 - Karena Aku Lebih Suka *All In One*, Jadi Skrip Jawa & Gaya Kertas Internet **Bukan Terletak** **~~Terletak~~** Di **script.js** & **style.css** Tapi **~~Bukan~~** Di **index.html**
 - Pakek Skrip Jawa & Gaya Kertas Internet(Yang Sangat Amat Cupu)
 - Kamu Bisa *Mengetahui Cuaca Di Lokasi Mu Bahkan Di Lokasi Pembuat Website Ini, Mengetes **Hardware, Software & Fitur Browser Mu\[`BETA! Kadang Rusak Atau Masih Diperbaiki`\]**, Chatting/Dikusi(Menggunakan Layanan [Giscus](https://giscus.app/)), **1 EASTER EGG...** & Mengetes Kecepatan Internet Mu **\[`BETA! Kadang Rusak Atau Masih Diperbaiki`\]*** Di Website Ini.
 - Ada Sekitar **5 Halaman Website** Yang Mempunyai Fungsi Masing-Masing.
+# ACARA 17 AGUSTUS!
+- Jadi... ***Acara 17-an Agustus*** Bakal Diadain Pada ***Kamis, 17 Agustus 2023***, Hadiahnya Aku Bakal ***MEMBUAT SESUATU YANG KALIAN INGINKAN DI WEBSITE AKU**, Sebelum Tanggal **17 Agustus** Boleh Langsung Minta Apa Aja Yang Ingin Dibuatkan(Ga Boleh NSFW, 18+, Ngeres & Sus) Lewat DM Di Discord(Langsung DM Saya "maulanaxyz25_"), Bisa Juga Chat Di Website Aku (Pakek Giscus & Loginnya Pakek Akun Github) Atau Juga Bisa Komentar Di Repository Ini.
+- Acara Selesai Pada ***Akhir Agustus.***
+- Aku Jarang Online, Jadi.... Kalian Request Aja Dulu Nanti Aku Respon.
 # Oke Sekian :]
-- Selasa, 1 Agustus 2023 13.42
-# EVENT (MUNGKIN?)
-- Jadi... ***__Event 17-an Agustus__*** Bakal Diadain Pada ***Kamis, 17 Agustus 2023***, Hadiahnya Aku Bakal ***BIKININ DI WEBSITE KU APA YANG KALIAN INGINKAN** Bisa Lansung DM Di Discord Saya "
+- Selasa, 1 Agustus 2023 14.16
