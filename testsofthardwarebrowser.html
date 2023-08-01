@@ -97,19 +97,23 @@ refresh</button>
 function sendNotification() {
   if ('serviceWorker' in navigator && 'PushManager' in window) {
     var notificationTitle = prompt("Masukkan Judul Notifikasi : ");
-    var notificationText = prompt("Masukkan Teks Notifikasi : ");
-    var action1Title = prompt("Masukkan Nama Untuk Tombol 1 : ");
-    var action2Title = prompt("Masukkan Nama Untuk Tombol 2 : ");
+          console.log('Judul Notifikasi Diubah Ke : ' + notificationTitle);
+    var notificationDesc = prompt("Masukkan Teks Notifikasi : ");
+          console.log('Deskripsi Notifikasi Diubah Ke : ' + notificationDesc);
+    var button1Title = prompt("Masukkan Nama Untuk Tombol 1 : ");
+          console.log('Tombol-1 Notifikasi Diubah Ke : ' + button1Title);
+    var button2Title = prompt("Masukkan Nama Untuk Tombol 2 : ");
+          console.log('Tombol-2 Notifikasi Diubah Ke : ' + button2Title);
     
-    if (notificationTitle && notificationText && action1Title && action2Title) {
+    if (notificationTitle && notificationDesc && button1Title && button2Title) {
       navigator.serviceWorker.ready
         .then(function (registration) {
           const options = {
-            body: notificationText,
+            body: notificationDesc,
             icon: 'notifications_FILL1_wght700_GRAD200_opsz48.png',
             actions: [
-              { action: 'action-1', title: action1Title },
-              { action: 'action-2', title: action2Title }
+              { action: 'button-1', title: button1Title },
+              { action: 'button-2', title: button2Title }
             ]
           };
           registration.showNotification(notificationTitle, options);
@@ -128,9 +132,9 @@ function sendNotification() {
 }
 
         navigator.serviceWorker.onmessage = event => {
-            if (event.data.action === 'tampilkan_teks') {
+            if (event.data.action === 'notification-data') {
                 const teksElement = document.getElementById('textElement');
-                teksElement.innerHTML = "Judul Notifikasi : " + `${event.data.judul}` + "<br>Pesan Notifikasi : " + `${event.data.isi}` + "<br>Tombol Yang Diklik : " + `${event.data.teks}` + "<br>Ikon Notifikasi : <i class=" + '"material-symbols-outlined"' + ">notifications</i>";
+                teksElement.innerHTML = "Judul Notifikasi : " + `${event.data.title}` + "<br>Deskripsi Notifikasi : " + `${event.data.desc}` + "<br>Tombol Yang Diklik : " + `${event.data.buttonclicked}` + "<br>Ikon Notifikasi : <i class=" + '"material-symbols-outlined"' + ">notifications</i>";
             }
         };
 function extractVideoIDFromURL(url) {
