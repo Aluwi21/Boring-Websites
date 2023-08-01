@@ -22,11 +22,11 @@ Netlify menyediakan rencana gratis yang cukup berfungsi dengan fitur-fitur utama
 Dengan antarmuka pengguna yang ramah dan dukungan yang baik, Netlify menjadi pilihan populer bagi pengembang web untuk menyebarkan situs web statis dengan mudah dan cepat.
 * Source/Sumber : **ChatGPT**
 # Kenapa Harus Netlify? Kan Ada Replit & Glitch
-- Karena Mereka Berdua(Replit & Glitch) Sendiri Sangat **LAMBAT & GAK SUPPORT [`RANGE REQUEST`](https://www.google.com/search?q=what+is+range+request%3F&sxsrf=AB5stBgKx3AGs8PQI9kRpEbFP-sHSNxwZw%3A1689218593669&ei=IW6vZPDEKNuN4-EPxfaw4AI&ved=0ahUKEwiw2eTR3YqAAxXbxjgGHUU7DCwQ4dUDCA4&uact=5&oq=what+is+range+request%3F&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIGCAAQFhAeMgYIABAWEB4yCAgAEBYQHhAKOgcIIxDqAhAnOhUILhADEI8BEOoCELQCEIwDEOUCGAE6FQgAEAMQjwEQ6gIQtAIQjAMQ5QIYAUoECEEYAFDtClj_Q2C_W2gBcAF4AYAB2haIAYJLkgEHNy0xLjAuM5gBAKABAbABFMABAdoBBggBEAEYCw&sclient=gws-wiz-serp)**
+- Karena Mereka Berdua(Replit & Glitch) Sendiri Sangat **LAMBAT & GAK SUPPORT [`RANGE REQUEST`](https://chat.openai.com/share/40170a7e-f694-477c-b580-0f75a08e8ebe)**
 # Tapi Bang, Nanti Kan Ada Yang Ngambil Data Lu
 - Penmikiran Kalian Gitu Amat, Ya Biarin Lah, Kan **Berbagi Itu Indah.**
 # Package & Bahasa Progam
-- Bahasa Program : **[`HTML`](https://www.google.com/search?q=apa+itu+html&sxsrf=AB5stBjfMhBo4i-DbSTsXsNo0GO-es3L3Q%3A1689218827633&ei=C2-vZKKnJuqK4-EPp6-C2Aw&oq=apa+itu+&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQARgAMgcIABCKBRBDMgcIABCKBRBDMgcIABCKBRBDMgcIABCKBRBDMgcIABCKBRBDMgcIABCKBRBDMgcIABCKBRBDMgcIABCKBRBDMgcIABCKBRBDMgcIABCKBRBDOgcIIxDqAhAnOhUIABADEI8BEOoCELQCEIwDEOUCGAE6FQguEAMQjwEQ6gIQtAIQjAMQ5QIYAUoECEEYAFDwFljOMmCfT2gBcAF4AIABwRaIAapEkgEHNi0xLjktM5gBAKABAbABFMABAdoBBggBEAEYCw&sclient=gws-wiz-serp)**, **[`CSS`](https://www.google.com/search?q=apa+itu+css&sxsrf=AB5stBjfMhBo4i-DbSTsXsNo0GO-es3L3Q%3A1689218827633&ei=C2-vZKKnJuqK4-EPp6-C2Aw&oq=apa+itu+&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQARgAMgcIABCKBRBDMgcIABCKBRBDMgcIABCKBRBDMgcIABCKBRBDMgcIABCKBRBDMgcIABCKBRBDMgcIABCKBRBDMgcIABCKBRBDMgcIABCKBRBDMgcIABCKBRBDOgcIIxDqAhAnOhUIABADEI8BEOoCELQCEIwDEOUCGAE6FQguEAMQjwEQ6gIQtAIQjAMQ5QIYAUoECEEYAFDwFljOMmCfT2gBcAF4AIABwRaIAapEkgEHNi0xLjktM5gBAKABAbABFMABAdoBBggBEAEYCw&sclient=gws-wiz-serp)** & **[`JS`](https://www.google.com/search?q=apa+itu+js&sxsrf=AB5stBjfMhBo4i-DbSTsXsNo0GO-es3L3Q%3A1689218827633&ei=C2-vZKKnJuqK4-EPp6-C2Aw&oq=apa+itu+&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQARgAMgcIABCKBRBDMgcIABCKBRBDMgcIABCKBRBDMgcIABCKBRBDMgcIABCKBRBDMgcIABCKBRBDMgcIABCKBRBDMgcIABCKBRBDMgcIABCKBRBDMgcIABCKBRBDOgcIIxDqAhAnOhUIABADEI8BEOoCELQCEIwDEOUCGAE6FQguEAMQjwEQ6gIQtAIQjAMQ5QIYAUoECEEYAFDwFljOMmCfT2gBcAF4AIABwRaIAapEkgEHNi0xLjktM5gBAKABAbABFMABAdoBBggBEAEYCw&sclient=gws-wiz-serp)**
+- Bahasa Program : **[`HTML`](https://chat.openai.com/share/8584bb99-010b-440c-9f89-fbde1df68820)**, **[`CSS`](https://chat.openai.com/share/f27ab303-300b-4add-a17e-0b7d1affaed4)** & **[`JS`](https://chat.openai.com/share/ae295a56-dc79-464f-9c0e-d8483362bd3d)**
 - Package : **`Nothing`**
 # Database?
 - Uh... Selama Ini Aku **GAK PERNAH** Banget Pakek Database Karena Gak Tau Cara Setupnya :v
@@ -35,7 +35,11 @@ Dengan antarmuka pengguna yang ramah dan dukungan yang baik, Netlify menjadi pil
 - Menggunakan Ikon [`Google Icons`](https://fonts.google.com/icons)
 - Ada **`1 Tombol Rahasia Menuju Easter Egg`**
 - Nama Asli Dari [`Boring Websites`](https://boring-websites.netlify.app/) Sebenarnya **`Simple-5`** Ya Karena Aku Punya Repl Terakhir Angka 4, [Cek Replit Ku](https://replit.com/@SyaamilMaulana/), Terus Diganti Ke **`Situs Gabut`** Ya Karena **`Simple-5`** Buriq, Karena Namanya Kek Gak Masuk Akal Akhirnya Diganti Ke ***`Boring-Websites`***.
-- Karena Aku Lebih Suka *All In Three*, Jadi Skrip Jawa & Gaya Kertas Internet **Bukan Terletak** **~~Terletak~~** Di **script.js** & **style.css** Tapi **~~Bukan~~** Di **index.html**
+- Karena Aku Lebih Suka *All In One*, Jadi Skrip Jawa & Gaya Kertas Internet **Bukan Terletak** **~~Terletak~~** Di **script.js** & **style.css** Tapi **~~Bukan~~** Di **index.html**
 - Pakek Skrip Jawa & Gaya Kertas Internet(Yang Sangat Amat Cupu)
+- Kamu Bisa *Mengetahui Cuaca Di Lokasi Mu Bahkan Di Lokasi Pembuat Website Ini, Mengetes **Hardware, Software & Fitur Browser Mu\[`BETA! Kadang Rusak Atau Masih Diperbaiki`\]**, Chatting/Dikusi(Menggunakan Layanan [Giscus](https://giscus.app/)), **1 EASTER EGG...** & Mengetes Kecepatan Internet Mu **\[`BETA! Kadang Rusak Atau Masih Diperbaiki`\]*** Di Website Ini.
+- Ada Sekitar **5 Halaman Website** Yang Mempunyai Fungsi Masing-Masing.
 # Oke Sekian :]
-- Rabu, 19 Juli 2023 06.19
+- Selasa, 1 Agustus 2023 13.42
+# EVENT (MUNGKIN?)
+- Jadi... ***__Event 17-an Agustus__*** Bakal Diadain Pada ***Kamis, 17 Agustus 2023***, Hadiahnya Aku Bakal ***BIKININ DI WEBSITE KU APA YANG KALIAN INGINKAN** Bisa Lansung DM Di Discord Saya "
