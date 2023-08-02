@@ -201,6 +201,7 @@ font-family: 'Ubuntu Mono', monospace;
     </style>
 </head>
 <body>
+  <div id="aio">
   <div id="online-content">
     <p>Situs Gabut Ku!</p>
 <h1><b>SITUS INI DIBUAT DENGAN TUJUAN GABUT, JADI... KAMU DISINI BISA MENGGUNAKAN <code>alert()</code> UNTUK MENGSPAM, BISA MELIHAT KALENDER, WAKTU, MINGGU & KALENDER & WAKTU LOKAL DLL, J4F(JUST FOR FUN)</b></h1>
@@ -263,7 +264,10 @@ check_circle</i>
       Tes Software/Hardware/Browser Mu!
     </button>
           </a>
-    <button onclick="requestNotificationPermission()">kirim notif</button>
+    <button onclick="changeb()">
+      <i class="material-symbols-outlined">dark_mode</i>
+      MODE MALAM
+    </button>
   </div>
   <div id="content">
   <div id="offline-message" class="offline-message">
@@ -286,8 +290,12 @@ wifi_off
   <a href="https://boring-websites.netlify.app/nointernetweb.html" target="_parent">
   <button style="background-color: white; color: white; cursor: help; border-radius: 8px; position: absolute; top: 0; right: 0; border-color: white; transition: none; opacity: -1.0;">.</button>
   </a>
+</div>
   <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
   <script>
+    function changeb() {
+      var x = document.getElementById('aio')
+      x.classList
 function security() {
   var password = "administrator000";
   var promptA = prompt("Masukkan Kata Sandi Sebelum Mengakses Terminal");
