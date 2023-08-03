@@ -259,10 +259,12 @@ check_circle</i>
       Tes Software/Hardware/Browser Mu!
     </button>
           </a>
-    <button id="aaaa" onclick="changeb()">
+    <div id="aaaa">
+    <button onclick="changeb()">
       <i class="material-symbols-outlined">dark_mode</i>
       MODE GELAP
     </button>
+    </div>
   </div>
   <div id="content">
   <div id="offline-message" class="offline-message">
@@ -295,7 +297,7 @@ const body = document.body;
 
 toggleButton.addEventListener("click", function () {
   body.classList.toggle("b-bg");
-  if (body.classList.contains("dark-mode")) {
+  if (body.classList.contains("b-bg")) {
     toggleButton.innerHTML = "<button id=\"aaaa\" onclick=\"changeb()\"><i class=\"material-symbols-outlined\">dark_mode<\/i>MODE GELAP<\/button>";
   } else {
     toggleButton.innerHTML = "<button id=\"aaaa\" onclick=\"changeb()\"><i class=\"material-symbols-outlined\">light_mode<\/i>MODE CERAH<\/button>";
