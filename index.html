@@ -260,7 +260,7 @@ check_circle</i>
     </button>
           </a>
     <button id="aaaa" onclick="changeb()">
-      <i class="material-symbols-outlined">dark_mode</i>
+      <i id="ac" class="material-symbols-outlined">dark_mode</i>
       MODE GELAP
     </button>
   </div>
@@ -292,16 +292,17 @@ wifi_off
     function changeb() {
       const toggleButton = document.getElementById("aaaa");
 const body = document.body;
-const iconElement = toggleButton.querySelector("i");
+const iconElement = document.getElementBuId("ac");
 
 toggleButton.addEventListener("click", function () {
   body.classList.toggle("b-bg");
   if (body.classList.contains("b-bg")) {
-    toggleButton.textContent = "Mode Gelap";
-    iconElement.textContent = "dark_mode"; // Menggunakan ikon "dark_mode" (bulan) dari Google Material Icons
-  } else {
     toggleButton.textContent = "Mode Terang";
-    iconElement.textContent = "light_mode"; // Menggunakan ikon "light_mode" (matahari) dari Google Material Icons
+    iconElement.innerHTML = "<i id=\"ac\" class=\"material-symbols-outlined\">light_mode</i>"; // Menggunakan ikon "dark_mode" (bulan) dari Google Material Icons
+  } else {
+    toggleButton.textContent = "Mode Gelap";
+    iconElement.innerHTML = "<i id=\"ac\" class=\"material-symbols-outlined\">dark_mode</i>"; // Menggunakan ikon "dark_mode" (bulan) dari Google Material Icons
+   // Menggunakan ikon "light_mode" (matahari) dari Google Material Icons
   }
 });
     
