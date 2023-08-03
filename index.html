@@ -261,7 +261,7 @@ check_circle</i>
           </a>
     <button id="aaaa" onclick="changeb()">
       <i class="material-symbols-outlined">dark_mode</i>
-      MODE MALAM
+      MODE GELAP
     </button>
   </div>
   <div id="content">
@@ -287,45 +287,24 @@ wifi_off
   </a>
 </div>
   <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
+  <script src="indexeddb.js"></script>
   <script>
     function changeb() {
-      const dbName = "bgdb";
-const storeName = "storedb";
-const textData = "black";
-
-const request = indexedDB.open(dbName, 1);
-
-request.onupgradeneeded = (event) => {
-  const db = event.target.result;
-  const store = db.createObjectStore(storeName, { keyPath: "id", autoIncrement: true });
-};
-
-request.onsuccess = (event) => {
-  const db = event.target.result;
-  const transaction = db.transaction(storeName, "readwrite");
-  const store = transaction.objectStore(storeName);
-
-  const data = { text: textData };
-  const requestAdd = store.add(data);
-
-  requestAdd.onsuccess = () => {
-    alert("Respon Basis Data IndexedDB : 200 OK Dengan ID : " + requestAdd.result);
-    console.log("Teks berhasil disimpan dengan ID: " + requestAdd.result);
-  };
-};
-      
       const toggleButton = document.getElementById("aaaa");
 const body = document.body;
 
 toggleButton.addEventListener("click", function () {
-  body.classList.toggle("dark-mode");
+  body.classList.toggle("b-bg");
   if (body.classList.contains("dark-mode")) {
-    toggleButton.textContent = "Mode Putih";
+    toggleButton.innerHTML = "<button id=\"aaaa\" onclick=\"changeb()\"><i class=\"material-symbols-outlined\">dark_mode<\/i>MODE GELAP<\/button>";
   } else {
-    toggleButton.textContent = "Mode Hitam";
+    toggleButton.innerHTML = "<button id=\"aaaa\" onclick=\"changeb()\"><i class=\"material-symbols-outlined\">light_mode<\/i>MODE CERAH<\/button>";
+
   }
 });
-    if
+      
+    }
+    
 function security() {
   var password = "administrator000";
   var promptA = prompt("Masukkan Kata Sandi Sebelum Mengakses Terminal");
