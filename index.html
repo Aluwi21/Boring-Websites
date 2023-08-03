@@ -259,10 +259,7 @@ check_circle</i>
       Tes Software/Hardware/Browser Mu!
     </button>
           </a>
-    <button id="ac" class="material-symbols-outlined">dark_mode</button>
-    <button id="aaaa" onclick="changeb()">
-        MODE GELAP
-    </button>
+    <button id="b" class="material-symbols-outlined">dark_mode</button>
   </div>
   <div id="content">
   <div id="offline-message" class="offline-message">
@@ -290,20 +287,18 @@ wifi_off
   <script src="indexeddb.js"></script>
   <script>
     function changeb() {
-      const toggleButton = document.getElementById("aaaa");
+      const toggleButton = document.getElementById("b");
 const body = document.body;
-const iconElement = document.getElementById("ac");
 
 toggleButton.addEventListener("click", function () {
   body.classList.toggle("b-bg");
   if (body.classList.contains("b-bg")) {
-    toggleButton.textContent = "Mode Terang";
-    iconElement.innerHTML = "<i id=\"ac\" class=\"material-symbols-outlined\">light_mode</i>"; // Menggunakan ikon "dark_mode" (bulan) dari Google Material Icons
-  } else {
-    toggleButton.textContent = "Mode Gelap";
-    iconElement.innerHTML = "<i id=\"ac\" class=\"material-symbols-outlined\">dark_mode</i>"; // Menggunakan ikon "dark_mode" (bulan) dari Google Material Icons
-   // Menggunakan ikon "light_mode" (matahari) dari Google Material Icons
-  }
+    toggleButton.innerHTML = "<button id=\"b\" class=\"material-symbols-outlined\">dark_mode</button>
+";
+     } else {
+    toggleButton.innerHTML = "<button id=\"b\" class=\"material-symbols-outlined\">light_mode</button>
+";
+      }
 });
     
       
