@@ -189,11 +189,7 @@ animation: animation1 1s linear infinite;
 }
 marquee {
 font-family: 'Ubuntu Mono', monospace;
-}
-      .w-bg {
-        color: black;
-        background-color: white;
-      }
+    }
       .b-bg {
         color: white;
         background-color: black;
@@ -201,7 +197,6 @@ font-family: 'Ubuntu Mono', monospace;
     </style>
 </head>
 <body>
-  <div id="aio">
   <div id="online-content">
     <p>Situs Gabut Ku!</p>
 <h1><b>SITUS INI DIBUAT DENGAN TUJUAN GABUT, JADI... KAMU DISINI BISA MENGGUNAKAN <code>alert()</code> UNTUK MENGSPAM, BISA MELIHAT KALENDER, WAKTU, MINGGU & KALENDER & WAKTU LOKAL DLL, J4F(JUST FOR FUN)</b></h1>
@@ -264,7 +259,7 @@ check_circle</i>
       Tes Software/Hardware/Browser Mu!
     </button>
           </a>
-    <button onclick="changeb()">
+    <button id="aaaa" onclick="changeb()">
       <i class="material-symbols-outlined">dark_mode</i>
       MODE MALAM
     </button>
@@ -319,9 +314,18 @@ request.onsuccess = (event) => {
   };
 };
       
-      var x = document.getElementById('aio')
-      x.classList.add("b-bg")
-      if (
+      const toggleButton = document.getElementById("aaaa");
+const body = document.body;
+
+toggleButton.addEventListener("click", function () {
+  body.classList.toggle("dark-mode");
+  if (body.classList.contains("dark-mode")) {
+    toggleButton.textContent = "Mode Putih";
+  } else {
+    toggleButton.textContent = "Mode Hitam";
+  }
+});
+    if
 function security() {
   var password = "administrator000";
   var promptA = prompt("Masukkan Kata Sandi Sebelum Mengakses Terminal");
@@ -812,4 +816,5 @@ function showPrompt() {
 
 </script>
   <noscript>AKTIFKAN SKRIP JAWA!!!!</noscript>
+</body>
 </html>
