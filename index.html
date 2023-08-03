@@ -292,16 +292,19 @@ wifi_off
     function changeb() {
       const toggleButton = document.getElementById("aaaa");
 const body = document.body;
+const iconElement = toggleButton.querySelector("i");
 
 toggleButton.addEventListener("click", function () {
   body.classList.toggle("b-bg");
   if (body.classList.contains("b-bg")) {
-    toggleButton.innerHTML = "<button id=\"aaaa\" onclick=\"changeb()\"><i class=\"material-symbols-outlined\">dark_mode<\/i>MODE GELAP<\/button>";
+    toggleButton.textContent = "Mode Gelap";
+    iconElement.textContent = "dark_mode"; // Menggunakan ikon "dark_mode" (bulan) dari Google Material Icons
   } else {
-    toggleButton.innerHTML = "<button id=\"aaaa\" onclick=\"changeb()\"><i class=\"material-symbols-outlined\">light_mode<\/i>MODE CERAH<\/button>";
-
+    toggleButton.textContent = "Mode Terang";
+    iconElement.textContent = "light_mode"; // Menggunakan ikon "light_mode" (matahari) dari Google Material Icons
   }
 });
+    
       
     }
     
