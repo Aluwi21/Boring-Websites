@@ -288,20 +288,20 @@ wifi_off
   <script>
     function changeb() {
       const toggleButton = document.getElementById("b");
-const body = document.body;
+      const body = document.body;
 
-toggleButton.addEventListener("click", function () {
-  body.classList.toggle("b-bg");
-  if (body.classList.contains("b-bg")) {
-    toggleButton.innerHTML = "<button id=\"b\" class=\"material-symbols-outlined\">dark_mode</button>";
-     } else {
-    toggleButton.innerHTML = "<button id=\"b\" class=\"material-symbols-outlined\">light_mode</button>";
-      }
-});
-    
-      
+      toggleButton.addEventListener("click", function () {
+        body.classList.toggle("b-bg");
+        if (body.classList.contains("b-bg")) {
+          toggleButton.innerHTML = "dark_mode";
+        } else {
+          toggleButton.innerHTML = "light_mode";
+        }
+      });
     }
-    
+
+    // Panggil fungsi untuk mengaktifkan perubahan tema
+    changeb();
 function security() {
   var password = "administrator000";
   var promptA = prompt("Masukkan Kata Sandi Sebelum Mengakses Terminal");
