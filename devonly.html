@@ -8,6 +8,7 @@
       <textarea id="inputt" placeholder="search here!" required></textarea>
       <button onclick="callit()">submit</button>
       <div id="gif-container">
+        <div id="img"></div>
       </div>
     </div>
   </body>
@@ -37,8 +38,8 @@ function callit() {
 
                   data.data.forEach((gif) => {
                       const gifUrl = gif.embed_url;
-                    alert(gifUrl)
-                      const img = document.createElement('img');
+                  
+                      const img = document.getElementById('img');
                       img.src = gifUrl;
                       gifContainer.appendChild(img);
                   });
