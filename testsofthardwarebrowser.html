@@ -162,8 +162,7 @@ wifi_off
     <br>
     <footer>*Note : Ini Baru Halaman Asli Dari <bold>Boring-Websites</bold> Saat Kamu <bold>Offline</bold></footer></footer>
     </div>
-  </div>
-        </div>
+                </div>
   <script>
           // Memeriksa status koneksi saat halaman dimuat
         window.addEventListener('load', function() {
@@ -264,7 +263,7 @@ function sendNotification() {
         navigator.serviceWorker.onmessage = event => {
             if (event.data.action === 'notification-data') {
                 const teksElement = document.getElementById('textElement');
-                teksElement.innerHTML = "Judul Notifikasi : " + `${event.data.title}` + "<br>Deskripsi Notifikasi : " + `${event.data.desc}` + "<br>Tombol Yang Diklik : " + `${event.data.buttonclicked}` + "<br>Ikon Notifikasi : <i class=" + '"material-symbols-outlined"' + ">notifications</i>";
+                teksElement.innerHTML = "Judul Notifikasi : " + `${event.data.title}` + "<br>Deskripsi Notifikasi : " + `${event.data.desc}` + "<br>Tombol Yang Diklik : " + `${event.data.buttonclicked}` + "<br>Ikon Notifikasi : <i class=" + '"material-symbols-rounded"' + ">notifications</i>";
             }
         };
 function extractVideoIDFromURL(url) {
