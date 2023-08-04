@@ -6,6 +6,7 @@
   <body>
     <div id="BODYYYYYYYYYYY">
       <textarea id="inputt" placeholder="search here!" required></textarea>
+      <button onclick="callit()">submit</button>
       <div id="gif-container">
       </div>
     </div>
@@ -20,6 +21,7 @@
       alert("RESPOND 404 : NOT FOUND!")
      allbody.innerHTML = "<a href=\"https://boring-websites.netlify.app/\" target=\"_parent\">GO BACK YOU F##K!(i apologize you because im toxic that mean you not allowed to go this page)</a>" 
     }
+    function callit() {
     // Ganti 'YOUR_API_KEY' dengan API Key yang Anda dapatkan dari GIPHY
     const inputaa = document.getElementById("inputt").value;
     if (inputaa) {
@@ -28,7 +30,8 @@
 
         // URL untuk memuat data dari API GIPHY
         const apiUrl = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${searchTerm}`;
-
+fetchAndDisplayGIFs()
+    }
         // Fungsi untuk mengambil data dari API dan menampilkan GIF
         async function fetchAndDisplayGIFs() {
             try {
