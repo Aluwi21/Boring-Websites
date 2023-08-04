@@ -12,47 +12,43 @@
     </div>
   </body>
   <script>
-    const imput = prompt("Enter PIN : ")
-    const pwreal = "0101"
-    if (imput === pwreal) {
-      alert("RESPOND 200 : OK!")
-    } else if (imput !== pwreal) {
-      const allbody = document.getElementById("BODYYYYYYYYYYY")
-      alert("RESPOND 404 : NOT FOUND!")
-     allbody.innerHTML = "<a href=\"https://boring-websites.netlify.app/\" target=\"_parent\">GO BACK YOU F##K!(i apologize you because im toxic that mean you not allowed to go this page)</a>" 
-    }
-    function callit() {
-    // Ganti 'YOUR_API_KEY' dengan API Key yang Anda dapatkan dari GIPHY
-    const inputaa = document.getElementById("inputt").value;
-    if (inputaa) {
-        const apiKey = 'Xs3PXyI3zyVLI9ZTWugSYOMMVFp5n3W1';
-        const searchTerm = inputaa; // Ganti dengan kata kunci pencarian Anda
+      const imput = prompt("Enter PIN : ")
+      const pwreal = "0101"
+      if (imput === pwreal) {
+        alert("RESPOND 200 : OK!")
+      } else if (imput !== pwreal) {
+        const allbody = document.getElementById("BODYYYYYYYYYYY");
+        alert("RESPOND 404 : NOT FOUND!")
+        allbody.innerHTML = "<a href=\"https://boring-websites.netlify.app/\" target=\"_parent\">GO BACK YOU F##K!(i apologize you because im toxic that mean you not allowed to go this page)</a>";
+        return;
+      }
+function callit() {
+      const inputaa = document.getElementById("inputt").value;
+      if (inputaa) {
+          const apiKey = 'Xs3PXyI3zyVLI9ZTWugSYOMMVFp5n3W1';
+          const searchTerm = inputaa;
+          const apiUrl = "https://api.giphy.com/v1/gifs/search?api_key=" + apiKey + "&q=" + searchTerm;
 
-        // URL untuk memuat data dari API GIPHY
-        const apiUrl = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${searchTerm}`;
-fetchAndDisplayGIFs()
-    }
-        // Fungsi untuk mengambil data dari API dan menampilkan GIF
-        async function fetchAndDisplayGIFs() {
-            try {
-                const response = await fetch(apiUrl);
-                const data = await response.json();
-                const gifContainer = document.getElementById('gif-container');
+          async function fetchAndDisplayGIFs() {
+              try {
+                  const response = await fetch(apiUrl);
+                  const data = await response.json();
+                  const gifContainer = document.getElementById('gif-container');
 
-                data.data.forEach((gif) => {
-                    const gifUrl = gif.images.fixed_height.url;
-                    const img = document.createElement('img');
-                    img.src = gifUrl;
-                    gifContainer.appendChild(img);
-                });
-            } catch (error) {
-              alert("There is a problem when fetching the data!");
-              console.error('error when fetching the data.');
-            }
-        }
+                  data.data.forEach((gif) => {
+                      const gifUrl = gif.images.fixed_height.url;
+                      const img = document.createElement('img');
+                      img.src = gifUrl;
+                      gifContainer.appendChild(img);
+                  });
+              } catch (error) {
+                alert("There is a problem when fetching the data!");
+                console.error('error when fetching the data.');
+              }
+          }
+
+          fetchAndDisplayGIFs();
+      }
     }
-        // Panggil fungsi untuk mengambil dan menampilkan GIF
-        fetchAndDisplayGIFs();
-    
   </script>
 </html>
