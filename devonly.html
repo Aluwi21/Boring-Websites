@@ -20,13 +20,13 @@
         const allbody = document.getElementById("BODYYYYYYYYYYY");
         alert("RESPOND 404 : NOT FOUND!")
         allbody.innerHTML = "<a href=\"https://boring-websites.netlify.app/\" target=\"_parent\">GO BACK YOU F##K!(i apologize you because im toxic that mean you not allowed to go this page)</a>";
-        return;
       }
 function callit() {
       const inputaa = document.getElementById("inputt").value;
       if (inputaa) {
           const apiKey = 'Xs3PXyI3zyVLI9ZTWugSYOMMVFp5n3W1';
           const searchTerm = inputaa;
+        alert(inputaa)
           const apiUrl = "https://api.giphy.com/v1/gifs/search?api_key=" + apiKey + "&q=" + searchTerm;
 
           async function fetchAndDisplayGIFs() {
@@ -36,7 +36,7 @@ function callit() {
                   const gifContainer = document.getElementById('gif-container');
 
                   data.data.forEach((gif) => {
-                      const gifUrl = gif.images.fixed_height.url;
+                      const gifUrl = gif.images.url;
                       const img = document.createElement('img');
                       img.src = gifUrl;
                       gifContainer.appendChild(img);
