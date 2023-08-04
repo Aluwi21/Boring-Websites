@@ -36,7 +36,8 @@ function callit() {
                   const gifContainer = document.getElementById('gif-container');
 
                   data.data.forEach((gif) => {
-                      const gifUrl = gif.images.url;
+                      const gifUrl = gif.embed_url;
+                    alert(gifUrl)
                       const img = document.createElement('img');
                       img.src = gifUrl;
                       gifContainer.appendChild(img);
