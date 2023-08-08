@@ -37,7 +37,7 @@ function callit() {
                   const gifContainer = document.getElementById('gif-container');
 
                   data.data.forEach((gif) => {
-                      const gifUrl = gif.fixed_height.url;
+                      const gifUrl = gif.images.fixed_height.url;
                   
                       const img = document.createElement('img');
                       img.src = gifUrl;
