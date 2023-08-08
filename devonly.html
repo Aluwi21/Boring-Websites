@@ -40,9 +40,9 @@ function callit() {
                   data.data.forEach((gif) => {
                       const gifUrl = gif.fixed_height.url;
                   
-                      const img = document.createElement('img');
-                      img.src = gifUrl;
-                      gifContainer.appendChild(img);
+                      const video = document.createElement('video');
+                      video.src = gifUrl;
+                      gifContainer.appendChild(video);
                   });
               } catch (error) {
                 alert("There is a problem when fetching the data!");
