@@ -10,8 +10,7 @@
       <div id="gif-container">
         
       </div>
-      <img src="https://media1.giphy.com/media/ICOgUNjpvO0PC/200.gif?cid=b3744457qnctqhq637k0oe7wbgmidocfm2rsmzwquyp6xwns&ep=v1_gifs_search&rid=200.gif&ct=g"></img>
-    </div>
+          </div>
   </body>
   <script>
       const imput = prompt("Enter PIN : ")
@@ -40,9 +39,9 @@ function callit() {
                   data.data.forEach((gif) => {
                       const gifUrl = gif.fixed_height.url;
                   
-                      const video = document.createElement('video');
-                      video.src = gifUrl;
-                      gifContainer.appendChild(video);
+                      const img = document.createElement('img');
+                      img.src = gifUrl;
+                      gifContainer.appendChild(img);
                   });
               } catch (error) {
                 alert("There is a problem when fetching the data!");
