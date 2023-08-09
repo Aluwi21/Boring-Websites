@@ -5,8 +5,9 @@
   </head>
   <body>
     <div id="BODYYYYYYYYYYY">
-      <textarea id="inputt" placeholder="search here!" required></textarea>
-      <button onclick="callit()">submit</button>
+      <textarea id="inputt" placeholder="Cari GIF Disini! (Powered By Giphy)" required></textarea>
+      <button onclick="callit()">Submit</button>
+      
       <div id="gif-container">
         
       </div>
@@ -39,9 +40,7 @@ function callit() {
                   data.data.forEach((gif) => {
                       const gifUrl = gif.images.fixed_height.url;
                   
-                      const img = document.createElement('img');
-                      img.src = gifUrl;
-                      gifContainer.appendChild(img);
+                      gifContainer.innerHTML = "<a href=\"" + gifUrl + "\" target=\"_blank\"><img src=\"" + gifUrl + "\"></a>";
                   });
               } catch (error) {
                 alert("There is a problem when fetching the data!");
