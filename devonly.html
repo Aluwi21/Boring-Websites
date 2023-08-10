@@ -2,6 +2,11 @@
 <html>
   <head>
     <title>DEVELOPER ONLY!</title>
+    <style>
+      .color {
+        font-color: red;
+      }
+    </style>
   </head>
   <body>
     <div id="BODYYYYYYYYYYY">
@@ -9,19 +14,19 @@
       <button onclick="callit()">Submit</button>
       
       <div id="gif-container">
-        
+        <marquee class="color"><bold><italic>INI HANYA SEMENTARA!</italic></bold></marquee>
       </div>
     </div>
   </body>
   <script>
     const imput = prompt("Enter PIN : ")
-    const pwreal = "0101"
+    const pwreal = "1111"
     if (imput === pwreal) {
-      alert("RESPOND 200 : OK!")
+      alert("Login As Syaamil_Maulana...")
     } else if (imput !== pwreal) {
       const allbody = document.getElementById("BODYYYYYYYYYYY");
-      alert("RESPOND 404 : NOT FOUND!")
-      allbody.innerHTML = "<a href=\"https://boring-websites.netlify.app/\" target=\"_parent\">GO BACK YOU F##K!(i apologize you because im toxic that mean you not allowed to go this page)</a>";
+      alert("No Account Associated With Your PIN Entered.")
+      allbody.innerHTML = "<a href=\"https://boring.webdites.netkify.app\" target=\"_parent\"><button>Go Back</button></a>"
     }
     function callit() {
       const inputaa = document.getElementById("inputt").value;
