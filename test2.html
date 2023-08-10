@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mode Terang & Gelap</title>
+    <style>
+      .light-mode {
+        color: black;
+        background-color: white;
+      }
+      .dark-mode {
+        color: white;
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="toggleButton">Toggle Mode</button>
+
+    <script>
+      const toggleButton = document.getElementById('toggleButton');
+      const body = document.body;
+
+      // Fungsi untuk membuka/membuat database IndexedDB
+      async function openDB() {
+        return await indexedDB.open('modeDB', 1);
+      }
+
+      // Fungsi untuk mengambil preferensi mode dari IndexedDB
+      async function getMode() {
+        const db = await openDB();
+        const transaction = db.transaction('modeStore', 'readonly');
+        const store = transaction.objectStore('modeStore');
+        const mode = await store.get(1);
+        return mode ? mode.value : null;
+      }
+
+      // Fungsi untuk menyimpan preferensi mode ke IndexedDB
+      async function setMode(mode) {
+        const db = await openDB();
+        const transaction = db.transaction('modeStore', 'readwrite');
+        const store = transaction.objectStore('modeStore');
+        await store.put({ id: 1, value: mode });
+      }
+
+      async function applyMode() {
+        const mode = await getMode();
+        if (mode === 'dark-mode') {
+          body.classList.add('dark-mode');
+        } else {
+          body.classList.remove('dark-mode');
+        }
+      }
+
+      async function toggleMode() {
+        if (body.classList.contains('dark-mode')) {
+          await setMode('light-mode');
+        } else {
+          await setMode('dark-mode');
+        }
+        applyMode();
+      }
+
+      toggleButton.addEventListener('click', toggleMode);
+
+      // Menerapkan mode saat halaman dimuat
+      applyMode();
+    </script>
+  </body>
+</html>
