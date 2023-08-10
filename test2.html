@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Mode Terang & Gelap</title>
+    <title>Test Mode</title>
     <style>
-      .light-mode {
-        color: black;
-        background-color: white;
+      /* Gaya untuk mode terang */
+      body {
+        background-color: #ffffff;
+        color: #000000;
       }
-      .dark-mode {
-        color: white;
-        background-color: black;
+
+      /* Gaya untuk mode gelap */
+      body.dark-mode {
+        background-color: #000000;
+        color: #ffffff;
       }
     </style>
   </head>
@@ -20,27 +23,57 @@
       const toggleButton = document.getElementById('toggleButton');
       const body = document.body;
 
-      // Fungsi untuk membuka/membuat database IndexedDB
       async function openDB() {
-        return await indexedDB.open('modeDB', 1);
+        return new Promise((resolve, reject) => {
+          const request = indexedDB.open('modeDB', 1);
+
+          request.onupgradeneeded = (event) => {
+            const db = event.target.result;
+            if (!db.objectStoreNames.contains('modeStore')) {
+              db.createObjectStore('modeStore', { keyPath: 'id' });
+            }
+          };
+
+          request.onsuccess = () => {
+            resolve(request.result);
+          };
+
+          request.onerror = () => {
+            reject(request.error);
+          };
+        });
       }
 
-      // Fungsi untuk mengambil preferensi mode dari IndexedDB
       async function getMode() {
         const db = await openDB();
-        const transaction = db.transaction('modeStore', 'readonly');
-        const store = transaction.objectStore('modeStore');
-        const mode = await store.get(1);
-        return mode ? mode.value : null;
+        return new Promise((resolve, reject) => {
+          const transaction = db.transaction(['modeStore'], 'readonly');
+          const store = transaction.objectStore('modeStore');
+          const request = store.get(1);
+          request.onsuccess = () => {
+            resolve(request.result ? request.result.value : null);
+          };
+          request.onerror = () => {
+            reject(request.error);
+          };
+        });
       }
 
-      // Fungsi untuk menyimpan preferensi mode ke IndexedDB
       async function setMode(mode) {
         const db = await openDB();
-        const transaction = db.transaction('modeStore', 'readwrite');
-        const store = transaction.objectStore('modeStore');
-        await store.put({ id: 1, value: mode });
+        return new Promise((resolve, reject) => {
+          const transaction = db.transaction(['modeStore'], 'readwrite');
+          const store = transaction.objectStore('modeStore');
+          const request = store.put({ id: 1, value: mode });
+          request.onsuccess = () => {
+            resolve();
+          };
+          request.onerror = () => {
+            reject(request.error);
+          };
+        });
       }
+
 
       async function applyMode() {
         const mode = await getMode();
