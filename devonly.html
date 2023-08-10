@@ -4,29 +4,34 @@
     <title>DEVELOPER ONLY!</title>
     <style>
       .color {
-        font-color: red;
+        color: red;
       }
     </style>
   </head>
   <body>
     <div id="BODYYYYYYYYYYY">
+      <marquee class="color">⚠️ INI HANYA SEMENTARA! ⚠️</marquee>
+      <h id="login"></h>
       <textarea id="inputt" placeholder="Cari GIF Disini! (Powered By Giphy)" required></textarea>
       <button onclick="callit()">Submit</button>
       
       <div id="gif-container">
-        <marquee class="color"><bold><italic>INI HANYA SEMENTARA!</italic></bold></marquee>
-      </div>
+        </div>
     </div>
   </body>
   <script>
     const imput = prompt("Enter PIN To Login : ")
     const pwreal = "1111"
     if (imput === pwreal) {
-      alert("Login As Syaamil_Maulana...")
+      alert("Login As Syaamil_Maulana | 🔓 UNLOCKED ACCOUNT / ADMINISTRATOR 🔓")
+      const ses = document.getElementById("login");
+ses.textContent = "Login Sebagai Syaamil_Maulana | 🔓 ADMINISTRATOR 🔓";
+      
     } else if (imput !== pwreal) {
       const allbody = document.getElementById("BODYYYYYYYYYYY");
-      alert("No Account Associated With Your PIN Entered.")
-      allbody.innerHTML = "<a href=\"https://boring-websites.netlify.app\" target=\"_parent\"><button>Go Back</button></a>"
+       alert("Login As User | 🔒 LOCKED ACCOUNT!, PERMISSION BLOCKED 🔒")
+      allbody.innerHTML = "<h>Login Sebagai User | 🔒 LOCKED ACCOUNT 🔒</h><br><a href=\"https://boring-websites.netlify.app\" target=\"_parent\"><button>Go Back</button></a>"
+      
     }
     function callit() {
       const inputaa = document.getElementById("inputt").value;
