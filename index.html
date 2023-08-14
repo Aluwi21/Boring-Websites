@@ -130,6 +130,19 @@ footer {
     cursor: pointer;
     padding: 10px 20px;
     }
+      @keyframes idcolor {
+        0% {
+          color: white;
+          background-color: white;
+        }
+        100% {
+          color: red;
+          background-color: red;
+        }
+      }
+      .idcolors {
+        animation: idcolor 5s linear infinite;
+      }
 .marquee-containerr {
 width: 100%;
 overflow: hidden;
@@ -210,13 +223,17 @@ font-family: 'Ubuntu Mono', monospace;
   <button  style="cursor:pointer; border-radius: 16px; background-color: #fc3003; box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); padding: 10px 20px;" onclick="showAlertSPAM()">Spam <code>alert()</code>!</button>
   <br>
   </br>
-  <button style="cursor:pointer; border-radius: 16px; background-color: #008CBA; box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); position: absolute; top: 0; left: 0px; display: inline-block; padding: 5px 10px; margin-right: 5px; z-index: 1;" onclick="refresh()" class="material-symbols-rounded">
+  <button style="cursor:pointer; border-radius: 16px; background-color: #008CBA; box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); position: absolute; top: 0; left: 0; display: inline-block; padding: 5px 10px; margin-right: 5px; z-index: 1;" onclick="refresh()" class="material-symbols-rounded">
     refresh
   </button>
-  <button style="cursor:pointer; border-radius: 16px; background-color: #00eeff; box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); position: absolute; top: 0; left: 50px; display: inline-block; padding: 5px 10px; margin-right: 5px; z-index: 1;" onclick="security()" class="material-symbols-rounded">
+  <button style="cursor:pointer; border-radius: 16px; background-color: #00eeff; box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); position: absolute; top: 0; left: 50; display: inline-block; padding: 5px 10px; margin-right: 5px; z-index: 1;" onclick="security()" class="material-symbols-rounded">
     terminal
   </button>
-    
+    <a href="https://boring-websites.netlify.app/event" target="_parent">
+      <button class="idcolors" style="cursor:pointer; border-radius: 16px; box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); position: absolute; top: 0; left: 100; display: inline-block; padding: 5px 10px; margin-right: 5px; z-index: 1;" onclick="security()">
+        <i class="material-symbols-rounded">event</i>
+        Acara
+      </button>
     <a href="https://boring-websites.netlify.app/defaultweather" target="_parent">
     <button style="cursor:pointer; border-radius: 16px; background-color: #99ff00; box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); position: absolute; top: 0; left: 100px; display: inline-block; padding: 5px 10px; margin-right: 10px; z-index: 1;" class="material-symbols-rounded">
 cloud</button>
