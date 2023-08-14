@@ -137,20 +137,22 @@ font-family: 'Ubuntu Mono', monospace;
   <button onclick="getCamNMic()"> Tes Kamera+Mikrofon Mu!</button>
  <button onclick="getLocation()">Tes Lokasi Mu!</button>
                          <button id="recordButton" class="not-recording" onclick="toggleRecording()">Tes Layar Mu!(Gak Pakek WebRTC Karena Aku Noob :v)</button>
-                         <button style="cursor:pointer; border-radius: 800px; background-color: #008CBA; box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); position: absolute; top: 0; right: 0; display: inline-block; padding: 5px 10px; margin-right: 5px; z-index: 1;" onclick="refresh()" class="material-symbols-rounded">
+                         <button style="cursor:pointer; border-radius: 16px; background-color: #008CBA; box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); position: absolute; top: 0px; right: 0px; display: inline-block; padding: 5px 10px; margin-right: 5px; z-index: 1;" onclick="refresh()" class="material-symbols-rounded">
 refresh</button>
                          <a href="https://boring-websites.netlify.app" target="_parent">
-    <button style="cursor:pointer; border-radius: 800px; background-color: blue; box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); position: absolute; top: 0; right: 50px; display: inline-block; padding: 5px 10px; margin-right: 5px; z-index: 1;" class="material-symbols-rounded">arrow_back_ios</button>
+    <button style="cursor:pointer; border-radius: 16px; background-color: cyan; box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); position: absolute; top: 0px; right: 50px; display: inline-block; padding: 5px 10px; margin-right: 5px; z-index: 1;" class="material-symbols-rounded">arrow_back_ios</button>
                          </a>
                          <div id="container"></div>
     <div id="waktu"></div>
                          <br>
-                         <button onclick="playYouTubeVideo()">Tes &ltiframe&gt Di Browser Mu! (Sumber Aksi : Youtube)</button>
+                         <button onclick="playiframe()">Tes &ltiframe&gt Di Browser Mu!</button>
                 <br>
                 <div id="textElement"></div>
                 <br>
                 <button onclick="requestNotificationPermission()">Tes Notifikasi Mu!(Service-Worker, Notification API & Push API)</button>
+                 <button onclick="sendtoteleg()">Kirim Teks Ke Bot Telegram!<a href
                  </div>
+
                 <div id="offline-content" class="offline-message">
 <div class="marquee-containerr">
 <marquee behavior="scroll" directions="left" class="color-changing">
@@ -233,7 +235,7 @@ function sendNotification() {
     var button2Title = prompt("Masukkan Nama Untuk Tombol 2 : ");
           
     
-    if (notificationTitle && notificationDesc && button1Title && button2Title) {
+if (notificationTitle && notificationDesc && button1Title && button2Title) {
                 console.log('Judul Notifikasi Diubah Ke : ' + notificationTitle);
                 console.log('Deskripsi Notifikasi Diubah Ke : ' + notificationDesc);
                 console.log('Tombol-1 Notifikasi Diubah Ke : ' + button1Title);
@@ -270,47 +272,23 @@ function sendNotification() {
                 teksElement.innerHTML = "Judul Notifikasi : " + `${event.data.title}` + "<br>Deskripsi Notifikasi : " + `${event.data.desc}` + "<br>Tombol Yang Diklik : " + `${event.data.buttonclicked}` + "<br>Ikon Notifikasi : <i class=" + '"material-symbols-rounded"' + ">notifications</i>";
             }
         };
-function extractVideoIDFromURL(url) {
-  // Regex untuk mendeteksi Video ID dari URL YouTube (termasuk URL pendek)
-  const regex = /(?:youtu\.be\/|youtube(?:-nocookie)?\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/;
-  const match = url.match(regex);
-  return match ? match[1] : null;
-}
-
-function isValidVideoID(input) {
-  // Regex untuk mendeteksi VIDEO_ID YouTube yang valid (11 karakter alfanumerik)
-  const regex = /^[a-zA-Z0-9_-]{11}$/;
-  return regex.test(input);
-}
-
-function playYouTubeVideo() {
-  const userInput = prompt("Masukkan URL/Link Video YouTube Untuk Mengetes /<iframe/> Browser Mu :");
-
-  if (userInput === null) {
-    alert("Kamu Membatalkan Tes.");
-    console.log('Canceled.');
-    return;
-  }
-
-  // Ekstrak Video ID dari URL
-  const videoID = extractVideoIDFromURL(userInput);
-
-  if (videoID && isValidVideoID(videoID)) {
-    // Jika Video ID valid, sematkan video YouTube menggunakan iframe
-    const videoIframe = document.createElement('iframe');
+function play iframe() {
+        const link = prompt("Masukkan Link Website(Sembarang) : ", "https://yandex... :v");
+        if (link.startsWith("https") || link.startsWith("http")) {
+        const videoIframe = document.createElement('iframe');
     videoIframe.width = "560";
     videoIframe.height = "315";
-    videoIframe.src = `https://www.youtube.com/embed/${videoID}`;
+    videoIframe.src = link;
     videoIframe.frameBorder = "0";
     videoIframe.allow = "autoplay; encrypted-media";
     videoIframe.allowFullscreen = true;
 
     document.body.appendChild(videoIframe);
   } else {
-    alert("URL/Link Youtube Yang Kamu Berikan Tidak Valid Atau Tidak Mengandung ID Video YouTube!");
-    console.error('Invalid URL/Link Youtube.');
+    alert("Link Website Yang Kamu Berikan Tidak Mengandung \"Https / Http\"!");
+    console.error('Invalid Link.');
   }
-          }
+}
           
           function refresh() {
                   location.reload();
