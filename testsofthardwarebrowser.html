@@ -171,11 +171,10 @@ wifi_off
                 </div>
   <script>
           function sendtoteleg() {
-      function sendMessage() {
         const botToken = '5906990752:AAHv8iFSmHu4MC4SM_IB3EZSiyTLxaZULvM';
-        const chatId = 'YOUR_CHAT_ID'; // Anda dapat menemukan ID obrolan dengan Bot Telegram lainnya atau grup
-        const message = 'Halo dari website!';
-
+        const chatId = '-1001983705713'; // Anda dapat menemukan ID obrolan dengan Bot Telegram lainnya atau grup
+        const message = prompt("Masukkan Teks Untuk Dikirim Ke Telegram Bot : ");
+if (message) {
         const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
         const data = new URLSearchParams();
         data.append('chat_id', chatId);
@@ -190,13 +189,19 @@ wifi_off
         })
           .then((response) => response.json())
           .then((data) => {
-            console.log('Pesan terkirim:', data);
+            alert("Berhasil Dikirim!", data)
+                  console.log("successfully", data)
           })
           .catch((error) => {
-            console.error('Gagal mengirim pesan:', error);
+                  alett("Gagal Dikirim!", error)
+            console.error("unsuccessfully", error);
           });
-      }
-
+      
+      } else {
+              alert("Masukkan Input Yang Valid!")
+              console.error("invalid input")
+                }
+          }
           // Memeriksa status koneksi saat halaman dimuat
         window.addEventListener('load', function() {
             var offlineContent = document.getElementById('online-content');
