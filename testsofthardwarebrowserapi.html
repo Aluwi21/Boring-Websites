@@ -212,7 +212,13 @@ wifi_off
           const fileType = file.type.includes('image') ? 'gambar' : file.type.includes('audio') ? 'audio' : file.type.includes('video') ? 'video' : 'file';
           alert(`File Yang Diberikan Adalah ${fileType} : ${file.name}`);
         }
+              if (fileType === 'video') {
+              sendTelegramRequest('sendVideo', { chat_id: chatId, video: file });
+          } else if (fileTyoe === 'audio') {
+                      sendTelegramRequest('sendAudio', { chat_id: chatId, audio: file });
       }
+      
+           }
 
       function sendFile() {
         const fileInput = document.getElementById("fileInput");
