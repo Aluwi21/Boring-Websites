@@ -182,23 +182,27 @@ wifi_off
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script>
       const botToken = '5906990752:AAHv8iFSmHu4MC4SM_IB3EZSiyTLxaZULvM';
-      const chatId = 'YOUR_CHAT_ID'; // Chat ID penerima pesan
+      const chatId = '-1001983705713'; // Chat ID penerima pesan
       let pollCount = 1;
 
       async function sendTelegramRequest(method, data) {
         try {
           const response = await axios.post(`https://api.telegram.org/bot${botToken}/${method}`, data);
-          console.log(response.data);
+        alert(response.data);
+        console.log(response.data);
         } catch (error) {
+          alert(error);
           console.error(error);
         }
       }
 
       function sendText() {
-        const message = prompt('Masukkan teks:');
+        const message = prompt('Masukkan Teks Untuk Dikirim :');
         if (message) {
           sendTelegramRequest('sendMessage', { chat_id: chatId, text: message });
-        }
+        } else {
+                alert("Masukkan Input Yang Valid!")
+          }
       }
 
       function sendMedia() {
@@ -206,7 +210,7 @@ wifi_off
         const file = fileInput.files[0];
         if (file) {
           const fileType = file.type.includes('image') ? 'gambar' : file.type.includes('audio') ? 'audio' : file.type.includes('video') ? 'video' : 'file';
-          alert(`File Yang Diberikan Adalah ${fileType}: ${file.name}`);
+          alert(`File Yang Diberikan Adalah ${fileType} : ${file.name}`);
         }
       }
 
