@@ -150,15 +150,25 @@ refresh</button>
                 <div id="textElement"></div>
                 <br>
                 <button onclick="requestNotificationPermission()">Tes Notifikasi Mu!(Service-Worker, Notification API & Push API)</button>
+                         <br>
                  <button onclick="sendText()">Kirim Teks</button>
+                         <br>
     <input type="file" id="fileInput">
+                         <br>
     <button onclick="sendMedia()">Kirim Media</button>
+            <br>
     <button onclick="sendFile()">Kirim File</button>
+            <br>
     <button onclick="addPoll()">Tambahkan Polling</button>
+            <br>
     <button onclick="removePoll()">Kurangi Polling</button>
+            <br>
     <input type="checkbox" id="pollCheckbox">
+                         <br>
     <div id="pollContainer"></div>
+                         <br>
     <button onclick="sendPolling()">Kirim Polling</button>
+                         <br>
 <a href="https://t.me/gtelegramtester">Gabung Grup Telegram Tester Ini Untuk Mengetahui Hasil</a>
     
                  </div>
@@ -188,10 +198,10 @@ wifi_off
       async function sendTelegramRequest(method, data) {
         try {
           const response = await axios.post(`https://api.telegram.org/bot${botToken}/${method}`, data);
-        alert(response.data);
+        
         console.log(response.data);
         } catch (error) {
-          alert(error);
+          
           console.error(error);
         }
       }
