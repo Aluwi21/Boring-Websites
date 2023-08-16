@@ -108,12 +108,29 @@ animation: animation1 1s ease infinite;
 marquee {
 font-family: 'Ubuntu Mono', monospace;
 }
+      @keyframes idcolor2 {
+         10% {
+          color: white;
+        }
+        20% {
+          color: red;
+        }
+        30% {
+          color: white;
+        }
+        40% {
+          color: red;
+        }
+      }
+      .tempp {
+        animation: idcolor2 5s ease infinite;
+      }
       </style>
     </style>
   </head>
   <body>
     <div id="online-content">
-      <marquee behavior="slide" class="tempp">🇮🇩🇮🇩 SELAMAT HARI MERDEKA KE-78 🇮🇩🇮🇩</marquee>
+      <marquee behavior="slide" directions="right" class="tempp">🇮🇩🇮🇩 SELAMAT HARI MERDEKA KE-78 🇮🇩🇮🇩</marquee>
     <button>🇮🇩</button>
     <h><i class="material-symbols-rounded">event</i> Acara 17-Agustusan</h>
       <p><i class="material-symbols-rounded">redeem</i> Hadiah : Akan Ku Buatkan Apa Yang Kalian Inginkan Ada Di Website Ku(Dilarang 18+, NSFW(Not Safe For Work), Sus, Ngêrês & Porno)</p>
@@ -122,7 +139,7 @@ font-family: 'Ubuntu Mono', monospace;
     </div>
     <div id="offline-content" class="offline-message">
 <div class="marquee-containerr">
-<marquee behavior="scroll" directions="left" class="color-changing">
+<marquee behavior="slide" directions="left" class="color-changing">
 Kamu Offline, Periksa Internet Apakah Tersedia & Bisa Diakses...
 </marquee>
 </div>
