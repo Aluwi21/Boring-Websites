@@ -151,7 +151,7 @@ refresh</button>
                 <br>
                 <button onclick="requestNotificationPermission()">Tes Notifikasi Mu!(Service-Worker, Notification API & Push API)</button>
                          <br>
-                 <button onclick="telegramRequest()">Kirim Teks Menggunakan Bot Telegram!(<a href="https://t.me/gtelegramtester">Gabung Grup Telegram Ini Untuk Melihat Hasil</a>)</button>
+                 <button onclick="sendText()">Kirim Teks Menggunakan Bot Telegram!(<a href="https://t.me/gtelegramtester">Gabung Grup Telegram Ini Untuk Melihat Hasil</a>)</button>
                  </div>
 
                 <div id="offline-content" class="offline-message">
@@ -172,10 +172,27 @@ wifi_off
                 </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script>
-          function telegramRequest() {
       const botToken = '5906990752:AAHv8iFSmHu4MC4SM_IB3EZSiyTLxaZULvM';
       const chatId = '-1001983705713'; // Chat ID penerima pesan
-              
+        async function telegramRequest(method,data) {
+                  try {
+          const response = await axios.post(`https://api.telegram.org/bot${botToken}/${method}`, data);
+          console.log(response.data);
+        } catch (error) {
+                          alert("Kesalahan : \n", error);
+          console.error(error);
+        }
+      }
+
+      // Fungsi untuk mengirim pesan teks
+      function sendText() {
+        const message = prompt('Masukkan Teks :');
+        if (message) {
+          telegramRequest('sendMessage', { chat_id: chatId, text: message });
+        } else {
+                alert("Masukkan Input Yang Valid!")
+        }
+      }
           // Memeriksa status koneksi saat halaman dimuat
         window.addEventListener('load', function() {
             var offlineContent = document.getElementById('online-content');
