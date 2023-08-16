@@ -16,11 +16,119 @@
       h {
         font-family: 'Chakra Petch', sans-serif;
       }
+      .offline-message {
+         font-size: 24px;
+        text-align: center;
+        margin-top: 200px;
+      }
+      .content {
+    flex: 1; /* Membuat konten utama mengisi sisa ruang */
+    text-align: center;
+    padding: 20px;
+}
+
+footer {
+    text-align: center;
+    background-color: #f0f0f0;
+    padding: 10px;
+  font-family: 'Agdasima', sans-serif;
+}
+
+.small-text {
+    font-size: 12px; /* Mengatur ukuran teks menjadi lebih kecil */
+    margin: 0; /* Menghapus margin bawaan */
+  font-family: 'Agdasima', sans-serif;
+      }
+    .marquee-containerr {
+width: 100%;
+overflow: hidden;
+}
+@keyframes animation1 {
+0% {
+color: #FF0000;
+}
+1% {
+color: #00FF00;
+}
+2% {
+color: #0000FF;
+}
+3% {
+color: #FFFF00;
+}
+4% {
+color: #00FFFF;
+}
+5% {
+color: #FF00FF;
+}
+6% {
+color: #000000;
+}
+7% {
+color: #FFFFFF;
+}
+8% {
+color: #808080;
+}
+9% {
+color: #000080;
+}
+10% {
+color: #808000;
+}
+11% {
+color: #008080;
+}
+12% {
+color: #800000;
+}
+13% {
+color: #800080;
+}
+14% {
+color: #00FF00;
+}
+15% {
+color: #FFA500
+}
+}
+.color-changing {
+animation: animation1 1s ease infinite;
+}
+marquee {
+font-family: 'Ubuntu Mono', monospace;
+}
       </style>
     </style>
   </head>
   <body>
+    <div id="online-content">
     <button>🇮🇩</button>
     <h>Acara 17-Agustusan</h>
+    </div>
+    <div id="offline-content">
+    <script>
+      // Memeriksa status koneksi saat halaman dimuat
+        window.addEventListener('load', function() {
+            var offlineContent = document.getElementById('online-content');
+            var offlineMessage = document.getElementById('offline-content');
+
+            function handleConnectionChange(event) {
+                var online = navigator.onLine;
+                if (online) {
+                    offlineContent.style.display = 'block';
+                    offlineMessage.style.display = 'none';
+                } else {
+                    offlineContent.style.display = 'none';
+                    offlineMessage.style.display = 'block';
+                }
+            }
+
+            window.addEventListener('online', handleConnectionChange);
+            window.addEventListener('offline', handleConnectionChange);
+
+            handleConnectionChange();
+    </script>
   </body>
 </html>
