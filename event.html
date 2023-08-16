@@ -19,6 +19,7 @@
       }
       h {
         font-family: 'Chakra Petch', sans-serif;
+        font-size: 100%;
       }
       p {
         font-family: 'Syne', sans-serif;
@@ -138,7 +139,7 @@ wifi_off
       // Memeriksa status koneksi saat halaman dimuat
         window.addEventListener('load', function() {
             var offlineContent = document.getElementById('online-content');
-            var offlineMessage = document.getElementById('offline-message');
+            var offlineMessage = document.getElementById('offline-content');
 
             function handleConnectionChange(event) {
                 var online = navigator.onLine;
