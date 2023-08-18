@@ -1,74 +1,129 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Image Color Picker</title>
-  <style>
-    #image-container {
-      position: relative;
-      max-width: 100%;
-    }
-    #image-zoom {
-      position: absolute;
-      border: 2px solid red;
-      pointer-events: none;
-      display: none;
-    }
-  </style>
+  <title>Upload & Download dengan Firebase Storage</title>
 </head>
 <body>
-  <input type="file" accept="image/*" onchange="handleImageUpload(event)">
-  <div id="image-container">
-    <img id="uploaded-image" src="#" alt="Uploaded Image">
-    <div id="image-zoom"></div>
-  </div>
-  <div id="color-result"></div>
+  <h1>Upload & Download dengan Firebase Storage</h1>
+  <input type="file" id="fileInput">
+  <button onclick="uploadFile()">Upload</button>
+  <br>
+  <div id="preview"></div>
+  <a id="downloadLink" style="display: none;"></a>
 
+  <script src="https://www.gstatic.com/firebasejs/9.0.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.1/firebase-storage.js"></script>
   <script>
-    const uploadedImage = document.getElementById('uploaded-image');
-    const imageZoom = document.getElementById('image-zoom');
-    const colorResult = document.getElementById('color-result');
+    // Konfigurasi Firebase (pastikan Anda telah membuat proyek Firebase dan mendapatkan konfigurasi ini)
+    const firebaseConfig = {
+    apiKey: "AIzaSyCu9wtPR269OEJrbNkKVlZzLioF4MAuyTo",
+    authDomain: "boring-websites-b80bd.firebaseapp.com",
+    projectId: "boring-websites-b80bd",
+    storageBucket: "boring-websites-b80bd.appspot.com",
+    messagingSenderId: "666429080579",
+    appId: "1:666429080579:web:962cae1283e9055ad5fa36",
+    measurementId: "G-YG6NHJ5S5P"
+  };
 
-    uploadedImage.onload = function() {
-      uploadedImage.style.maxWidth = '100%';
-      imageZoom.style.display = 'block';
-    };
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+    
 
-    function handleImageUpload(event) {
-      const file = event.target.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-          uploadedImage.src = e.target.result;
-          imageZoom.style.backgroundImage = `url(${e.target.result})`;
-        };
-        reader.readAsDataURL(file);
+    // Inisialisasi Firebase
+    firebase.initializeApp(firebaseConfig);
+    const storage = firebase.storage();
+    const storageRef = storage.ref();
+
+    // Fungsi untuk meng-upload file
+    function uploadFile() {
+      const fileInput = document.getElementById("fileInput");
+      const file = fileInput.files[0];
+      const newName = prompt("Beri nama file ini:");
+      const fileName = newName || file.name;
+
+      storageRef.child(fileName).put(file).then((snapshot) => {
+        console.log("File berhasil di-upload.");
+        document.getElementById("downloadLink").style.display = "block";
+        updateDownloadLink(fileName);
+      });
+    }
+
+    // Fungsi untuk mendownload file
+    function downloadFile(fileName) {
+      const inputName = prompt("Masukkan nama file & ekstensi file (nama_file.ekstensi_file):");
+      if (!inputName) {
+        alert("Masukkan input yang valid!");
+        return;
+      }
+
+      const downloadName = inputName.includes(".") ? inputName : inputName + "." + fileName.split(".").pop();
+      const contentType = getFileContentType(downloadName);
+
+      if (contentType) {
+        storageRef.child(fileName).getDownloadURL().then((url) => {
+          const downloadLink = document.getElementById("downloadLink");
+          downloadLink.href = url;
+          downloadLink.download = downloadName;
+          downloadLink.textContent = "Download " + downloadName;
+          downloadLink.click();
+        });
+      } else {
+        alert("Masukkan input yang valid!");
       }
     }
 
-    function showColorInfo(event) {
-      const x = event.offsetX;
-      const y = event.offsetY;
-      const canvas = document.createElement('canvas');
-      const ctx = canvas.getContext('2d');
-      canvas.width = uploadedImage.width;
-      canvas.height = uploadedImage.height;
-      ctx.drawImage(uploadedImage, 0, 0, canvas.width, canvas.height);
-
-      const pixelData = ctx.getImageData(x, y, 1, 1).data;
-      const colorHex = rgbToHex(pixelData[0], pixelData[1], pixelData[2]);
-      colorResult.textContent = `Color: ${colorHex}`;
+    // Fungsi untuk mendapatkan tipe konten berdasarkan nama file
+    function getFileContentType(fileName) {
+      const fileExtension = fileName.split(".").pop();
+      switch (fileExtension) {
+        case "jpg":
+        case "jpeg":
+        case "png":
+          return "image";
+        case "mp4":
+        case "webm":
+          return "video";
+        case "mp3":
+        case "ogg":
+          return "audio";
+        default:
+          return null;
+      }
     }
 
-    function rgbToHex(r, g, b) {
-      return `#${componentToHex(r)}${componentToHex(g)}${componentToHex(b)}`;
-    }
+    // Fungsi untuk menampilkan pratinjau file jika bisa
+    function updateDownloadLink(fileName) {
+      const preview = document.getElementById("preview");
+      preview.innerHTML = "";
+      const contentType = getFileContentType(fileName);
 
-    function componentToHex(c) {
-      const hex = c.toString(16);
-      return hex.length === 1 ? '0' + hex : hex;
+      if (contentType === "image" || contentType === "video" || contentType === "audio") {
+        const fileRef = storageRef.child(fileName);
+        fileRef.getDownloadURL().then((url) => {
+          const previewElement = document.createElement("div");
+          if (contentType === "image") {
+            const img = document.createElement("img");
+            img.src = url;
+            img.style.maxWidth = "100%";
+            previewElement.appendChild(img);
+          } else if (contentType === "video") {
+            const video = document.createElement("video");
+            video.src = url;
+            video.controls = true;
+            video.style.maxWidth = "100%";
+            previewElement.appendChild(video);
+          } else if (contentType === "audio") {
+            const audio = document.createElement("audio");
+            audio.src = url;
+            audio.controls = true;
+            audio.style.maxWidth = "100%";
+            previewElement.appendChild(audio);
+          }
+          preview.appendChild(previewElement);
+        });
+      }
     }
-
-    imageZoom.addEventListener('mousemove', showColorInfo);
   </script>
 </body>
 </html>
