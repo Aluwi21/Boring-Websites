@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Color Picker</title>
+  <style>
+    #image-container {
+      position: relative;
+      max-width: 100%;
+    }
+    #image-zoom {
+      position: absolute;
+      border: 2px solid red;
+      pointer-events: none;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <input type="file" accept="image/*" onchange="handleImageUpload(event)">
+  <div id="image-container">
+    <img id="uploaded-image" src="#" alt="Uploaded Image">
+    <div id="image-zoom"></div>
+  </div>
+  <div id="color-result"></div>
+
+  <script>
+    const uploadedImage = document.getElementById('uploaded-image');
+    const imageZoom = document.getElementById('image-zoom');
+    const colorResult = document.getElementById('color-result');
+
+    uploadedImage.onload = function() {
+      uploadedImage.style.maxWidth = '100%';
+      imageZoom.style.display = 'block';
+    };
+
+    function handleImageUpload(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          uploadedImage.src = e.target.result;
+          imageZoom.style.backgroundImage = `url(${e.target.result})`;
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
+    function showColorInfo(event) {
+      const x = event.offsetX;
+      const y = event.offsetY;
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      canvas.width = uploadedImage.width;
+      canvas.height = uploadedImage.height;
+      ctx.drawImage(uploadedImage, 0, 0, canvas.width, canvas.height);
+
+      const pixelData = ctx.getImageData(x, y, 1, 1).data;
+      const colorHex = rgbToHex(pixelData[0], pixelData[1], pixelData[2]);
+      colorResult.textContent = `Color: ${colorHex}`;
+    }
+
+    function rgbToHex(r, g, b) {
+      return `#${componentToHex(r)}${componentToHex(g)}${componentToHex(b)}`;
+    }
+
+    function componentToHex(c) {
+      const hex = c.toString(16);
+      return hex.length === 1 ? '0' + hex : hex;
+    }
+
+    imageZoom.addEventListener('mousemove', showColorInfo);
+  </script>
+</body>
+</html>
