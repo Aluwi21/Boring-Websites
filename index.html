@@ -700,43 +700,51 @@ function downloadAudio(url) {
 }
 
 
-var inputDateTimeLocal = document.getElementById("datetime-local");
+    // kode untuk waktu + kalender lokal
+    var inputDateTimeLocal = document.getElementById("datetime-local");
+    inputDateTimeLocal.addEventListener("change", function() {
+      var selectedDateTimeLocal = new Date(inputDateTimeLocal.value);
+      var result = selectedDateTimeLocal.toLocaleString("id-ID", {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+        hour: "numeric",
+        minute: "numeric"
+      });
+      alert("Waktu & Tanggal Lokal yang Dipilih: " + result);
+    });
 
-inputDateTimeLocal.addEventListener("change", function() {
-  var selectedDateTimeLocal = inputDateTimeLocal.value;
-  var result = selectedDateTimeLocal.replace('T', ' ');
-  result = result.replace(/(\d{1,2}\/\d{1,2}\/\d{4})/g, function(match, p1) {
-    return p1 + ' ';
-  });
+    // kode untuk minggu
+    var inputWeeks = document.getElementById("weeks");
+    inputWeeks.addEventListener("change", function() {
+      var selectedWeeks = inputWeeks.value;
+      var parts = selectedWeeks.split("-");
+      var tahun = parts[0];
+      var nomorMinggu = parts[1].replace("W", "");
+      var result = "Tahun " + tahun + " Minggu Ke-" + nomorMinggu;
+      alert("Minggu yang Dipilih : " + result);
+    });
 
-  alert("Waktu & Tanggal Lokal Yang Dipilih: " + result);
-});
-          var inputWeeks = document.getElementById("weeks");
-
-inputWeeks.addEventListener("change", function() {
-  var selectedWeeks = inputWeeks.value;
-  var result = selectedWeeks.replace('-', ' ');
-  result = result.replace(/(\d{1,2}\/\d{1,2}\/\d{4})/g, function(match, p1) {
-    return p1 + ' ';
-  });
-  var total = result.replace('W', 'Minggu Ke- ');
-
-  alert("Minggu Yang Dipilih : " + total);
-});
-
+    // kode untuk waktu
     var inputTime = document.getElementById("time");
+    inputTime.addEventListener("change", function() {
+      var selectedTime = inputTime.value;
+      alert("Waktu yang Dipilih : " + selectedTime);
+    });
 
-  inputTime.addEventListener("change", function() {
-    var selectedTime = inputTime.value;
-    alert("Waktu Yang Dipilih : " + selectedTime);
-  });
-     var inputDate = document.getElementById("date");
-
-  inputDate.addEventListener("change", function() {
-    var selectedDate = inputDate.value;
-    alert("Tanggal Yang Dipilih : " + selectedDate);
-  });
-    const fileInput = document.getElementById('file-input');
+    // kode untuk kalender
+    var inputDate = document.getElementById("date");
+    inputDate.addEventListener("change", function() {
+      var selectedDate = new Date(inputDate.value);
+      var result = selectedDate.toLocaleString("id-ID", {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+      });
+      alert("Tanggal yang Dipilih : " + result);
+    });    const fileInput = document.getElementById('file-input');
     const mediaContainer = document.getElementById('media-container');
 
     fileInput.addEventListener('change', function(event) {
