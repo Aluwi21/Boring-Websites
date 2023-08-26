@@ -239,6 +239,30 @@ font-family: 'Ubuntu Mono', monospace;
     <br>
     <audio style="position: absolute; top: -5px; right: 0px; display: inline-block; padding: 5px 10px; margin-right: 5px; z-index: 1;" src="y2mate.com - Lagu Kemerdekaan RI 17 Agustus 1945.mp3" autoplay controls></audio>
     
+    .top-bar {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    /* Style untuk tautan menu dalam bar atas */
+    .top-bar a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+    }
+  <!-- Bar atas menggunakan elemen <nav> -->
+  <nav class="top-bar">
+    <a href="https://boring-websites.netlify.app/event" target="_parent"><i class="material-symbols-rounded">event</i>
+Acara</a>
+    <a href="https://boring-websites.netlify.app/defaultweather"><i class="material-symbols-rounded">cloud</i>
+    Cuaca</a>
+    <a href="https://boring-websites.netlify.app/info"><i class="material-symbols-rounded">info</i> Tentang
+    </a>
+    <a href="https://boring-websites.netlify.app/contac">Kontak</a>
+  </nav>
+
     <p>Boring Websites</p>
 <h1><b>SITUS INI DIBUAT DENGAN TUJUAN GABUT, JADI... KAMU DISINI BISA MENGGUNAKAN <code>alert()</code> UNTUK MENGSPAM, BISA MELIHAT KALENDER, WAKTU, MINGGU & KALENDER & WAKTU LOKAL DLL, J4F(JUST FOR FUN)</b></h1>
     <p class="p1m">Disini Juga Kamu Bisa Melakukan Hal Seperti Melihat Kalender, Waktu, Minggu & Kalender + Waktu Lokal</p>
@@ -257,16 +281,7 @@ font-family: 'Ubuntu Mono', monospace;
   <button style="cursor:pointer; border-radius: 16px; background-color: #00eeff; box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); position: absolute; top: 0px; left: 50px; display: inline-block; padding: 5px 10px; margin-right: 5px; z-index: 1;" onclick="security()" class="material-symbols-rounded">
     terminal
   </button>
-    <a href="https://boring-websites.netlify.app/event" target="_parent">
-      <button class="idcolors" style="cursor:pointer; border-radius: 16px; box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); position: absolute; top: 0px; left: 150px; display: inline-block; padding: 5px 10px; margin-right: 5px; z-index: 1;">
-        <i class="material-symbols-rounded">event</i>
-        Acara
-      </button>
-    <a href="https://boring-websites.netlify.app/defaultweather" target="_parent">
-    <button style="cursor:pointer; border-radius: 16px; background-color: #99ff00; box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); position: absolute; top: 0; left: 100px; display: inline-block; padding: 5px 10px; margin-right: 10px; z-index: 1;" class="material-symbols-rounded">
-cloud</button>
-  </a>
-    <button style="cursor:pointer; border-radius: 16px; background-color: #ffea00; box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); position: fixed; bottom: 0; right: 0; display: inline-block; padding: 5px 10px; margin-right: 10px;" onclick="switcher()" class="material-symbols-rounded">
+        <button style="cursor:pointer; border-radius: 16px; background-color: #ffea00; box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); position: fixed; bottom: 0; right: 0; display: inline-block; padding: 5px 10px; margin-right: 10px;" onclick="switcher()" class="material-symbols-rounded">
 forum</button>
     <input class="input-file" type="file" id="file-input">
   <div id="media-container"></div>
