@@ -26,7 +26,7 @@ Dengan antarmuka pengguna yang ramah dan dukungan yang baik, Netlify menjadi pil
 - Tidak Mendukung [`RANGE REQUEST`](https://chat.openai.com/share/40170a7e-f694-477c-b580-0f75a08e8ebe)**
 - Mudah Untuk Mengedit File Tanpa Harus Itu Kek Ini Kek
 - ***Autosave***, Jadi Mudah Kalo Gak Sengaja Keluar Dari Browser / Gak Internet Secara Tiba-tiba
-- Udah Ada AI Nya(***Ghost Writer***) Tapi Trial Dan Kalau Udah Habis Tokennya Ya Harus Bayar
+- Udah Ada AI Nya(***[Ghost Writer](https://replit.com/site/ghostwriter#chatProduct)***) Tapi Trial Dan Kalau Udah Habis Tokennya Ya Harus Bayar
 - Setiap Kali Membuat Website Di Replit Pasti Domainnya Ada "<nama_user_replit_kalian>.repl.co"
 - CPU Cuman Dikasih 0.5%
 - RAM Cuman Dikasih 
