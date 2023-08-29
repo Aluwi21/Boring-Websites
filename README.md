@@ -21,8 +21,15 @@ Netlify menyediakan rencana gratis yang cukup berfungsi dengan fitur-fitur utama
 
 Dengan antarmuka pengguna yang ramah dan dukungan yang baik, Netlify menjadi pilihan populer bagi pengembang web untuk menyebarkan situs web statis dengan mudah dan cepat.
 * Source/Sumber : **ChatGPT**
-# Kenapa Harus Netlify? Kan Ada Replit & Glitch
-- Karena Mereka Berdua(Replit & Glitch) Sendiri Sangat **LAMBAT & GAK SUPPORT [`RANGE REQUEST`](https://chat.openai.com/share/40170a7e-f694-477c-b580-0f75a08e8ebe)**
+# Kelebihan & Kekurangan Pada Netlify & Replit
+### REPLIT
+- Tidak Mendukung [`RANGE REQUEST`](https://chat.openai.com/share/40170a7e-f694-477c-b580-0f75a08e8ebe)**
+- Mudah Untuk Mengedit File Tanpa Harus Itu Kek Ini Kek
+- ***Autosave***, Jadi Mudah Kalo Gak Sengaja Keluar Dari Browser / Gak Internet Secara Tiba-tiba
+- Udah Ada AI Nya(***Ghost Writer***) Tapi Trial Dan Kalau Udah Habis Tokennya Ya Harus Bayar
+- Setiap Kali Membuat Website Di Replit Pasti Domainnya Ada "<nama_user_replit_kalian>.repl.co"
+- CPU Cuman Dikasih 0.5%
+- RAM Cuman Dikasih 
 # Tapi Bang, Nanti Kan Ada Yang Ngambil Data Lu
 - Penmikiran Kalian Gitu Amat, Ya Biarin Lah, Kan **Berbagi Itu Indah.**
 # Package & Bahasa Progam
@@ -39,9 +46,6 @@ Dengan antarmuka pengguna yang ramah dan dukungan yang baik, Netlify menjadi pil
 - Pakek Skrip Jawa & Gaya Kertas Internet(Yang Sangat Amat Cupu)
 - Kamu Bisa *Mengetahui Cuaca Di Lokasi Mu Bahkan Di Lokasi Pembuat Website Ini, Mengetes **Hardware, Software & Fitur Browser Mu\[`BETA! Kadang Rusak Atau Masih Diperbaiki`\]**, Chatting/Dikusi(Menggunakan Layanan [Giscus](https://giscus.app/)), **1 EASTER EGG...** & Mengetes Kecepatan Internet Mu **\[`BETA! Kadang Rusak Atau Masih Diperbaiki`\]*** Di Website Ini.
 - Ada Sekitar **5 Halaman Website** Yang Mempunyai Fungsi Masing-Masing.
-# ACARA 17 AGUSTUS!
-- Jadi... ***Acara 17-an Agustus*** Bakal Diadain Pada ***Kamis, 17 Agustus 2023***, Hadiahnya Aku Bakal ***MEMBUAT SESUATU YANG KALIAN INGINKAN DI WEBSITE AKU**, Sebelum Tanggal **17 Agustus** Boleh Langsung Minta Apa Aja Yang Ingin Dibuatkan(Ga Boleh NSFW, 18+, Ngeres & Sus) Lewat DM Di Discord(Langsung DM Saya "maulanaxyz25_"), Bisa Juga Chat Di Website Aku (Pakek Giscus & Loginnya Pakek Akun Github) Atau Juga Bisa Komentar Di Repository Ini.
-- Acara Selesai Pada ***Akhir Agustus.***
-- Aku Jarang Online, Jadi.... Kalian Request Aja Dulu Nanti Aku Respon.
+- Aku Mengkode Website Ini Bukan Karena Aku Memang Sudah Ngerti Tetapi **Kodenya Aku Minta Dibuatkan Oleh [ChatGPT](https://chat.openai.com/?model=text-davinci-002-render-sha) Jadi...**
 # Oke Sekian :]
 - Selasa, 1 Agustus 2023 14.16
