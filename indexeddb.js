@@ -28,16 +28,9 @@
       const store = transaction.objectStore("dataStore");
       
       const request = store.add({ id, data });
-      const transaction_data = db.transaction(["dataStore"], "readonly");
-      const store_data = transaction.objectStore("dataStore");
-
-      const request_data = store.get(id);
-        
+    
       request.onsuccess = (event) => {
-          
-        const data = event.target.result;
-       
-        console.log("Data Dengan ID " + id + "Berisi" + data.data + "Berhasil Ditambahkan");
+        console.log("Data Dengan ID " + id + " Berhasil Ditambahkan");
       };
 
       request.onerror = (event) => {
@@ -74,7 +67,12 @@
       const request = store.delete(id);
 
       request.onsuccess = (event) => {
+          const id = id
+          if (id) {
         console.log("Data Dengan ID " + id + "Berhasil Dihapus");
+          } else {
+            console.log("Data Dengan ID " + id + " Tidak Ada");  
+          }
       };
 
       request.onerror = (event) => {
