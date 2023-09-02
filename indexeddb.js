@@ -9,8 +9,8 @@
       db = event.target.result;
 
       // Membuat objek penyimpanan jika belum ada
-      if (!db.objectStoreNames.contains("dataStore")) {
-        db.createObjectStore("dataStore", { keyPath: "id" });
+      if (!db.objectStoreNames.contains("data-store")) {
+        db.createObjectStore("db-1-store", { keyPath: "id" });
       }
     };
 
@@ -24,8 +24,8 @@
 
     // Fungsi untuk menambahkan data ke IndexedDB
     function addData(data, id) {
-      const transaction = db.transaction(["dataStore"], "readwrite");
-      const store = transaction.objectStore("dataStore");
+      const transaction = db.transaction(["db-1-store"], "readwrite");
+      const store = transaction.objectStore("db-1-store");
       
       const request = store.add({ id, data });
     
@@ -40,8 +40,8 @@
 
     // Fungsi untuk mengambil data dari IndexedDB berdasarkan ID
     function getData(id) {
-      const transaction = db.transaction(["dataStore"], "readonly");
-      const store = transaction.objectStore("dataStore");
+      const transaction = db.transaction(["db-1-store"], "readonly");
+      const store = transaction.objectStore("db-1-store");
 
       const request = store.get(id);
 
@@ -61,14 +61,14 @@
 
     // Fungsi untuk menghapus data dari IndexedDB berdasarkan ID
     function deleteData(id) {
-      const transaction = db.transaction(["dataStore"], "readwrite");
-      const store = transaction.objectStore("dataStore");
-
+      const transaction = db.transaction(["db-1-store"], "readwrite");
+      const store = transaction.objectStore("db-1-store");
+      const id_req = id;
       const request = store.delete(id);
 
       request.onsuccess = (event) => {
-          const id = id
-          if (id) {
+          const id_data = id_req
+          if (id_data) {
         console.log("Data Dengan ID " + id + "Berhasil Dihapus");
           } else {
             console.log("Data Dengan ID " + id + " Tidak Ada");  
