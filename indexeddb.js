@@ -67,12 +67,7 @@ function deleteData(id) {
   const request = store.delete(id);
 
   request.onsuccess = (event) => {
-    const id_data = event.target.result;
-    if (id_data) {
-      console.log("Data Dengan ID " + id_data + " Berhasil Dihapus");
-    } else {
-      console.log("Data Dengan ID " + id + " Tidak Ditemukan atau Tidak Valid");
-    }
+      console.log("Data Dengan ID " + id + " Berhasil Dihapus");
   };
 
   request.onerror = (event) => {
