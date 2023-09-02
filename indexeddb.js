@@ -69,3 +69,13 @@ request.onsuccess = (event) => {
   };
 };
       }
+function capacity() {
+  navigator.storage.estimate().then((estimate) => {
+  const usedSpace = estimate.usage;
+  const availableSpace = estimate.quota - usedSpace;
+
+  console.log("Sisa ruang yang terpakai: " + usedSpace + " bytes");
+  console.log("Ketersediaan ruang yang ada: " + availableSpace + " bytes");
+});
+
+}
