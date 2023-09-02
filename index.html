@@ -102,7 +102,7 @@ footer {
       }
       #text {
         font-family: 'Tsukimi Rounded', sans-serif;
-        width: 100px;
+        width: 200px;
         height: 300px;
         border-radius: 16px; 
         background-color: #ff7300; 
@@ -367,7 +367,7 @@ wifi_off
     // Panggil fungsi untuk mengaktifkan perubahan tema
     changeb();
 function security() {
-  var password = "administrator000";
+  var password = "2oktoberakusunat";
   var promptA = prompt("Masukkan Kata Sandi Sebelum Mengakses Terminal");
   if (promptA === password) {
     evalP();
@@ -378,13 +378,13 @@ function security() {
 
 function evalP() {
   alert("Kata Sandi Benar!, Klik Oke Untuk Melanjutkan.");
-  var code = prompt("Ketik Kode Untuk Dieksekusi/Dijalankan(Jika Kamu Mengklik Oke, Tetapi Gak Ada Apa-Apa, Mungkin Karena kamu Menggunakan Fungsi/Kode Yang Tidak valid/console.log/warn/error, Gunakan \",\"/Koma Kalo Kodenya Banyak) :", "console.warn(\"ga tau\")");
+  var code = prompt("Ketik Kode Yang Ingin Dijalankan\nJika Kode Panjang, Gunakan Koma\(,\) Sebagai Pembatas\nJika Kode Yang Kamu Jalankan Tetapi Tidak Ada Hasil, Biasanya Ada Kesalahan / Kode Yang Hanya Bisa Terjadi Di Konsol\(Seperti console.log(), console.error(), console.warn() dll\) : ", "alert\(\"Tes\"\)");
 
   if (code) {
     try {
       eval(code);
     } catch (error) {
-      alert("Terjadi kesalahan saat eval : \n" + error);
+      alert("Terjadi Kesalahan Saat Eval : \n" + error);
     }
   }
 }
