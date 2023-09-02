@@ -63,11 +63,11 @@
     function deleteData(id) {
       const transaction = db.transaction(["db-1-store"], "readwrite");
       const store = transaction.objectStore("db-1-store");
-      const id_req = id;
+      
       const request = store.delete(id);
 
       request.onsuccess = (event) => {
-          const id_data = id_req
+          const id_data = event.target.result;
           if (id_data) {
         console.log("Data Dengan ID " + id_data + " Berhasil Dihapus");
           } else {
