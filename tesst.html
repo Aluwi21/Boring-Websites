@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading Icon</title>
+    <!-- Tambahkan font Google Icons di bawah ini -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        /* CSS untuk mengatur animasi putaran */
+        .loading-icon {
+            animation: spin 2s linear infinite;
+        }
+
+        /* CSS untuk mengatur ukuran ikon */
+        .loading-icon i {
+            font-size: 48px; /* Ganti ukuran sesuai kebutuhan */
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-icon">
+        <!-- Tempelkan ikon loading di sini -->
+        <i class="material-icons">cached</i>
+    </div>
+</body>
+</html>
