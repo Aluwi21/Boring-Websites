@@ -52,4 +52,20 @@ function getData(id, callback) {
     }
   };
     }
-    
+    function deleteData(id) {
+      const textIdToDelete = id; // Ganti dengan ID yang ingin dihapus
+
+const request = indexedDB.open("db-bg", 1);
+
+request.onsuccess = (event) => {
+  const db = event.target.result;
+  const transaction = db.transaction(storeName, "readwrite");
+  const store = transaction.objectStore(storeName);
+
+  const requestDelete = store.delete(textIdToDelete);
+
+  requestDelete.onsuccess = () => {
+    console.log("Teks dengan ID " + textIdToDelete + " berhasil dihapus.");
+  };
+};
+      }
