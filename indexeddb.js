@@ -1,5 +1,5 @@
 // Membuka atau membuat database IndexedDB
-    const dbName = "myDatabase";
+    const dbName = "db-1";
     const dbVersion = 1;
 
     const request = indexedDB.open(dbName, dbVersion);
@@ -19,7 +19,7 @@
     };
 
     request.onerror = (event) => {
-      console.error("Error opening database:", event.target.error);
+      console.error("Ada Kesalahan Saat Membuka Database :\n", event.target.error);
     };
 
     // Fungsi untuk menambahkan data ke IndexedDB
@@ -28,13 +28,20 @@
       const store = transaction.objectStore("dataStore");
       
       const request = store.add({ id, data });
+      const transaction_data = db.transaction(["dataStore"], "readonly");
+      const store_data = transaction.objectStore("dataStore");
 
+      const request_data = store.get(id);
+        
       request.onsuccess = (event) => {
-        console.log("Data berhasil ditambahkan ke IndexedDB.");
+          
+        const data = event.target.result;
+       
+        console.log("Data Dengan ID " + id + "Berisi" + data.data + "Berhasil Ditambahkan");
       };
 
       request.onerror = (event) => {
-        console.error("Error adding data:", event.target.error);
+        console.error("Ada Kesalahan Saat Menambahkan Data :\n", event.target.error);
       };
     }
 
@@ -48,14 +55,14 @@
       request.onsuccess = (event) => {
         const data = event.target.result;
         if (data) {
-          console.log("Data yang diambil:", data.data);
+          console.log("Data Yang Diambil :\n", data.data);
         } else {
-          console.log("Data dengan ID " + id + " tidak ditemukan.");
+          console.log("Data Dengan ID " + id + " Tidak Ditemukan");
         }
       };
 
       request.onerror = (event) => {
-        console.error("Error getting data:", event.target.error);
+        console.error("Ada Kesalahan Saat Mengambil Data :\n", event.target.error);
       };
     }
 
@@ -67,11 +74,11 @@
       const request = store.delete(id);
 
       request.onsuccess = (event) => {
-        console.log("Data dengan ID " + id + " berhasil dihapus.");
+        console.log("Data Dengan ID " + id + "Berhasil Dihapus");
       };
 
       request.onerror = (event) => {
-        console.error("Error deleting data:", event.target.error);
+        console.error("Ada Kesalahan Saat Menghapus Data :\n", event.target.error);
       };
     }
 
@@ -80,8 +87,8 @@
       const usage = navigator.storage.estimate();
 
       usage.then((data) => {
-        console.log("Total kapasitas penyimpanan: " + data.quota + " bytes");
-        console.log("Terpakai: " + data.usage + " bytes");
-        console.log("Sisa: " + (data.quota - data.usage) + " bytes");
+        console.log("Total Kapasitas IndexedDB : " + data.quota + " bytes");
+        console.log("Ruang Terpakai : " + data.usage + " bytes");
+        console.log("Ruang Tersedia : " + (data.quota - data.usage) + " bytes");
       });
     }
