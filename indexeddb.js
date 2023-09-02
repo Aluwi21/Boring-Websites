@@ -1,5 +1,5 @@
 // Membuka atau membuat database IndexedDB
-const dbName = "db-bg";
+const dbName = "myDatabase";
 const dbVersion = 1;
 
 const request = indexedDB.open(dbName, dbVersion);
@@ -14,9 +14,11 @@ request.onupgradeneeded = (event) => {
 };
 
 // Fungsi untuk menambahkan data ke IndexedDB
-function addData(data, callback) {
+function addData(data, id, callback) {
   const transaction = request.result.transaction(["dataStore"], "readwrite");
   const store = transaction.objectStore("dataStore");
+
+  data.id = id; // Menambahkan id ke objek data
 
   const addRequest = store.add(data);
 
@@ -33,7 +35,7 @@ function addData(data, callback) {
   };
 }
 
-// Fungsi untuk mengambil data dari IndexedDB
+// Fungsi untuk mengambil data dari IndexedDB berdasarkan id
 function getData(id, callback) {
   const transaction = request.result.transaction(["dataStore"], "readonly");
   const store = transaction.objectStore("dataStore");
@@ -51,31 +53,24 @@ function getData(id, callback) {
       callback(event.target.error);
     }
   };
+}
+
+// Fungsi untuk menghapus data dari IndexedDB berdasarkan id
+function deleteData(id, callback) {
+  const transaction = request.result.transaction(["dataStore"], "readwrite");
+  const store = transaction.objectStore("dataStore");
+
+  const deleteRequest = store.delete(id);
+
+  deleteRequest.onsuccess = (event) => {
+    if (typeof callback === "function") {
+      callback(null, true);
     }
-    function deleteData(id) {
-      const textIdToDelete = id; // Ganti dengan ID yang ingin dihapus
-
-const request = indexedDB.open("db-bg", 1);
-
-request.onsuccess = (event) => {
-  const db = event.target.result;
-  const transaction = db.transaction(storeName, "readwrite");
-  const store = transaction.objectStore(storeName);
-
-  const requestDelete = store.delete(textIdToDelete);
-
-  requestDelete.onsuccess = () => {
-    console.log("Teks dengan ID " + textIdToDelete + " berhasil dihapus.");
   };
-};
-      }
-function capacity() {
-  navigator.storage.estimate().then((estimate) => {
-  const usedSpace = estimate.usage;
-  const availableSpace = estimate.quota - usedSpace;
 
-  console.log("Sisa ruang yang terpakai: " + usedSpace + " bytes");
-  console.log("Ketersediaan ruang yang ada: " + availableSpace + " bytes");
-});
-
+  deleteRequest.onerror = (event) => {
+    if (typeof callback === "function") {
+      callback(event.target.error);
+    }
+  };
 }
