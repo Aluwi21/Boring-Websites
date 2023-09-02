@@ -69,9 +69,9 @@
       request.onsuccess = (event) => {
           const id_data = id_req
           if (id_data) {
-        console.log("Data Dengan ID " + id + "Berhasil Dihapus");
+        console.log("Data Dengan ID " + id_data + " Berhasil Dihapus");
           } else {
-            console.log("Data Dengan ID " + id + " Tidak Ada");  
+            console.log("Data Dengan ID " + id_data + " Tidak Ada");  
           }
       };
 
