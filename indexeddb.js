@@ -1,76 +1,87 @@
 // Membuka atau membuat database IndexedDB
-const dbName = "myDatabase";
-const dbVersion = 1;
+    const dbName = "myDatabase";
+    const dbVersion = 1;
 
-const request = indexedDB.open(dbName, dbVersion);
+    const request = indexedDB.open(dbName, dbVersion);
+    let db;
 
-request.onupgradeneeded = (event) => {
-  const db = event.target.result;
+    request.onupgradeneeded = (event) => {
+      db = event.target.result;
 
-  // Membuat objek penyimpanan jika belum ada
-  if (!db.objectStoreNames.contains("dataStore")) {
-    db.createObjectStore("dataStore", { keyPath: "id", autoIncrement: true });
-  }
-};
+      // Membuat objek penyimpanan jika belum ada
+      if (!db.objectStoreNames.contains("dataStore")) {
+        db.createObjectStore("dataStore", { keyPath: "id" });
+      }
+    };
 
-// Fungsi untuk menambahkan data ke IndexedDB
-function addData(data, id, callback) {
-  const transaction = request.result.transaction(["dataStore"], "readwrite");
-  const store = transaction.objectStore("dataStore");
+    request.onsuccess = (event) => {
+      db = event.target.result;
+    };
 
-  data.id = id; // Menambahkan id ke objek data
+    request.onerror = (event) => {
+      console.error("Error opening database:", event.target.error);
+    };
 
-  const addRequest = store.add(data);
+    // Fungsi untuk menambahkan data ke IndexedDB
+    function addData(data, id) {
+      const transaction = db.transaction(["dataStore"], "readwrite");
+      const store = transaction.objectStore("dataStore");
+      
+      const request = store.add({ id, data });
 
-  addRequest.onsuccess = (event) => {
-    if (typeof callback === "function") {
-      callback(null, event.target.result);
+      request.onsuccess = (event) => {
+        console.log("Data berhasil ditambahkan ke IndexedDB.");
+      };
+
+      request.onerror = (event) => {
+        console.error("Error adding data:", event.target.error);
+      };
     }
-  };
 
-  addRequest.onerror = (event) => {
-    if (typeof callback === "function") {
-      callback(event.target.error);
+    // Fungsi untuk mengambil data dari IndexedDB berdasarkan ID
+    function getData(id) {
+      const transaction = db.transaction(["dataStore"], "readonly");
+      const store = transaction.objectStore("dataStore");
+
+      const request = store.get(id);
+
+      request.onsuccess = (event) => {
+        const data = event.target.result;
+        if (data) {
+          console.log("Data yang diambil:", data.data);
+        } else {
+          console.log("Data dengan ID " + id + " tidak ditemukan.");
+        }
+      };
+
+      request.onerror = (event) => {
+        console.error("Error getting data:", event.target.error);
+      };
     }
-  };
-}
 
-// Fungsi untuk mengambil data dari IndexedDB berdasarkan id
-function getData(id, callback) {
-  const transaction = request.result.transaction(["dataStore"], "readonly");
-  const store = transaction.objectStore("dataStore");
+    // Fungsi untuk menghapus data dari IndexedDB berdasarkan ID
+    function deleteData(id) {
+      const transaction = db.transaction(["dataStore"], "readwrite");
+      const store = transaction.objectStore("dataStore");
 
-  const getRequest = store.get(id);
+      const request = store.delete(id);
 
-  getRequest.onsuccess = (event) => {
-    if (typeof callback === "function") {
-      callback(null, event.target.result);
+      request.onsuccess = (event) => {
+        console.log("Data dengan ID " + id + " berhasil dihapus.");
+      };
+
+      request.onerror = (event) => {
+        console.error("Error deleting data:", event.target.error);
+      };
     }
-  };
 
-  getRequest.onerror = (event) => {
-    if (typeof callback === "function") {
-      callback(event.target.error);
+    // Fungsi untuk mendapatkan informasi penyimpanan (sisa dan terpakai)
+    function getStorageData() {
+      const usage = navigator.storage.estimate();
+
+      usage.then((data) => {
+        console.log("Total kapasitas penyimpanan: " + data.quota + " bytes");
+        console.log("Terpakai: " + data.usage + " bytes");
+        console.log("Sisa: " + (data.quota - data.usage) + " bytes");
+      });
     }
-  };
-}
-
-// Fungsi untuk menghapus data dari IndexedDB berdasarkan id
-function deleteData(id, callback) {
-  const transaction = request.result.transaction(["dataStore"], "readwrite");
-  const store = transaction.objectStore("dataStore");
-
-  const deleteRequest = store.delete(id);
-
-  deleteRequest.onsuccess = (event) => {
-    if (typeof callback === "function") {
-      callback(null, true);
-    }
-  };
-
-  deleteRequest.onerror = (event) => {
-    if (typeof callback === "function") {
-      callback(event.target.error);
-    }
-  };
-}
