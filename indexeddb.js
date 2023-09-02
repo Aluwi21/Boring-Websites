@@ -59,26 +59,26 @@
       };
     }
 
-    // Fungsi untuk menghapus data dari IndexedDB berdasarkan ID
-    function deleteData(id) {
-      const transaction = db.transaction(["db-1-store"], "readwrite");
-      const store = transaction.objectStore("db-1-store");
-      
-      const request = store.delete(id);
+   // Fungsi untuk menghapus data dari IndexedDB berdasarkan ID
+function deleteData(id) {
+  const transaction = db.transaction(["db-1-store"], "readwrite");
+  const store = transaction.objectStore("db-1-store");
 
-      request.onsuccess = (event) => {
-          const id_data = event.target.result;
-          if (id_data) {
-        console.log("Data Dengan ID " + id_data + " Berhasil Dihapus");
-          } else {
-            console.log("Data Dengan ID " + id_data + " Tidak Ada");  
-          }
-      };
+  const request = store.delete(id);
 
-      request.onerror = (event) => {
-        console.error("Ada Kesalahan Saat Menghapus Data :\n", event.target.error);
-      };
+  request.onsuccess = (event) => {
+    const id_data = event.target.result;
+    if (id_data) {
+      console.log("Data Dengan ID " + id_data + " Berhasil Dihapus");
+    } else {
+      console.log("Data Dengan ID " + id + " Tidak Ditemukan atau Tidak Valid");
     }
+  };
+
+  request.onerror = (event) => {
+    console.error("Ada Kesalahan Saat Menghapus Data :\n", event.target.error);
+  };
+}
 
     // Fungsi untuk mendapatkan informasi penyimpanan (sisa dan terpakai)
     function getStorageData() {
