@@ -1,47 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Upload & Download dengan Firebase Storage </title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-  <style>
-.material-symbols-rounded {
-  font-variation-settings:
-  'FILL' 1,
-  'wght' 700,
-  'GRAD' 200,
-  'opsz' 48
-}
-  /* CSS untuk loading spinner */
-.loader {
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-  
-</style>
-</head>
-<body>
-  <marquee>Ini Pengetesan, Jadi Ini Fioe Temporary Yang Kedepannya Akan Dihapus...</marquee>
-  <h1>Upload & Download dengan Firebase Storage</h1>
-  <input type="file" id="fileInput">
-  <button onclick="uploadFile()">Upload</button>
-  <br>
-  <button onclick="downloadFile()">Download</button>
-  <div id="preview"></div>
-  <a id="downloadLink" style="display: none;"></a>
-  <div class="loader"><i class="material-symbols-rounded">progress_activity</i></div>
-  <script type="module">
-    // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.2.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.2.0/firebase-analytics.js";
-  import { firebase } from "https://www.gstatic.com/firebasejs/9.0.1/firebase-storage.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-    
-    // Konfigurasi Firebase (pastikan Anda telah membuat proyek Firebase dan mendapatkan konfigurasi ini)
+  <meta charset="UTF-8">
+  <title>File Upload & Download with Firebase</title>
+  <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase.js"></script>
+  <script>
+    // Initialize Firebase
     const firebaseConfig = {
     apiKey: "AIzaSyCu9wtPR269OEJrbNkKVlZzLioF4MAuyTo",
     authDomain: "boring-websites-b80bd.firebaseapp.com",
@@ -51,106 +15,83 @@
     appId: "1:666429080579:web:962cae1283e9055ad5fa36",
     measurementId: "G-YG6NHJ5S5P"
   };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-    
-
-    // Inisialisasi Firebase
     firebase.initializeApp(firebaseConfig);
+
+    // Create a reference to the storage bucket
     const storage = firebase.storage();
-    const storageRef = storage.ref();
 
-    // Fungsi untuk meng-upload file
+    // Function to upload a file
     function uploadFile() {
-      const fileInput = document.getElementById("fileInput");
-      const file = fileInput.files[0];
-      const newName = prompt("Beri nama file ini:");
-      const fileName = newName || file.name;
+      // Get the file from the input element
+      const file = document.getElementById("file").files[0];
 
-      storageRef.child(fileName).put(file).then((snapshot) => {
-        console.log("File berhasil di-upload.");
-        document.getElementById("downloadLink").style.display = "block";
-        updateDownloadLink(fileName);
+      // Get the name of the file from the prompt
+      const fileName = prompt("Nama file:");
+
+      // Create a reference to the file in the storage bucket
+      const fileReference = storage.ref(`/${fileName}`);
+
+      // Upload the file
+      fileReference.put(file).then(function() {
+        // File uploaded successfully
+        console.log("File uploaded successfully");
+      }).catch(function(error) {
+        // File upload failed
+        console.log(error);
       });
     }
 
-    // Fungsi untuk mendownload file
-    function downloadFile(fileName) {
-      const inputName = prompt("Masukkan nama file & ekstensi file (nama_file.ekstensi_file):");
-      if (!inputName) {
-        alert("Masukkan input yang valid!");
-        return;
-      }
+    // Function to download a file
+    function downloadFile() {
+      // Get the name of the file from the prompt
+      const fileName = prompt("Nama file yang ingin di download:");
 
-      const downloadName = inputName.includes(".") ? inputName : inputName + "." + fileName.split(".").pop();
-      const contentType = getFileContentType(downloadName);
+      // Create a reference to the file in the storage bucket
+      const fileReference = storage.ref(`/${fileName}`);
 
-      if (contentType) {
-        storageRef.child(fileName).getDownloadURL().then((url) => {
-          const downloadLink = document.getElementById("downloadLink");
-          downloadLink.href = url;
-          downloadLink.download = downloadName;
-          downloadLink.textContent = "Download " + downloadName;
-          downloadLink.click();
-        });
-      } else {
-        alert("Masukkan input yang valid!");
-      }
+      // Download the file
+      fileReference.download().then(function(file) {
+        // File downloaded successfully
+        console.log("File downloaded successfully");
+      }).catch(function(error) {
+        // File download failed
+        console.log(error);
+      });
     }
 
-    // Fungsi untuk mendapatkan tipe konten berdasarkan nama file
-    function getFileContentType(fileName) {
-      const fileExtension = fileName.split(".").pop();
-      switch (fileExtension) {
-        case "jpg":
-        case "jpeg":
-        case "png":
-          return "image";
-        case "mp4":
-        case "webm":
-          return "video";
-        case "mp3":
-        case "ogg":
-          return "audio";
-        default:
-          return null;
-      }
+    // Function to display all uploaded files
+    function displayFiles() {
+      // Get all files in the storage bucket
+      const files = storage.ref().listAll();
+
+      // Loop through all files
+      files.forEach(function(file) {
+        // Get the name and extension of the file
+        const fileName = file.name;
+        const fileExtension = file.metadata.contentType.split("/")[1];
+
+        // Add the file to the list
+        const listItem = document.createElement("li");
+        listItem.textContent = `${fileName} (${fileExtension})`;
+        document.getElementById("files").appendChild(listItem);
+      });
     }
 
-    // Fungsi untuk menampilkan pratinjau file jika bisa
-    function updateDownloadLink(fileName) {
-      const preview = document.getElementById("preview");
-      preview.innerHTML = "";
-      const contentType = getFileContentType(fileName);
-
-      if (contentType === "image" || contentType === "video" || contentType === "audio") {
-        const fileRef = storageRef.child(fileName);
-        fileRef.getDownloadURL().then((url) => {
-          const previewElement = document.createElement("div");
-          if (contentType === "image") {
-            const img = document.createElement("img");
-            img.src = url;
-            img.style.maxWidth = "100%";
-            previewElement.appendChild(img);
-          } else if (contentType === "video") {
-            const video = document.createElement("video");
-            video.src = url;
-            video.controls = true;
-            video.style.maxWidth = "100%";
-            previewElement.appendChild(video);
-          } else if (contentType === "audio") {
-            const audio = document.createElement("audio");
-            audio.src = url;
-            audio.controls = true;
-            audio.style.maxWidth = "100%";
-            previewElement.appendChild(audio);
-          }
-          preview.appendChild(previewElement);
-        });
-      }
-    }
+    // Initialize the UI
+    document.getElementById("upload").addEventListener("click", uploadFile);
+    document.getElementById("download").addEventListener("click", downloadFile);
+    displayFiles();
   </script>
+</head>
+<body>
+  <h1>File Upload & Download with Firebase</h1>
+
+  <input type="file" id="file">
+  <button id="upload">Upload</button>
+
+  <input type="text" id="fileName">
+  <button id="download">Download</button>
+
+  <ul id="files"></ul>
 </body>
 </html>
