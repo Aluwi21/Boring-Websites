@@ -1,97 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>File Upload & Download with Firebase</title>
-  <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase.js"></script>
+  <title>Upload dan Download File dengan Firebase</title>
+</head>
+<body>
+
+  <!-- Upload file -->
+  <h2>Upload File</h2>
+  <input type="file" id="file-input" accept="image/png, image/jpeg, image/gif">
+  <img id="file-preview" src="#">
+  <button onclick="uploadFile()">Upload</button>
+
+  <!-- Download file -->
+  <h2>Download File</h2>
+  <input type="text" id="file-name" placeholder="Masukkan nama file">
+  <button onclick="downloadFile()">Download</button>
+
+  <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase.js"></script>
   <script>
     // Initialize Firebase
     const firebaseConfig = {
-    apiKey: "AIzaSyCu9wtPR269OEJrbNkKVlZzLioF4MAuyTo",
-    authDomain: "boring-websites-b80bd.firebaseapp.com",
-    projectId: "boring-websites-b80bd",
-    storageBucket: "boring-websites-b80bd.appspot.com",
-    messagingSenderId: "666429080579",
-    appId: "1:666429080579:web:962cae1283e9055ad5fa36",
-    measurementId: "G-YG6NHJ5S5P"
-  };
-    firebase.initializeApp(firebaseConfig);
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_AUTH_DOMAIN",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_STORAGE_BUCKET",
+      messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+      appId: "YOUR_APP_ID"
+    };
+    const firebaseApp = firebase.initializeApp(firebaseConfig);
 
-    // Create a reference to the storage bucket
+    // Get reference to Cloud Storage
     const storage = firebase.storage();
 
-    // Function to upload a file
+    // Upload file
     function uploadFile() {
-      // Get the file from the input element
-      const file = document.getElementById("file").files[0];
+      const file = document.getElementById("file-input").files[0];
 
-      // Get the name of the file from the prompt
-      const fileName = prompt("Nama file:");
+      // Check if file is valid
+      if (!file) {
+        alert("File tidak valid!");
+        return;
+      }
 
-      // Create a reference to the file in the storage bucket
-      const fileReference = storage.ref(`/${fileName}`);
+      // Get file name
+      const fileName = prompt("Berikan nama file ini:");
+      if (!fileName) {
+        alert("Nama file tidak valid!");
+        return;
+      }
+
+      // Create a reference to the file in Cloud Storage
+      const fileRef = storage.ref(`/files/${fileName}`);
 
       // Upload the file
-      fileReference.put(file).then(function() {
-        // File uploaded successfully
-        console.log("File uploaded successfully");
-      }).catch(function(error) {
-        // File upload failed
-        console.log(error);
+      const uploadTask = fileRef.put(file);
+
+      // Listen for the upload to complete
+      uploadTask.on("state_changed", (snapshot) => {
+        switch (snapshot.state) {
+          case "pending":
+            // File is being uploaded
+            break;
+          case "running":
+            // File is being uploaded
+            break;
+          case "success":
+            // File uploaded successfully
+            alert("Berhasil meng-upload file ini: '" + fileName + "'");
+            break;
+          case "error":
+            // File upload failed
+            alert("Ada kesalahan saat meng-upload file: " + snapshot.error);
+            break;
+        }
       });
     }
 
-    // Function to download a file
+    // Download file
     function downloadFile() {
-      // Get the name of the file from the prompt
-      const fileName = prompt("Nama file yang ingin di download:");
+      // Get file name
+      const fileName = prompt("Masukkan nama file & ekstensi file (nama_file.ekstensi_file):");
+      if (!fileName) {
+        alert("Nama file tidak valid!");
+        return;
+      }
 
-      // Create a reference to the file in the storage bucket
-      const fileReference = storage.ref(`/${fileName}`);
+      // Create a reference to the file in Cloud Storage
+      const fileRef = storage.ref(`/files/${fileName}`);
 
-      // Download the file
-      fileReference.download().then(function(file) {
-        // File downloaded successfully
-        console.log("File downloaded successfully");
-      }).catch(function(error) {
-        // File download failed
-        console.log(error);
-      });
+      // Get the download URL for the file
+      const downloadUrl = fileRef.getDownloadURL();
+
+      // Create an anchor tag with the download URL
+      const anchor = document.createElement("a");
+      anchor.href = downloadUrl;
+      anchor.download = fileName;
+
+      // Display the anchor tag
+      document.body.appendChild(anchor);
+      anchor.click();
     }
-
-    // Function to display all uploaded files
-    function displayFiles() {
-      // Get all files in the storage bucket
-      const files = storage.ref().listAll();
-
-      // Loop through all files
-      files.forEach(function(file) {
-        // Get the name and extension of the file
-        const fileName = file.name;
-        const fileExtension = file.metadata.contentType.split("/")[1];
-
-        // Add the file to the list
-        const listItem = document.createElement("li");
-        listItem.textContent = `${fileName} (${fileExtension})`;
-        document.getElementById("files").appendChild(listItem);
-      });
-    }
-
-    // Initialize the UI
-    document.getElementById("upload").addEventListener("click", uploadFile);
-    document.getElementById("download").addEventListener("click", downloadFile);
-    displayFiles();
   </script>
-</head>
-<body>
-  <h1>File Upload & Download with Firebase</h1>
 
-  <input type="file" id="file">
-  <button id="upload">Upload</button>
-
-  <input type="text" id="fileName">
-  <button id="download">Download</button>
-
-  <ul id="files"></ul>
 </body>
 </html>
