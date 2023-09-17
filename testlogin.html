@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Dengan Google</title>
+
+  <!-- Viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <!-- Login dengan Google -->
+  <script src="https://apis.google.com/js/platform.js"></script>
+  <script>
+    // Set the callback function that will be called when the user
+    // logs in or out.
+    var callback = function(authResult) {
+      // If the user is logged in, display their information.
+      if (authResult.isSignedIn) {
+        // Get the user's profile information.
+        var profile = authResult.user;
+
+        // Display the user's profile information.
+        document.getElementById("img").src = profile.imageUrl;
+        document.getElementById("nama").innerHTML = profile.displayName;
+        document.getElementById("email").innerHTML = profile.email;
+
+        // Akses tanggal lahir, nomor telepon (jika ada), dan jenis kelamin.
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "https://www.googleapis.com/oauth2/v2/userinfo?access_token=" + authResult.accessToken);
+        xhr.onload = function() {
+          if (xhr.status === 200) {
+            var data = JSON.parse(xhr.responseText);
+
+            // Tampilkan tanggal lahir.
+            document.getElementById("tgl_lahir").innerHTML = data.birthday;
+
+            // Tampilkan nomor telepon (jika ada).
+            if (data.phoneNumber) {
+              document.getElementById("no_telp").innerHTML = data.phoneNumber;
+            }
+
+            // Tampilkan jenis kelamin.
+            document.getElementById("jenis_kelamin").innerHTML = data.gender;
+          }
+        };
+        xhr.send();
+      }
+    };
+
+    // Initialize the Google Sign-In button.
+    var auth2 = new google.auth.Auth2();
+    auth2.init({
+      client_id: "429762427162-eam78lu01s75gb29s4gufuv4drcl34qi.apps.googleusercontent.com",
+      scope: "profile email",
+    });
+    auth2.signIn().then(callback);
+  </script>
+
+  <!-- Menampilkan informasi pengguna -->
+  <div>
+    <img id="img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a4/Google_Account_Logo.svg/1200px-Google_Account_Logo.svg.png" />
+    <h2 id="nama"></h2>
+    <p id="email"></p>
+    <p id="tgl_lahir"></p>
+    <p id="no_telp"></p>
+    <p id="jenis_kelamin"></p>
+  </div>
+</body>
+</html>
