@@ -53,11 +53,18 @@
       client_id: "429762427162-eam78lu01s75gb29s4gufuv4drcl34qi.apps.googleusercontent.com",
       scope: "profile email",
     });
+  var signInButton = document.getElementById("signInButton");
+  signInButton.addEventListener("click", function() {
     auth2.signIn().then(callback);
+  });
+
+  
   </script>
 
   <!-- Menampilkan informasi pengguna -->
   <div>
+    <button id="signInButton">Sign in with Google</button>
+    
     <img id="img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a4/Google_Account_Logo.svg/1200px-Google_Account_Logo.svg.png" />
     <h2 id="nama"></h2>
     <p id="email"></p>
