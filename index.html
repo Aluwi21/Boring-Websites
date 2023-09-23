@@ -328,7 +328,7 @@ check_circle</i>
     </button>
           </a>
     <button id="b" class="material-symbols-rounded">dark_mode</button>
-  
+  <div class='onesignal-customlink-container'></div>
 
   </div>
   <div id="content">
@@ -353,7 +353,15 @@ wifi_off
   <button style="background-color: white; color: white; cursor: help; border-radius: 8px; position: absolute; top: 0; right: 0; border-color: white; transition: none; opacity: -1.0;">.</button>
   </a>
 </div>
-  
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(function(OneSignal) {
+    OneSignal.init({
+      appId: "8505a5c5-4ebf-49f8-bb67-835c11203d81",
+    });
+  });
+</script>
   <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
   <script src="indexeddb.js"></script>
   <script>
