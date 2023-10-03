@@ -1,8 +1,8 @@
-# Boring-Websites
+# 🌐 Boring-Websites
 - Ini Adalah Repository Untuk boring-websites.
-# Tujuan Dibuat
+# ❓ Tujuan Dibuat
 - Tujuan Repository Ini Dibuat Adalah **Agar Netlify Bisa Mengupdate/Mengdowngrade Apapun Ke Website Jika Kode Di Repository Ini Diubah**
-# Apa Itu Netlify?
+# ❓ Apa Itu Netlify?
 Netlify adalah platform pengembangan web yang menyediakan berbagai layanan hosting dan alat pengembangan untuk situs web modern. Dengan Netlify, Anda dapat dengan mudah menyebarkan situs web statis, mengelola domain, mengaktifkan HTTPS, melakukan otomatisasi, dan banyak lagi.
 
 Berikut adalah beberapa fitur utama yang ditawarkan oleh Netlify:
@@ -29,7 +29,8 @@ Dengan antarmuka pengguna yang ramah dan dukungan yang baik, Netlify menjadi pil
 - Udah Ada AI Nya(***[Ghost Writer](https://replit.com/site/ghostwriter#chatProduct)***) Tapi Trial Dan Kalau Udah Habis Tokennya Ya Harus Bayar
 - Setiap Kali Membuat Website Di Replit Pasti Domainnya Ada "<nama_user_replit_kalian>.repl.co"
 - CPU Cuman Dikasih 0.5%
-- RAM Cuman Dikasih 
+- RAM Cuman Dikasih 512MB
+- 
 # Tapi Bang, Nanti Kan Ada Yang Ngambil Data Lu
 - Penmikiran Kalian Gitu Amat, Ya Biarin Lah, Kan **Berbagi Itu Indah.**
 # Package & Bahasa Progam
@@ -46,6 +47,6 @@ Dengan antarmuka pengguna yang ramah dan dukungan yang baik, Netlify menjadi pil
 - Pakek Skrip Jawa & Gaya Kertas Internet(Yang Sangat Amat Cupu)
 - Kamu Bisa *Mengetahui Cuaca Di Lokasi Mu Bahkan Di Lokasi Pembuat Website Ini, Mengetes **Hardware, Software & Fitur Browser Mu\[`BETA! Kadang Rusak Atau Masih Diperbaiki`\]**, Chatting/Dikusi(Menggunakan Layanan [Giscus](https://giscus.app/)), **1 EASTER EGG...** & Mengetes Kecepatan Internet Mu **\[`BETA! Kadang Rusak Atau Masih Diperbaiki`\]*** Di Website Ini.
 - Ada Sekitar **5 Halaman Website** Yang Mempunyai Fungsi Masing-Masing.
-- Aku Mengkode Website Ini Bukan Karena Aku Memang Sudah Ngerti Tetapi **Kodenya Aku Minta Dibuatkan Oleh [ChatGPT](https://chat.openai.com/?model=text-davinci-002-render-sha) Jadi...**
+- Aku Mengkode Website Ini Bukan Karena Aku Memang Sudah Ngerti Tetapi **Kodenya Aku Minta Dibuatkan Oleh [Bard](https://bard.google.com/) / [ChatGPT (jarang pakai)](https://chat.openai.com/?model=text-davinci-002-render-sha) Jadi...**
 # Oke Sekian :]
-- Selasa, 1 Agustus 2023 14.16
+- 
