@@ -93,8 +93,11 @@ h3 {
 
 
 <div id="Berita" class="tabcontent">
-  <h3>UPDATE! = ALPHA TESTING</h3>
-  <p>Alpha Testing!! broke.</p> 
+  <h3>ALPHA TESTING</h3>
+  <p>
+    <ul>
+      <li>Mungkin Banyak Yang Rusak & Masih Dibangun</li>
+    </ul></p> 
 </div>
 
 <div id="Kontak" class="tabcontent">
@@ -109,6 +112,7 @@ h3 {
 
   <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script>
+      window.addEventListener("load", async () => {
     // Inisialisasi Google Sign-In
     const signIn = new google.auth.SignIn({
       clientId: "AIzaSyAhvsh2WWu7xTvftG-HG2_4D5kzwBqwSdQ",
@@ -150,6 +154,7 @@ h3 {
         document.cookie = "session=true";
       }
     });
+      });
 function openPage(pageName,elmnt,color) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
