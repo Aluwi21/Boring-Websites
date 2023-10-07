@@ -81,17 +81,7 @@ h3 {
 <div id="Beranda" class="tabcontent">
   <h3>Home</h3>
   <p>Home is where the heart is..</p>
-  <button id="logbutt">Login</button>
-    <h1>Login dengan Google</h1>
-    <button id="sign-in">Masuk</button>
-  </div>
-  <div id="profile">
-    <h2>Profil</h2>
-    <img id="avatar" src="">
-    <p id="name"></p>
-    <p id="email"></p>
-
-
+</div>
 <div id="Berita" class="tabcontent">
   <h3>ALPHA TESTING</h3>
   <p>
@@ -111,53 +101,8 @@ h3 {
   <h3>About</h3>
   <p>Who we are and what we do.</p>
 </div>
-
-  <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <script>
-      window.addEventListener("load", async () => {
-    // Inisialisasi Google Sign-In
-    const signIn = new google.auth.SignIn({
-      clientId: "AIzaSyAhvsh2WWu7xTvftG-HG2_4D5kzwBqwSdQ",
-      // Scopes yang dibutuhkan untuk mendapatkan informasi profil pengguna
-      // Anda dapat menemukan daftar scopes di sini:
-      // https://developers.google.com/identity/sign-in/web/scopes
-      scopes: ["profile", "email"]
-    });
-
-    // Ketika tombol "Masuk" diklik
-    document.getElementById("sign-in").addEventListener("click", async () => {
-      // Mulai proses login
-      const response = await signIn.signIn();
-
-      // Jika login berhasil
-      if (response.credential) {
-        // Dapatkan informasi profil pengguna
-        const profile = await google.auth.getAuthResponse(response.credential);
-
-        // Tampilkan informasi profil pengguna
-        document.getElementById("avatar").src = profile.avatarUrl;
-        document.getElementById("name").textContent = profile.name;
-        document.getElementById("email").textContent = profile.email;
-
-        // Simpan informasi profil pengguna ke IndexedDB
-        const db = await indexedDB.open("my-database");
-        const store = db.createObjectStore("profiles");
-        const transaction = store.transaction(["name", "email", "avatarUrl"], "readwrite");
-        const request = transaction.objectStore("profiles").put({
-          name: profile.name,
-          email: profile.email,
-          avatarUrl: profile.avatarUrl
-        }, {
-          key: profile.idToken
-        });
-        await request.oncomplete;
-
-        // Set session cookie
-        document.cookie = "session=true";
-      }
-    });
-      });
-function openPage(pageName,elmnt,color) {
+<script>
+  function openPage(pageName,elmnt,color) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
   for (i = 0; i < tabcontent.length; i++) {
