@@ -29,6 +29,7 @@ body, html {
 
 /* Style tab links */
 .tablink {
+  font-family: 'Exo 2', sans-serif;
   background-color: #555;
   color: white;
   float: left;
@@ -52,18 +53,18 @@ body, html {
   height: 100%;
 }
 
-#Home {background-color: red;}
-#News {background-color: green;}
-#Contact {background-color: blue;}
-#About {background-color: orange;}
+#Beranda {background-color: #0cc8f2;}
+#Berita {background-color: green;}
+#Kontak {background-color: blue;}
+#Tentang {background-color: #05f73e;}
   </style>
     </head>
     <body>
-      <button class="tablink" onclick="openPage('Home', this, 'red')" id="defaultOpen">Home</button>
-<button class="tablink" onclick="openPage('News', this, 'green')">News</button>
-<button class="tablink" onclick="openPage('Contact', this, 'blue')">Contact</button>
-<button class="tablink" onclick="openPage('About', this, 'orange')">About</button>
-
+      <button class="tablink" onclick="openPage('Beranda', this, '#0cc8f2')" id="defaultOpen">Beranda</button>
+<button class="tablink" onclick="openPage('Berita', this, 'green')">Berita</button>
+<button class="tablink" onclick="openPage('Kontak', this, 'blue')">Kontak</button>
+<button class="tablink" onclick="openPage('Tentang', this, 'orange')">Tentang</button>
+<div id="online-content">
 <div id="Home" class="tabcontent">
   <h3>Home</h3>
   <p>Home is where the heart is..</p>
@@ -83,7 +84,9 @@ body, html {
   <h3>About</h3>
   <p>Who we are and what we do.</p>
 </div>
-
+</div>
+      <div id="offline-message">
+      </div>
 <script>
 function openPage(pageName,elmnt,color) {
   var i, tabcontent, tablinks;
