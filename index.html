@@ -60,27 +60,27 @@ body, html {
   </style>
     </head>
     <body>
-      <button class="tablink" onclick="openPage('Beranda', this, '0cc8f2')" id="defaultOpen">Beranda</button>
+      <button class="tablink" onclick="openPage('Beranda', this, '#0cc8f2')" id="defaultOpen">Beranda</button>
 <button class="tablink" onclick="openPage('Berita', this, 'green')">Berita</button>
 <button class="tablink" onclick="openPage('Kontak', this, 'blue')">Kontak</button>
 <button class="tablink" onclick="openPage('Tentang', this, 'orange')">Tentang</button>
 <div id="online-content">
-<div id="Home" class="tabcontent">
+<div id="Beranda" class="tabcontent">
   <h3>Home</h3>
   <p>Home is where the heart is..</p>
 </div>
 
-<div id="News" class="tabcontent">
+<div id="Berita" class="tabcontent">
   <h3>News</h3>
   <p>Some news this fine day!</p> 
 </div>
 
-<div id="Contact" class="tabcontent">
+<div id="Kontak" class="tabcontent">
   <h3>Contact</h3>
   <p>Get in touch, or swing by for a cup of coffee.</p>
 </div>
 
-<div id="About" class="tabcontent">
+<div id="Tentang" class="tabcontent">
   <h3>About</h3>
   <p>Who we are and what we do.</p>
 </div>
@@ -98,7 +98,7 @@ function openPage(pageName,elmnt,color) {
   for (i = 0; i < tablinks.length; i++) {
     tablinks[i].style.backgroundColor = "";
   }
-  document.getElementById(pageName).style.display = "block";
+  document.getElementById(pageName).style.display = "block"
   elmnt.style.backgroundColor = color;
 }
 
