@@ -68,18 +68,17 @@ h3 {
   padding: 100px 20px;
   height: 100%;
 }
-#Beranda {background-color: #0cc8f2;}
-#Berita {background-color: green;}
-#Kontak {background-color: blue;}
-#Tentang {background-color: #05f73e;}
+#Beranda {background-color: #e303fc;}
+#Berita {background-color: #5603fc;}
+#Kontak {background-color: #03fc77;}
+#Tentang {background-color: #fc5e03;}
   </style>
     </head>
     <body>
-      <div id="online-content">
-      <button class="tablink" onclick="openPage('Beranda', this, '#0cc8f2')" id="defaultOpen"><i class="material-symbols-rounded">home</i> <span>Beranda</span></button>
-<button class="tablink" onclick="openPage('Berita', this, 'green')"><i class="material-symbols-rounded">newspaper</i> <span>Berita</span></button>
-<button class="tablink" onclick="openPage('Kontak', this, 'blue')"><i class="material-symbols-rounded">contacts</i> <span>Kontak</span></button>
-<button class="tablink" onclick="openPage('Tentang', this, 'orange')"><i class="material-symbols-rounded">info</i> <span>Tentang</span></button>
+      <button class="tablink" onclick="openPage('Beranda', this, '#e303fc')" id="defaultOpen"><i class="material-symbols-rounded">home</i> <span>Beranda</span></button>
+<button class="tablink" onclick="openPage('Berita', this, '#5603fc')"><i class="material-symbols-rounded">newspaper</i> <span>Berita</span></button>
+<button class="tablink" onclick="openPage('Kontak', this, '#03fc77')"><i class="material-symbols-rounded">contacts</i> <span>Kontak</span></button>
+<button class="tablink" onclick="openPage('Tentang', this, '#fc5e03')"><i class="material-symbols-rounded">info</i> <span>Tentang</span></button>
 <div id="Beranda" class="tabcontent">
   <h3>Home</h3>
   <p>Home is where the heart is..</p>
@@ -99,7 +98,6 @@ h3 {
   <h3>About</h3>
   <p>Who we are and what we do.</p>
 </div>
-</div>
 <script>
 function openPage(pageName,elmnt,color) {
   var i, tabcontent, tablinks;
@@ -111,7 +109,7 @@ function openPage(pageName,elmnt,color) {
   for (i = 0; i < tablinks.length; i++) {
     tablinks[i].style.backgroundColor = "";
   }
-  document.getElementById(pageName).style.display = "block"
+  document.getElementById(pageName).style.display = "block";
   elmnt.style.backgroundColor = color;
 }
 
