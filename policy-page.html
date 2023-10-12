@@ -6,8 +6,11 @@
   <title>Kebijakan Privasi Boring-Websites</title>
  </head>
  <body>
-  <footer>
-   
+  <footer id="year">
   </footer>
+  <script>
+   const d = new Date();
+   document.getElementById('year').innerHTML = "© " + d.year() + ", Boring Websites | Hak Cipta Dilindungi Undang-undang";
+  </script>
  </body>
 </html>
