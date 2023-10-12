@@ -149,6 +149,25 @@ h3 {
   </footer>
 </div>
 <script>
+  window.addEventListener('load', function() {
+            var body = document.body;
+            
+            function handleConnectionChange(event) {
+                var online = navigator.onLine;
+                if (online) {
+                    offlineContent.style.display = 'block';
+                    offlineMessage.style.display = 'none';
+                } else {
+                    offlineContent.style.display = 'none';
+                    offlineMessage.style.display = 'block';
+                }
+            }
+
+            window.addEventListener('online', handleConnectionChange);
+            window.addEventListener('offline', handleConnectionChange);
+
+            handleConnectionChange();
+        });
   function openPage(pageName,elmnt,color) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
