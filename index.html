@@ -100,6 +100,27 @@ h3 {
         border-color: black;
       }
     }
+   
+
+  .tabcontent.active {
+    display: block;
+  }
+
+  #not-found {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .tabcontent.offline {
+    display: none;
+  }
+
+  .tabcontent.offline.active {
+    display: block;
+  }
   </style>
     </head>
     <body>
@@ -149,6 +170,22 @@ h3 {
   </footer>
 </div>
 <script>
+  // Add an event listener to the window's online event.
+  window.addEventListener("online", function() {
+    // Check if the current tab is active.
+    if (document.visibilityState === "visible") {
+      // If the current tab is active, reload the page.
+      location.reload();
+    }
+  });
+
+  // Check if the browser is online.
+  if (navigator.onLine) {
+    // If the browser is online, do nothing.
+  } else {
+    // If the browser is offline, display a 404 Not Found message in the current tab.
+    document.getElementById(document.querySelector(".tabcontent.active").id).innerHTML = "<h1>404 Not Found</h1>";
+  }
     function openPage(pageName,elmnt,color) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
