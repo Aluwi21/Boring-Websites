@@ -24,27 +24,34 @@ Dengan antarmuka pengguna yang ramah dan dukungan yang baik, Netlify menjadi pil
 # Kelebihan & Kekurangan Pada Netlify & Replit
 ### REPLIT
 - Tidak Mendukung **[`RANGE REQUEST`](https://chat.openai.com/share/40170a7e-f694-477c-b580-0f75a08e8ebe)**
-- Mudah Untuk Mengedit File Tanpa Harus Itu Kek Ini Kek
-- ***Autosave***, Jadi Mudah Kalo Gak Sengaja Keluar Dari Browser / Gak Internet Secara Tiba-tiba
-- Udah Ada AI Nya(***[Ghost Writer](https://replit.com/site/ghostwriter#chatProduct)***) Tapi Trial Dan Kalau Udah Habis Tokennya Ya Harus Bayar
-- Setiap Kali Membuat Website Di Replit Pasti Domainnya Ada "<nama_user_replit_kalian>.repl.co"
-- CPU Cuman Dikasih 0.5%
-- RAM Cuman Dikasih 512MB
+- Mudah Untuk Mengedit File Tanpa Harus Itu Kek Ini Kek😎
+- ***Autosave***, Jadi Mudah Kalo Gak Sengaja Keluar Dari Browser / Gak Internet Secara Tiba-tiba😌
+- Udah Ada AI Nya(***[Ghost Writer](https://replit.com/site/ghostwriter#chatProduct)***) Tapi Trial Dan Kalau Udah Habis Tokennya Ya Harus Bayar😮‍💨
+- Setiap Kali Membuat Website Di Replit Pasti Domainnya Ada "<nama_repl_kalian>.<nama_user_replit_kalian>.repl.co"🤬
+- CPU Cuman Dikasih 0.5%💀
+- RAM Cuman Dikasih 512MB💀💀
+- Banyak Orang Yang Pake🤓
+- Belum Pernah Terverifikasi Sama Google
 ### Netlify
 - Mendukung **[`RANGE REQUEST`](https://chat.openai.com/share/40170a7e-f694-477c-b580-0f75a08e8ebe)**
-- Ribet Bjir, Harus Ke Github Dulu Kalo Mau Ngedit
-- **NO AUTOSAVE** Kalo Ga Sengaja Ninggalin Github Bentar Aja, Udah Ke Reload & Ga Autosave
-- Udah Ada AI Nya(**[Copilot]
+- Ribet Bjir, Harus Ke Github Dulu Kalo Mau Ngedit🤓
+- **NO AUTOSAVE** Kalo Ga Sengaja Ninggalin Github Bentar Aja(RAM HP 4gb), Udah Ke Reload & Ga Autosave Apalagi Pas Ga Ada Internet (Kecuali Pas Di GitHub Nya Lagi Edit Terus Nge-reload Bakal Diperingati)💀😭
+- Udah Ada AI Nya(***[Copilot](https://github.com/features/copilot)***) Tapi Wajib Bayar😁
+- Setiap Kali Membuat Website Di Netlify Pasti Domainnya Ada "<nama_websitenya>.netlify.app"😴
+- CPU & RAM Ga Diberi Tahu Berapa Tapi Yang Pengting Hostingnya Cepat🗿
+- Banyak Mungkin? Yang Pake🤨
+- Sudah Pernah Terverifikasi Oleh Google
 # Tapi Bang, Nanti Kan Ada Yang Ngambil Data Lu
 - Penmikiran Kalian Gitu Amat, Ya Biarin Lah, Kan **Berbagi Itu Indah.**
 # Package & Bahasa Progam
 - Bahasa Program : **[`HTML`](https://chat.openai.com/share/8584bb99-010b-440c-9f89-fbde1df68820)**, **[`CSS`](https://chat.openai.com/share/f27ab303-300b-4add-a17e-0b7d1affaed4)** & **[`JS`](https://chat.openai.com/share/ae295a56-dc79-464f-9c0e-d8483362bd3d)**
 - Package : **`Nothing`**
 # Database?
-- Uh... Selama Ini Aku **GAK PERNAH** Banget Pakek Database Karena Gak Tau Cara Setupnya :v
+- **INDEXEDDB**
+- **FIREBASE *(Gagal Mulu😮‍💨)***
 # Fitur & Rahasia :
 - Menggunakan Fon [`Google Fonts`](https://fonts.google.com/)
-- Menggunakan Ikon [`Google Icons`](https://fonts.google.com/icons)
+- Menggunakan Ikon [`Google Icons`](https://fonts.google.com/icons), [`Fontawesome`](
 - Ada **`1 Tombol Rahasia Menuju Easter Egg`**
 - Nama Asli Dari [`Boring Websites`](https://boring-websites.netlify.app/) Sebenarnya **`Simple-5`** Ya Karena Aku Punya Repl Terakhir Angka 4, [Cek Replit Ku](https://replit.com/@SyaamilMaulana/), Terus Diganti Ke **`Situs Gabut Ku!`** Ya Karena **`Simple-5`** Buriq, Karena Namanya Kek Gak Masuk Akal Akhirnya Diganti Ke ***`Boring-Websites`***.
 - Karena Aku Lebih Suka *All In One*, Jadi Skrip Jawa & Gaya Kertas Internet **Bukan Terletak** **~~Terletak~~** Di **script.js** & **style.css** Tapi **~~Bukan~~** Di **index.html**
