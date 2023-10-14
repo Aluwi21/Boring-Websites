@@ -104,7 +104,28 @@ h3 {
      center: 0;
    }
 .cf {
-  animation: changefont 2s 
+  animation: changefont 2s linear infinite
+}
+        @keyframes changefont {
+          0% {
+            font-family: 'Space Grotesk'
+          }
+          20% {
+            font-family: 'Amaranth', sans-serif;
+          }
+          40% {
+            font-family: 'Gruppo', sans-serif;
+          }
+          60% {
+            font-family: 'Hind Guntur', sans-serif;
+          }
+          80% {
+            font-family: 'Josefin Sans', sans-serif;
+          }
+          100% {
+            font-family: 'Monda', sans-serif;
+          }
+        }
   
   </style>
     </head>
