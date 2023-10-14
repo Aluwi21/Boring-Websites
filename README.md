@@ -23,14 +23,18 @@ Dengan antarmuka pengguna yang ramah dan dukungan yang baik, Netlify menjadi pil
 * Source/Sumber : **ChatGPT**
 # Kelebihan & Kekurangan Pada Netlify & Replit
 ### REPLIT
-- Tidak Mendukung [`RANGE REQUEST`](https://chat.openai.com/share/40170a7e-f694-477c-b580-0f75a08e8ebe)**
+- Tidak Mendukung **[`RANGE REQUEST`](https://chat.openai.com/share/40170a7e-f694-477c-b580-0f75a08e8ebe)**
 - Mudah Untuk Mengedit File Tanpa Harus Itu Kek Ini Kek
 - ***Autosave***, Jadi Mudah Kalo Gak Sengaja Keluar Dari Browser / Gak Internet Secara Tiba-tiba
 - Udah Ada AI Nya(***[Ghost Writer](https://replit.com/site/ghostwriter#chatProduct)***) Tapi Trial Dan Kalau Udah Habis Tokennya Ya Harus Bayar
 - Setiap Kali Membuat Website Di Replit Pasti Domainnya Ada "<nama_user_replit_kalian>.repl.co"
 - CPU Cuman Dikasih 0.5%
 - RAM Cuman Dikasih 512MB
-- 
+### Netlify
+- Mendukung **[`RANGE REQUEST`](https://chat.openai.com/share/40170a7e-f694-477c-b580-0f75a08e8ebe)**
+- Ribet Bjir, Harus Ke Github Dulu Kalo Mau Ngedit
+- **NO AUTOSAVE** Kalo Ga Sengaja Ninggalin Github Bentar Aja, Udah Ke Reload & Ga Autosave
+- Udah Ada AI Nya(**[Copilot]
 # Tapi Bang, Nanti Kan Ada Yang Ngambil Data Lu
 - Penmikiran Kalian Gitu Amat, Ya Biarin Lah, Kan **Berbagi Itu Indah.**
 # Package & Bahasa Progam
