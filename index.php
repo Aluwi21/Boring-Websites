@@ -4,4 +4,4 @@
 </form>
 $nama = $_POST['nama'];
 echo "$nama"
-<?
+?>
