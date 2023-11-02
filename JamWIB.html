@@ -32,9 +32,9 @@
     <script>
 
                         setInterval(function() {
-                            d = getCurrentDateTime();
-                            r = "Tanggal & Waktu : " + d;
-                            e = document.getElementById('realtimedata');
+                           var d = getCurrentDateTime();
+                           var r = "Tanggal & Waktu : " + d;
+                           var e = document.getElementById('realtimedata');
                             e.innerText = r;
                         }, 1000);
                     }
