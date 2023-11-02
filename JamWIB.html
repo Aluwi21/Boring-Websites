@@ -55,8 +55,8 @@
         var bulan = dd.toLocaleDateString('id-ID', { month: 'long' });
         var tanggal = dd.getDate();
         var hari = dd.toLocaleDateString('id-ID', { weekday: 'long' });
-       var datestring = hari + "," + tanggal + " " + bulan + " " + tahun
-        return datesring;
+       var dateString = hari + "," + tanggal + " " + bulan + " " + tahun
+        return dateString;
     }
                     function getCurrentTime() {
                         var d = new Date();
@@ -69,8 +69,8 @@
                         menit = (menit < 10 ? "0" : "") + menit;
                         detik = (detik < 10 ? "0" : "") + detik;
 
-                        var waktuString = jam + "." + menit + "." + detik
-                        return waktuString;
+                        var timeString = jam + "." + menit + "." + detik
+                        return timeString;
                     }
     </script>
   </body>
