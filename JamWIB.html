@@ -9,14 +9,21 @@
     <style>
       @font-face {
   font-family: "Digital Seven";
-  src: url("digital-7.ttf") format("truetype");
+  src: url("digital-7.ttf") format("ttf");
       }
       html {
         background-color: #222222;
       }
-      #realtimedata {
+      #realtimetime {
       font-family: 'Digital Seven';
-      color: green;
+      color: #03fd04;
+        font-size: 40;
+      text-align: center
+      }
+      #realtimedate {
+      font-family: 'Digital Seven';
+      color: #32ccfe;
+      font-size: 20;
       text-align: center
       }
       footer, a{
@@ -29,26 +36,30 @@
     </style>
   </head>
   <body>
-    <div id="realtimedata"></div>
+    <div id="realtimedate"></div>
+    <div id="realtimetime"></div>
     <footer>
       <a href="https://boring-websites.netlify.app" target="_parent">Back</a>
     </footer>
     <script>
-
                         setInterval(function() {
-                           var d = getCurrentDateTime();
-                           var r = "Tanggal & Waktu : " + d;
-                           var e = document.getElementById('realtimedata');
-                            e.innerText = r;
+                           var t = getCurrentTime();
+                          var d = getCurrentDate();
+                           var e = document.getElementById('realtimetime');
+                            e.innerText = t;
+                          var ek = document.getElementById('realtimedate');
+                          ek.innerText = d;
                         }, 1000);
                     
-
-                    function getCurrentDateTime() {
-                        var d = new Date();
-                        var tahun = d.getFullYear();
+      function getCurrentDate() {
+        var dd = new Date();
+        var tahun = d.getFullYear();
                         var bulan = d.toLocaleDateString('id-ID', { month: 'long' });
                         var tanggal = d.getDate();
                         var hari = d.toLocaleDateString('id-ID', { weekday: 'long' });
+      }
+                    function getCurrentTime() {
+                        var d = new Date();
                         var jam = d.getHours();
                         var menit = d.getMinutes();
                         var detik = d.getSeconds();
@@ -58,8 +69,7 @@
                         menit = (menit < 10 ? "0" : "") + menit;
                         detik = (detik < 10 ? "0" : "") + detik;
 
-                        var waktuString = hari + ', ' + tanggal + ' ' + bulan + ' ' + tahun + ' ' + jam + ':' + menit + ':' + detik;
-
+                        var waktuString = jam + "." + menit + "." + detik
                         return waktuString;
                     }
     </script>
