@@ -26,7 +26,33 @@
   <body>
     <div id="realtimedata"></div>
     <footer>
-      <center><a href="https://boring-websites.netlify.app" target="_parent">Back</a></center>
+      <a href="https://boring-websites.netlify.app" target="_parent">Back</a>
     </footer>
+    <script>
+    // Fungsi untuk menampilkan waktu
+    function tampilkanWaktu() {
+      // Mendapatkan waktu sekarang
+      var now = new Date();
+
+      // Mengubah waktu ke format Indonesia
+      var hari = now.getDay();
+      var tanggal = now.getDate();
+      var bulan = now.getMonth() + 1;
+      var tahun = now.getFullYear();
+      var jam = now.getHours();
+      var menit = now.getMinutes();
+      var detik = now.getSeconds();
+
+      // Menyusun waktu
+      var waktuIndonesia = hari + ", " + tanggal + " " + bulan + " " + tahun + " " + jam + ":" + menit + ":" + detik;
+
+      // Menampilkan waktu
+      document.getElementById("realtimedata").innerHTML = waktuIndonesia;
+    }
+
+    // Memulai timer
+    setInterval(tampilkanWaktu, 1000);
+
+    </script>
   </body>
 </html>
