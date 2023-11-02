@@ -17,13 +17,11 @@
       #realtimetime {
       font-family: 'Digital Seven';
       color: #03fd04;
-        font-size: 40;
       text-align: center
       }
       #realtimedate {
       font-family: 'Digital Seven';
       color: #32ccfe;
-      font-size: 20;
       text-align: center
       }
       footer, a{
@@ -53,11 +51,13 @@
                     
       function getCurrentDate() {
         var dd = new Date();
-        var tahun = d.getFullYear();
-                        var bulan = d.toLocaleDateString('id-ID', { month: 'long' });
-                        var tanggal = d.getDate();
-                        var hari = d.toLocaleDateString('id-ID', { weekday: 'long' });
-      }
+        var tahun = dd.getFullYear();
+        var bulan = dd.toLocaleDateString('id-ID', { month: 'long' });
+        var tanggal = dd.getDate();
+        var hari = dd.toLocaleDateString('id-ID', { weekday: 'long' });
+       var datestring = hari + "," + tanggal + " " + bulan + " " + tahun
+        return datesring;
+    }
                     function getCurrentTime() {
                         var d = new Date();
                         var jam = d.getHours();
