@@ -70,7 +70,17 @@
         var target = document.getElementById('button-link');
         var ld = document.getElementById('livedate');
         var lt = document.getElementById('livetime');
-        ld.class
+        if (ld.style.fontFamily === "'Digital-7 Mono'" && lt.style.fontFamily === "'Digital-7 Mono'") {
+        ld.style.fontFamily = "Arial";
+        lt.style.fontFamily = "Arial";
+      } else {
+        ld.style.fontFamily = "Digital-7 Mono";
+        lt.style.fontFamily = "Digital-7 Mono";
+      }
+    
+
+    // Menghubungkan tombol dengan fungsi ubahFont()
+    target.addEventListener("click", changefont);
       }
                         setInterval(function() {
                            var t = getCurrentTime();
