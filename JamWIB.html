@@ -11,18 +11,18 @@
       html {
         background-color: #222222;
       }
-      #realtimetime {
+      #livetime {
       font-family: 'Digital-7 Mono', sans-serif;
       color: #03fd04;
-        font-size: 40pt;
-                margin-top: 200px;
+      font-size: 40pt;
+      margin-top: 200px;
       text-align: center
       }
-      #realtimedate {
+      #livedate {
       font-family: 'Digital-7 Mono', sans-serif;
       color: #32ccfe;
-        font-size: 20pt;
-        margin-top: 200px;
+      font-size: 20pt;
+      margin-top: 100px;
       text-align: center
       }
       footer, a{
@@ -35,8 +35,8 @@
     </style>
   </head>
   <body>
-    <div id="realtimedate"></div>
-    <div id="realtimetime"></div>
+    <div id="livedate"></div>
+    <div id="livetime"></div>
     <footer>
       <a href="https://boring-websites.netlify.app" target="_parent">Back</a>
     </footer>
@@ -44,9 +44,9 @@
                         setInterval(function() {
                            var t = getCurrentTime();
                           var d = getCurrentDate();
-                           var e = document.getElementById('realtimetime');
+                           var e = document.getElementById('livetime');
                             e.innerText = t;
-                          var ek = document.getElementById('realtimedate');
+                          var ek = document.getElementById('livedate');
                           ek.innerText = d;
                         }, 1000);
                     
