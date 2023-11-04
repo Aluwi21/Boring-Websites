@@ -32,44 +32,18 @@
         center: 0;
         color: white
       }
-      .button-link {
-  background: none!important;
-  border: none;
-  padding: 0!important;
-  /*optional*/
-  font-family: arial, sans-serif;
-  /*input has OS specific font-family*/
-  color: #069;
-  text-decoration: underline;
-  cursor: pointer;
-      }
+      
     </style>
   </head>
   <body>
     <div id="livedate"></div>
     <div id="livetime"></div>
     <footer>
-      <a href="https://boring-websites.netlify.app" target="_parent">Back</a> | <button id="button-link" class="button-link" onclick="changefont()">Standard Font</button>
+      <a href="https://boring-websites.netlify.app" target="_parent">Back</a> 
+    
     </footer>
     <script>
-      function changefont() {
-        var target = document.getElementById('button-link');
-        var ld = document.getElementById('livedate');
-        var lt = document.getElementById('livetime');
-        if (ld.style.fontFamily === "'Digital-7 Mono'" && lt.style.fontFamily === "'Digital-7 Mono'") {
-        ld.style.fontFamily = "Arial";
-        lt.style.fontFamily = "Arial";
-        target.innerText = "Digital Font";
-      } else {
-        ld.style.fontFamily = "Digital-7 Mono";
-        lt.style.fontFamily = "Digital-7 Mono";
-        target.innerText = "Standard Font";
-      }
-    
-
-    // Menghubungkan tombol dengan fungsi ubahFont()
-    target.addEventListener("click", changefont);
-      }
+      
                         setInterval(function() {
                            var t = getCurrentTime();
                           var d = getCurrentDate();
