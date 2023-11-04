@@ -15,7 +15,7 @@
       font-family: 'Digital-7 Mono', sans-serif;
       color: #03fd04;
       font-size: 40pt;
-      margin-top: 150px;
+      margin-top: 200px;
       text-align: center
       }
       #livedate {
@@ -40,13 +40,14 @@
     <div id="livetime"></div>
     <footer>
       <a href="https://boring-websites.netlify.app" target="_parent">Back</a> 
-      <option name="select-font">
-        <select value="af">Standard Font</select>
-        <select value="df" selected>Digital Font</select>
-      </option>
+      <select name="select-font">
+        <option value="af">Standard Font</select>
+        <option value="df" selected>Digital Font</select>
+      </select>
     </footer>
     <script>
-      
+      const s = document.getElementById('select');
+      s.
                         setInterval(function() {
                            var t = getCurrentTime();
                           var d = getCurrentDate();
