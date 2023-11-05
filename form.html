@@ -40,13 +40,15 @@
       console.error('[GeoLocation > DENIED]: Location permission denied by user.')
       break;
     case error.POSITION_UNAVAILABLE:
-      alert("
+      alert("Lokasi Tidak Tersedia")
       console.error('[GeoLocation > UNAVAILABLE]: Location unavailable.')
       break;
     case error.TIMEOUT:
+      alert("Waktu Habis Untuk Mendapatkan Lokasi Pengguna")
      console.error('[GeoLocation > TIMEOUT]: Request for get location from user is timeout.')
       break;
     case error.UNKNOWN_ERROR:
+      alert("Ada Kesalahan Yang Tidak Diketahui")
       console.error('[GeoLocation > UNKNOWN_ERROR]: An occurred unknown error.')
       break;
   }
