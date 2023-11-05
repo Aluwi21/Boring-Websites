@@ -48,6 +48,12 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     
     <script>
+      var inputDate = document.getElementById("tgl_lahir");
+
+  inputDate.addEventListener("change", function() {
+    var selectedDate = inputDate.value;
+    alert("Tanggal Yang Dipilih : " + selectedDate);
+  });
       const required = document.getElementById('req');
     const optional = document.getElementById('opt');
     // Tambahkan event listener
