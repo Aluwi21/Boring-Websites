@@ -22,7 +22,6 @@
     </form>
     <script>
       function getLocation() {
-        var x = document.getElementById('lokasi')
                         if (navigator.geolocation) {
                             navigator.geolocation.watchPosition(showPosition);
                         } else {
@@ -30,6 +29,10 @@
                             console.warn("[GeoLocation > WARNING]: Your browser doesn't support geolocation.");
                         }
       }
+      function showPosition(position) {
+        var x = document.getElementById('lokasi')
+        x.innerText = "position.coords.latitude.position.coords.longitude";
+                          
     </script>
   </body>
 </html>
