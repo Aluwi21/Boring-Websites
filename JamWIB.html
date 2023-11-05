@@ -29,7 +29,6 @@
         text-align: center;
         position: absolute;
         bottom: 0;
-        center: 0;
         color: white
       }
       
@@ -48,8 +47,15 @@
     </footer>
     <script>
       const s = document.getElementById('select');
-      const o = s.querySelector('option[value=af]');
-      const oo = s.querySelector('optipn[value=df]')
+      const o = s.querySelector('option[value="af"]');
+      const oo = s.querySelector('optipn[value="df"]')
+      var lt = document.getElementById('livetime');
+    var ld = document.getElementById('livedate');
+    s.addEventListener("change", (event) => {
+      // Get the selected option
+      const option = event.target.options[event.target.selectedIndex];
+      if (`${option.value} === "af"`) {
+        lt.style.fontFamily =
                         setInterval(function() {
                            var t = getCurrentTime();
                           var d = getCurrentDate();
