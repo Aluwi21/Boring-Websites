@@ -15,15 +15,17 @@
       font-family: 'Digital-7 Mono', sans-serif;
       color: #03fd04;
       font-size: 40pt;
-      margin-top: 300px;
-      text-align: center
+        display: flex;
+       justify-content: center;
+        align-items: center;
       }
       #livedate {
       font-family: 'Digital-7 Mono', sans-serif;
       color: #32ccfe;
       font-size: 20pt;
-      margin-top: 200px;
-      text-align: center
+        display: flex;
+       justify-content: center;
+        align-items: center;
       }
      footer, a{
         position: absolute;
@@ -52,10 +54,10 @@
     s.addEventListener("change", (event) => {
       // Get the selected option
       const option = event.target.options[event.target.selectedIndex];
-      if (`${option.value} === "af"`) {
+      if (`${option.value} == "af"`) {
         lt.style.fontFamily = "Arial";
         ld.style.fontFamily = "Arial";
-      } else if (`${option.value} === "df"`) {
+      } else if (`${option.value} == "df"`) {
         lt.style.fontFamily = "'Digital-7 Mono', sans-serif";
         ld.style.fontFamily = "'Digital-7 Mono', sans-serif";
         }
