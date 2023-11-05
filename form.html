@@ -17,7 +17,7 @@
       <textarea id="lokasi" placeholder="Masukkan Alamat / Dapatkan Lokasi Langsung" required></textarea>
       <br>
       <button onclick="getLocation()">Dapatkan Lokasi</button>
-      <input id="submit" type="submit">Submit</input>
+      <input id="submit" type="submit"></input>
     
     </form>
     <script>
@@ -31,7 +31,7 @@
       }
       function showPosition(position) {
         var x = document.getElementById('lokasi')
-        x.innerText = "position.coords.latitude.position.coords.longitude";
+        x.innerText = position.coords.latitude + "." + position.coords.longitude;
       }
       function showError(error) {
   switch(error.code) {
