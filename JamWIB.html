@@ -40,6 +40,7 @@
     <div id="livetime"></div>
     <footer>
       <a href="https://boring-websites.netlify.app" target="_parent">Back</a> 
+      <br>
       <select name="select-font">
         <option value="af">Standard Font</option>
         <option value="df" selected>Digital Font</option>
@@ -47,7 +48,8 @@
     </footer>
     <script>
       const s = document.getElementById('select');
-      s.
+      const o = s.querySelector('option[value=af]');
+      const oo = s.querySelector('optipn[value=df]')
                         setInterval(function() {
                            var t = getCurrentTime();
                           var d = getCurrentDate();
