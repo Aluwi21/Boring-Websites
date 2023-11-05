@@ -47,15 +47,18 @@
     </footer>
     <script>
       const s = document.getElementById('select');
-      const o = s.querySelector('option[value="af"]');
-      const oo = s.querySelector('optipn[value="df"]')
       var lt = document.getElementById('livetime');
     var ld = document.getElementById('livedate');
     s.addEventListener("change", (event) => {
       // Get the selected option
       const option = event.target.options[event.target.selectedIndex];
       if (`${option.value} === "af"`) {
-        lt.style.fontFamily =
+        lt.style.fontFamily = "Arial";
+        ld.style.fontFamily = "Arial";
+      } else if (`${option.value} === "df"`) {
+        lt.style.fontFamily = "Digital-7 Mono";
+        ld.style.fontFamily = "Digital-7 Mono";
+        }
                         setInterval(function() {
                            var t = getCurrentTime();
                           var d = getCurrentDate();
