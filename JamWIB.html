@@ -17,7 +17,6 @@
       font-size: 40pt;
         display: flex;
        justify-content: center;
-        align-items: center;
         margin: 0 auto;
       }
       #livedate {
@@ -26,7 +25,6 @@
       font-size: 20pt;
         display: flex;
        justify-content: center;
-        align-items: center;
         margin: 0 auto;
       }
      footer, a{
@@ -44,7 +42,7 @@
     <footer>
       <a href="https://boring-websites.netlify.app" target="_parent">Back</a> 
       <br>
-      <select style="position: absolute; bottom: 0; right: 0;" id="select" name="select-font">
+      <select style="position: absolute; bottom: 0;" id="select" name="select-font">
         <option value="af">Standard Font</option>
         <option value="df" selected>Digital Font</option>
       </select>
@@ -53,6 +51,7 @@
       const s = document.getElementById('select');
       var lt = document.getElementById('livetime');
     var ld = document.getElementById('livedate');
+      var font = "'Digital-7 Mono', sans-serif";
     s.addEventListener("change", (event) => {
       // Get the selected option
       const option = event.target.options[event.target.selectedIndex];
@@ -60,8 +59,8 @@
         lt.style.fontFamily = "Arial";
         ld.style.fontFamily = "Arial";
       } else if (`${option.value} == "df"`) {
-        lt.style.fontFamily = "'Digital-7 Mono', sans-serif";
-        ld.style.fontFamily = "'Digital-7 Mono', sans-serif";
+        lt.style.fontFamily = font;
+        ld.style.fontFamily = font;
         }
     })
       
