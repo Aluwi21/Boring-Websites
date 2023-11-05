@@ -15,13 +15,13 @@
       font-family: 'Digital-7 Mono', sans-serif;
       color: #03fd04;
       font-size: 40pt;
-        margin: 0 auto;
+      text-margin: center;
       }
       #livedate {
       font-family: 'Digital-7 Mono', sans-serif;
       color: #32ccfe;
       font-size: 20pt;
-        margin: 0 auto;
+      text-margin: center;
       }
      footer, a {
         position: absolute;
@@ -37,9 +37,9 @@
     <footer>
       <a href="https://boring-websites.netlify.app" target="_parent">Back</a> 
       <br>
-      <select style="position: absolute; bottom: 0; left:0;" id="select" name="select-font">
-        <option value="df" selected>Digital Font</option>
-        <option value="af" >Standard Font</option>
+      <select style="position: absolute; top: 0; left:0;" id="select" name="select-font">
+        <option value="digital-font" selected>Digital Font</option>
+        <option value="arial-font" >Standard Font</option>
       </select>
     </footer>
     <script>
@@ -51,11 +51,11 @@
       // Get the selected option
       const option = event.target.options[event.target.selectedIndex];
       
-      if (`${option.value} == "af"`) {
+      if (`${option.value} == "arial-font"`) {
         lt.style.fontFamily = "Arial";
         ld.style.fontFamily = "Arial";
         console.log('arial')
-      } else if (`${option.value} == "df"`) {
+      } else if (`${option.value} == "digital-font"`) {
         console.log('digital')
         lt.style.fontFamily = font;
         ld.style.fontFamily = font;
