@@ -53,13 +53,13 @@
       var font = "'Digital-7 Mono', sans-serif";
     s.addEventListener("change", (event) => {
       // Get the selected option
-      const option = event.target.options[event.target.selectedIndex].value;
+      var option = event.target.options[event.target.selectedIndex];
       
-      if (`${option.value} == 'digital-font'`) {
+      if (option.value == 'digital-font') {
         lt.style.fontFamily = font;
         ld.style.fontFamily = font;
         console.log('digital')
-      } else if (`${option.value} == 'arial-font'`) {
+      } else if (option.value == 'arial-font') {
         console.log('arial')
         lt.style.fontFamily = "Arial";
         ld.style.fontFamily = "Arial";
