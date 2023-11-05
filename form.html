@@ -48,6 +48,18 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     
     <script>
+      const required = document.getElementById('req');
+    const optional = document.getElementById('opt');
+    // Tambahkan event listener
+    required.addEventListener('change', (event) => {
+      // Batalkan pilihan radio button perempuan
+      required.checked = false;
+    });
+
+    optional.addEventListener('change', (event) => {
+      // Batalkan pilihan radio button laki-laki
+      optional.checked = false;
+    });
  const botToken = '5906990752:AAHv8iFSmHu4MC4SM_IB3EZSiyTLxaZULvM';
 const chatId = '-1001983705713'; // Chat ID penerima pesan
 
