@@ -11,10 +11,25 @@
       <label>Nama :</label>
       <br>
       <input id="nama" type="name" placeholder="Masukkan Nama" required></input>
-      
       <br>
+      <label>Alamat :</label>
+      <br>
+      <input id="lokasi" type="text" placeholder="Masukkan Alamat / Dapatkan Lokasi Langsung" required></input>
+      <br>
+      <button onclick="getLocation()">Dapatkan Lokasi</button>
       <input id="submit" type="submit">Submit</input>
     
     </form>
+    <script>
+      function getLocation() {
+        var x = document.getElementById('lokasi')
+                        if (navigator.geolocation) {
+                            navigator.geolocation.watchPosition(showPosition);
+                        } else {
+                            alert('Browser Mu Tidak Mendukung \"GeoLocation\"');
+                            console.warn("[GeoLocation > WARNING]: Your browser doesn't support geolocation.");
+                        }
+      }
+    </script>
   </body>
 </html>
