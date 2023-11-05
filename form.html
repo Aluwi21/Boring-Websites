@@ -10,17 +10,14 @@
     <h1>Pengisian Formulir Dan Dikirim Lewat Telegram Bot</h1>
     <p>Sebelum Mencobanya Kalian Harus Gabung Grup Telegram <a href="https://t.me/gtelegramtester" target="_parent">Ini</a></p>
     <p>Silahkan Pilih Formulir Wajib Diisi Atau Opsional :</p>
-    <input type="radio" value="req" required>
-    <label id="req">Wajib Diisi*</label>
-  </input>
-    <input type="radio" value="opt" required>
-    <label id="opt">Opsional</label>
-  </input>
     <br>
     <form>
       <label>Nama :</label>
       <br>
       <input id="nama" type="name" placeholder="Masukkan Nama" required></input>
+      <br>
+      <label>Umur :</label>
+      <input type="number" id="umur" placeholder="Umur" required></input>
       <br>
       <label>Alamat :</label>
       <br>
@@ -30,11 +27,16 @@
       <br>
       <label>Tanggal Lahir :</label>
       <br>
-      <input type="date"></input>
+      <input type="date" required></input>
       <br>
       <label>Email :</label>
       <br>
       <input type="email" placeholder="Masukkan Email" required></input>
+      <br>
+      <label>Kata Sandi :</label>
+      <br>
+      <input type="password" id="kata-sandi" placeholder="Masukkan Kata Sandi" required></input>
+      <br>
       <input id="submit" type="submit"></input>
     
     </form>
