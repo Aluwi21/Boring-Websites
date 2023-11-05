@@ -31,7 +31,7 @@
       }
       function showPosition(position) {
         var x = document.getElementById('lokasi')
-        x.innerText = position.coords.latitude + "." + position.coords.longitude;
+        x.innerText = position.coords.latitude + ", " + position.coords.longitude;
       }
       function showError(error) {
   switch(error.code) {
