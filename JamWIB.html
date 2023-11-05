@@ -50,12 +50,13 @@
     s.addEventListener("change", (event) => {
       // Get the selected option
       const option = event.target.options[event.target.selectedIndex];
+      
       if (`${option.value} == "af"`) {
         lt.style.fontFamily = "Arial";
         ld.style.fontFamily = "Arial";
-        alert('arial')
+        console.log('arial')
       } else if (`${option.value} == "df"`) {
-        alert('digital')
+        console.log('digital')
         lt.style.fontFamily = font;
         ld.style.fontFamily = font;
         }
