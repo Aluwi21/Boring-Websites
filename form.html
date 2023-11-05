@@ -9,7 +9,13 @@
   <body>
     <h>Pengisian Formulir Dan Dikirim Lewat Telegram Bot</h>
     <p>Sebelum Mencobanya Kalian Harus Gabung Grup Telegram <a href="https://t.me/gtelegramtester" target="_parent">Ini</a></p>
-  
+    <p>Silahkan Pilih Formulir Wajib Diisi Atau Opsional :</p>
+    <br>
+    <input type="radio" id="req" required>
+    <label id="req">Wajib Diisi*</label>
+    <input type="radio" id="opt" required>
+    <label id="opt">Opsional</label>
+    <br>
     <form>
       <label>Nama :</label>
       <br>
@@ -26,6 +32,7 @@
       <input type="date"></input>
       <br>
       <label>Email :</label>
+      <br>
       <input type="email" placeholder="Masukkan Email" required></input>
       <input id="submit" type="submit"></input>
     
