@@ -53,7 +53,7 @@
       var font = "'Digital-7 Mono', sans-serif";
     s.addEventListener("change", (event) => {
       // Get the selected option
-      const option = event.target.options[event.target.selectedIndex];
+      const option = event.target.options[event.target.selectedIndex].value;
       
       if (`${option.value} == 'digital-font'`) {
         lt.style.fontFamily = font;
