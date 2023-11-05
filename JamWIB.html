@@ -55,6 +55,7 @@
     s.addEventListener("change", (event) => {
       // Get the selected option
       const option = event.target.options[event.target.selectedIndex];
+      alert(`${option.value}`)
       if (`${option.value} == "af"`) {
         lt.style.fontFamily = "Arial";
         ld.style.fontFamily = "Arial";
