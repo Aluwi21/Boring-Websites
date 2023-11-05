@@ -26,6 +26,7 @@
      footer, a {
         position: absolute;
         bottom: 0;
+        right: 0;
         color: white
       }
       
@@ -36,7 +37,7 @@
     <div id="livetime"></div>
       <a href="https://boring-websites.netlify.app" target="_parent">Back</a> 
       <br>
-      <select style="position: absolute; top: 0; left:0;" id="select" name="select-font">
+      <select style="position: absolute; bottom: 0; left:0;" id="select" name="select-font">
         <option value="digital-font" selected>Digital Font</option>
         <option value="arial-font" >Standard Font</option>
       </select>
@@ -49,14 +50,14 @@
       // Get the selected option
       const option = event.target.options[event.target.selectedIndex];
       
-      if (`${option.value} == "arial-font"`) {
-        lt.style.fontFamily = "Arial";
-        ld.style.fontFamily = "Arial";
-        console.log('arial')
-      } else if (`${option.value} == "digital-font"`) {
-        console.log('digital')
+      if (`${option.value} == "digital-font"`) {
         lt.style.fontFamily = font;
         ld.style.fontFamily = font;
+        console.log('digital')
+      } else if (`${option.value} == "arial-font"`) {
+        console.log('arial')
+        lt.style.fontFamily = "Arial";
+        ld.style.fontFamily = "Arial";
         }
     })
       
