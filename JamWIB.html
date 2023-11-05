@@ -15,13 +15,13 @@
       font-family: 'Digital-7 Mono', sans-serif;
       color: #03fd04;
       font-size: 40pt;
-      text-margin: center;
+      text-align: center;
       }
       #livedate {
       font-family: 'Digital-7 Mono', sans-serif;
       color: #32ccfe;
       font-size: 20pt;
-      text-margin: center;
+      text-align: center;
       }
      footer, a {
         position: absolute;
@@ -34,14 +34,12 @@
   <body>
     <div id="livedate"></div>
     <div id="livetime"></div>
-    <footer>
       <a href="https://boring-websites.netlify.app" target="_parent">Back</a> 
       <br>
       <select style="position: absolute; top: 0; left:0;" id="select" name="select-font">
         <option value="digital-font" selected>Digital Font</option>
         <option value="arial-font" >Standard Font</option>
       </select>
-    </footer>
     <script>
       const s = document.getElementById('select');
       var lt = document.getElementById('livetime');
