@@ -14,7 +14,7 @@
       <br>
       <label>Alamat :</label>
       <br>
-      <input id="lokasi" type="text" placeholder="Masukkan Alamat / Dapatkan Lokasi Langsung" required></input>
+      <textarea id="lokasi" placeholder="Masukkan Alamat / Dapatkan Lokasi Langsung" required></textarea>
       <br>
       <button onclick="getLocation()">Dapatkan Lokasi</button>
       <input id="submit" type="submit">Submit</input>
@@ -36,16 +36,18 @@
       function showError(error) {
   switch(error.code) {
     case error.PERMISSION_DENIED:
-      console.error
+      alert("Akses Lokasi Ditolak")
+      console.error('[GeoLocation > DENIED]: Location permission denied by user.')
       break;
     case error.POSITION_UNAVAILABLE:
-      x.innerHTML = "Location information is unavailable."
+      alert("
+      console.error('[GeoLocation > UNAVAILABLE]: Location unavailable.')
       break;
     case error.TIMEOUT:
-      x.innerHTML = "The request to get user location timed out."
+     console.error('[GeoLocation > TIMEOUT]: Request for get location from user is timeout.')
       break;
     case error.UNKNOWN_ERROR:
-      x.innerHTML = "An unknown error occurred."
+      console.error('[GeoLocation > UNKNOWN_ERROR]: An occurred unknown error.')
       break;
   }
       }
