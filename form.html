@@ -73,14 +73,13 @@ form.addEventListener('submit', async (event) => {
   const alamat = document.getElementById('lokasi').value;
   const email = document.getElementById('email').value;
   const kata_sandi = document.getElementById('kata_sandi').value;
-     var inputDate = document.getElementById("tgl_lahir");
+     const inputDate = document.getElementById("tgl_lahir");
 
 inputDate.addEventListener("change", function() {
-  var selectedDate = inputDate.value;
-  var dateObject = new Date(selectedDate);
-  var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  const selectedDate = inputDate.value;
+  const dateObject = new Date(selectedDate);
+  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
   const tgl_lahir = dateObject.toLocaleDateString('id-ID', options);
-
 });
   // Buat string dari data yang diambil
   const message = `
