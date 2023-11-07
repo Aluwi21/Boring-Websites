@@ -1,5 +1,5 @@
 // Membuka atau membuat database IndexedDB
-    const dbName = "db-1";
+    const dbName = "boring-websites-db";
     const dbVersion = 1;
 
     const request = indexedDB.open(dbName, dbVersion);
