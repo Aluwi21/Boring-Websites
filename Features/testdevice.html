@@ -23,8 +23,9 @@
         }
         button {
                 font-family: 'Bellota Text', cursive;
-                cursor:pointer; 
-                border-radius: 800px; 
+                cursor: pointer; 
+                border: 2px solid green;
+                border-radius: 10px; 
                 background-color: #0fa3ff; 
                 box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); 
                 padding: 10px 20px;
@@ -130,7 +131,7 @@ font-family: 'Ubuntu Mono', monospace;
         </head>
         <body>
                  <div id="online-content">
-                         <video id="videoElement" autoplay></video>
+                         <video style="width: 100%; height: 50px;" id="videoElement" autoplay></video>
                          <br>
   <button onclick="getCamNMic()"> Tes Kamera+Mikrofon Mu!</button>
  <button onclick="getLocation()">Tes Lokasi Mu!</button>
@@ -149,7 +150,7 @@ refresh</button>
                 <br>
                 <button onclick="requestNotificationPermission()">Tes Notifikasi Mu!(Service-Worker, Notification API & Push API)</button>
                          <br>
-                 <button onclick="sendText()">Kirim Teks Menggunakan Bot Telegram!(<a href="https://t.me/gtelegramtester">Gabung Grup Telegram Ini Untuk Melihat Hasil</a>)</button>
+                 <a href="/features/form" target="_parent"><button>Klik Tombol Ini Untuk Mengetes Formulir Ke Telegram Bot</button>
                  </div>
 
                 <div id="offline-content" class="offline-message">
@@ -170,27 +171,7 @@ wifi_off
                 </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script>
-      const botToken = '5906990752:AAHv8iFSmHu4MC4SM_IB3EZSiyTLxaZULvM';
-      const chatId = '-1001983705713'; // Chat ID penerima pesan
-        async function telegramRequest(method,data) {
-                  try {
-          const response = await axios.post(`https://api.telegram.org/bot${botToken}/${method}`, data);
-          console.log(response.data);
-        } catch (error) {
-                          alert("Kesalahan : \n", error);
-          console.error(error);
-        }
-      }
-
-      // Fungsi untuk mengirim pesan teks
-      function sendText() {
-        const message = prompt('Masukkan Teks :');
-        if (message) {
-          telegramRequest('sendMessage', { chat_id: chatId, text: message });
-        } else {
-                alert("Masukkan Input Yang Valid!")
-        }
-      }
+      
           // Memeriksa status koneksi saat halaman dimuat
         window.addEventListener('load', function() {
             var offlineContent = document.getElementById('online-content');
