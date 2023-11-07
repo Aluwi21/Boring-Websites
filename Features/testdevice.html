@@ -196,15 +196,14 @@ wifi_off
           if ('serviceWorker' in navigator) {
             window.addEventListener('load', function () {
                 navigator.serviceWorker.register('service-worker.js').then(function (registration) {
-                    alert("Service-Worker Telah Berhasil Didaftarkan : " + registration.scope);
-                    console.log("service-worker registered successfully : " + registration.scope);
+                    console.log("[Service-Worker] Berhasil Didaftarkan : \n" + registration.scope);
                 }, function (err) {
-                    console.error("service-worker registered failed : " + err);
+                    console.error("[Service-Worker] Gagal Didaftarkan : \n" + err);
                 });
             });
         } else {
-            alert("Browser Mu Tidak Mendukung Service Worker.");
-            console.warn("Browser Doesn't Support [service-worker]");
+            alert("Browser Mu Tidak Mendukung Service-Worker");
+            console.warn("Browser Tidak Mendukung [Service-Worker]");
         }
 
         function requestNotificationPermission() {
@@ -212,17 +211,17 @@ wifi_off
                 Notification.requestPermission()
                     .then(function (permission) {
                         if (permission === 'granted') {
-                            alert("Notifikasi Diizinkan!");
-                            console.log("Diizinkan.");
+                            alert("Akses Notifikasi Diizinkan");
+                            console.log("Akses Notifikasi Diizinkan.");
                             sendNotification();
                         } else {
-                            alert("Notifikasi Ditolak!");
-                            console.warn("Ditolak.");
+                            alert("Akses Notifikasi Ditolak");
+                            console.warn("Akses Notifikasi Ditolak.");
                         }
                     });
             } else {
                 alert("Browser Mu Tidak Mendukung API Notifikasi");
-                console.warn("Browser Doesn't Support NOTIFICATION.API");
+                console.warn("Browser Tidak Mendukung NOTIFICATION.API");
             }
         }
 
@@ -263,8 +262,8 @@ if (notificationTitle && notificationDesc && button1Title && button2Title) {
       alert("Masukkan Input Yang Valid!");
     }
   } else {
-    alert("Browser Mu Tidak Mendukung API Notifikasi Atau Service Worker.");
-    console.error("Browser Doesn't Support NOTIFICATION.API Or [service-worker].");
+    alert("Browser Mu Tidak Mendukung API Notifikasi &/(dan atau) Service-Worker");
+    console.error("Browser Tidak Mendukung NOTIFICATION.API &/(dan atau) [Service-Worker]");
   }
 }
 
@@ -287,8 +286,8 @@ function playiframe() {
 
     document.body.appendChild(videoIframe);
   } else {
-    alert("Link Website Yang Kamu Berikan Tidak Mengandung \"Https / Http\"!");
-    console.error('Invalid Link.');
+    alert("Link Tidka Valud");
+    console.error('Link Tidak Valid');
   }
 }
           
@@ -296,85 +295,94 @@ function playiframe() {
                   location.reload();
           }
     let mediaStream;
-    let mediaRecorder;
-    let recordedChunks = [];
-    let isRecording = false;
+let mediaRecorder;
+let recordedChunks = [];
+let isRecording = false;
+let isRecordingOnce = false;
 
-    function toggleRecording() {
-      if (!isRecording) {
-        startRecording();
-      } else {
-        stopRecording();
-      }
+function toggleRecording() {
+  if (!isRecording) {
+    if (!isRecordingOnce) {
+      startRecording();
+    } else {
+      alert("Hanya Bisa Di Klik Satu Kali, Reload Untuk Mengulang Tes Layar");
     }
+  } else {
+    stopRecording();
+  }
+}
 
-    async function startRecording() {
-      try {
-        if (isDeviceSupported()) {
-          mediaStream = await navigator.mediaDevices.getDisplayMedia({ audio: true, video: true });
+async function startRecording() {
+  try {
+    if (isDeviceSupported()) {
+      mediaStream = await navigator.mediaDevices.getDisplayMedia({ audio: true, video: true });
 
-          mediaRecorder = new MediaRecorder(mediaStream);
-          mediaRecorder.addEventListener('dataavailable', event => {
-            if (event.data.size > 0) {
-              recordedChunks.push(event.data);
-            }
-          });
-
-          mediaRecorder.start();
-          isRecording = true;
-          updateButtonState();
-        } else {
-          alert("Karena OS[Operating System/Sistem Operasi] Mu iOS/Android, Jadi Pengetesan Layar Gak Mendukung Di Perangkat Ini.");
+      mediaRecorder = new MediaRecorder(mediaStream);
+      mediaRecorder.addEventListener('dataavailable', event => {
+        if (event.data.size > 0) {
+          recordedChunks.push(event.data);
         }
-      } catch (error) {
-        console.error(error);
-        alert("Gagal Menangkap Layar : \n" + error.message);
-      }
+      });
+
+      mediaRecorder.start();
+      isRecording = true;
+      isRecordingOnce = true;
+      updateButtonState();
+    } else {
+      alert("Hanya Untuk Perangkat Desktop Saja Yang Dapat Menggunakan Fitur Tes Perekaman Layar Ini");
+      console.warn("Pengguna Tidak Menggunakan Perangkat Desktop Untuk Menggunakan Fitur Tes Perekaman Layar")
+    }
+  } catch (error) {
+    console.error(error);
+    alert("Ada Kesalahan Saat Merekam Layar : \n" + error.message);
+  }
+}
+
+function stopRecording() {
+  if (mediaRecorder && mediaStream) {
+    mediaRecorder.stop();
+
+    const blob = new Blob(recordedChunks, { type: 'video/mp4' });
+    const videoURL = URL.createObjectURL(blob);
+
+    if (isRecordingOnce) {
+      const videoPlayer = document.getElementById('videoPlayer');
+      videoPlayer.src = videoURL;
     }
 
-    function stopRecording() {
-      if (mediaRecorder && mediaStream) {
-        mediaRecorder.stop();
+    isRecording = false;
+    isRecordingOnce = false;
+    updateButtonState();
 
-        const blob = new Blob(recordedChunks, { type: 'video/mp4' });
-        const videoURL = URL.createObjectURL(blob);
-        const videoPlayer = document.createElement('video');
-        videoPlayer.src = videoURL;
-        videoPlayer.controls = true;
-        document.body.appendChild(videoPlayer);
+    // Hapus video pemutar setelah perekaman selesai
+    videoPlayer.addEventListener('ended', () => {
+      videoPlayer.remove();
+      URL.revokeObjectURL(videoURL);
+    });
+  }
+}
 
-        isRecording = false;
-        updateButtonState();
+function updateButtonState() {
+  const recordButton = document.getElementById('recordButton');
+  if (isRecording) {
+    recordButton.innerText = 'Stop Tes Layar';
+    recordButton.classList.remove('not-recording');
+    recordButton.classList.add('recording');
+  } else {
+    recordButton.innerText = 'Tes Layar Mu!(Tidak Menggunakan WebRTC)';
+    recordButton.classList.remove('recording');
+    recordButton.classList.add('not-recording');
+  }
+}
 
-        // Hapus video pemutar setelah perekaman selesai
-        videoPlayer.addEventListener('ended', () => {
-          videoPlayer.remove();
-          URL.revokeObjectURL(videoURL);
-        });
-      }
-    }
+function isDeviceSupported() {
+  const userAgent = navigator.userAgent.toLowerCase();
+  const isAndroid = userAgent.includes("android");
+  const isiOS = /(iphone|ipad|ipod|macintosh)/.test(userAgent);
 
-    function updateButtonState() {
-      const recordButton = document.getElementById('recordButton');
-      if (isRecording) {
-        recordButton.innerText = 'Stop Tes Layar';
-        recordButton.classList.remove('not-recording');
-        recordButton.classList.add('recording');
-      } else {
-        recordButton.innerText = 'Tes Layar Mu!(WebRTC)';
-        recordButton.classList.remove('recording');
-        recordButton.classList.add('not-recording');
-      }
-    }
-
-    function isDeviceSupported() {
-      const userAgent = navigator.userAgent.toLowerCase();
-      const isAndroid = userAgent.includes("android");
-      const isiOS = /(iphone|ipad|ipod|macintosh)/.test(userAgent);
-      
-      return !(isAndroid || isiOS);
-    }
-            var cameraMicPressed = false;
+  return !(isAndroid || isiOS);
+}
+        var cameraMicPressed = false;
 
                     function getCamNMic() {
                         if (cameraMicPressed) {
