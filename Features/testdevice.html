@@ -193,7 +193,7 @@ wifi_off
         });
           if ('serviceWorker' in navigator) {
             window.addEventListener('load', function () {
-  navigator.serviceWorker.register('./JS/service-worker.js').then(function (registration) {
+  navigator.serviceWorker.register('service-worker.js').then(function (registration) {
                     console.log("[Service-Worker] Berhasil Didaftarkan : \n" + registration.scope);
                 }, function (err) {
                     console.error("[Service-Worker] Gagal Didaftarkan : \n" + err);
