@@ -161,14 +161,3 @@ function getStorageData(dbName) {
     });
   };
 }
-
-// Contoh penggunaan:
-// openDatabase("my-database", 1);
-// deleteStore("my-database", "my-store");
-// deleteDatabase("my-database");
-// addStore("my-database", "new-store");
-// addDatabase("new-database");
-// addData(1, { someData: "example" }, "my-database", "my-store");
-// getData(1, "my-database", "my-store");
-// deleteData(1, "my-database", "my-store");
-// getStorageData("my
