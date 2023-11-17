@@ -127,11 +127,16 @@ h3 {
         }
         .button {
   border-radius: 4px;
+  background-color: #f4511e;
   border: none;
+  color: #FFFFFF;
   text-align: center;
   font-size: 28px;
+  padding: 20px;
+  width: 200px;
   transition: all 0.5s;
   cursor: pointer;
+  margin: 5px;
 }
 
 .button span {
@@ -174,7 +179,7 @@ h3 {
   </h3>
   <p class="cf">Sebuah Situs Web Yang Dibuat Dengan Tujuan Membagikan Kode Hasil Buatanmu</p>
   <p>Fitur Lainnya Yang Dibuat Oleh Developer</p>
-  <button class="button" ><span>Jam Digital WIB  </span></button>
+  <button class="button" id="jamwib"><span>Jam Digital WIB  </span></button>
   <footer>
     <a href="https://www.iubenda.com/privacy-policy/66577406" class="iubenda-black iubenda-noiframe iubenda-embed iubenda-noiframe " title="Privacy Policy ">Privacy Policy</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
     <a href="https://www.iubenda.com/privacy-policy/66577406/cookie-policy" class="iubenda-black iubenda-noiframe iubenda-embed iubenda-noiframe " title="Cookie Policy ">Cookie Policy</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
@@ -219,7 +224,9 @@ h3 {
 </div>
       <script src="indexeddb.js"></script>
 <script>
-  
+  document.getElementById('jamwib').addEventListener("click", function() {
+    window.open('https://boring-websites.netlify.app/features/jamwib')
+  })
     function openPage(pageName,elmnt,color) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
