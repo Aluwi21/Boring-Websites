@@ -69,7 +69,7 @@
     </head>
     <body>
     <div class="tab">
-  <button class="tablinks" onclick="openPage(event, '1')">Tutorial & Pertanyaan</button>
+  <button id="a" class="tablinks" onclick="openPage(event, '1')">Tutorial & Pertanyaan</button>
   <button class="tablinks" onclick="openPage(event, '2')">Berita & Kontak</button>
   <button class="tablinks" onclick="openPage(event, '3')">Papan Peringkat</button>
 </div>
@@ -110,7 +110,7 @@
   document.getElementById(cityName).style.display = "block";
   evt.currentTarget.className += " active";
       }
-        document.querySelector('button[dataopen').click();
+        document.querySelector('#a').click();
       </script>
     </body>
   </html>
