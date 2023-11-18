@@ -52,26 +52,18 @@
 var req = document.getElementById('req');
 
 opt.addEventListener("click", function(event) {
-  if (event.target == opt) {
-    req.checked = false;
-  }
-
-  var a = document.querySelector('form[data-id="1"]');
-  a.required = false;
-
-  var b = document.querySelector('label[data-id="2"]');
+  req.checked = false
+var a = document.querySelector('form[data-id="1"]');
+  a.removeAttribute(required)
+var b = document.querySelector('label[data-id="2"]');
   b.innerText = b.value + " Opsional";
 });
 
 req.addEventListener("click", function(event) {
-  if (event.target == req) {
     opt.checked = false;
-  }
-
   var a = document.querySelector('form[data-id="1"]');
-  a.required = true;
-
-  var b = document.querySelector('label[data-id="2"]');
+  a.
+var b = document.querySelector('label[data-id="2"]');
   b.innerText = b.value + " Wajib";
 });
 
