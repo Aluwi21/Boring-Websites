@@ -52,7 +52,7 @@
 var req = document.getElementById('req');
 
 opt.addEventListener("click", function(event) {
-  if (event.target !== opt) {
+  if (event.target == opt) {
     req.checked = false;
   }
 
@@ -64,7 +64,7 @@ opt.addEventListener("click", function(event) {
 });
 
 req.addEventListener("click", function(event) {
-  if (event.target !== req) {
+  if (event.target == req) {
     opt.checked = false;
   }
 
@@ -91,7 +91,7 @@ async function telegramRequest(method, data) {
 const form = document.getElementById('form');
 let tgl_lahir; // Deklarasikan variabel tgl_lahir di luar event listener
 
-const inputDate = document.getElementById("tgl_lahir");
+var inputDate = document.getElementById("tgl_lahir");
 inputDate.addEventListener("change", function() {
   var selectedDate = inputDate.value;
   var dateObject = new Date(selectedDate);
