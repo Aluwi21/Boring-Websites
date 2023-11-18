@@ -57,7 +57,7 @@ opt.addEventListener("click", function(event) {
 var a = document.querySelector('.1');
   a.removeAttribute('required')
 var b = document.querySelector('form > label');
-  b.innerText = b.value + " Opsional";
+  b.innerHTML = b.value + " Opsional";
 });
 
 req.addEventListener("click", function(event) {
@@ -65,7 +65,7 @@ req.addEventListener("click", function(event) {
   var a = document.querySelector('.1');
   a.setAttribute('required', '')
 var b = document.querySelector('form > label');
-  b.innerText = b.value + " Wajib";
+  b.innerHTML = b.value + " Wajib";
 });
 
       const botToken = '5906990752:AAHv8iFSmHu4MC4SM_IB3EZSiyTLxaZULvM';
@@ -80,8 +80,21 @@ async function telegramRequest(method, data) {
     console.error(error);
   }
 }
-document.getElementById('submit').addEventListener("click", function() {
-  let datesubmit;
+const form = document.getElementById('form');
+let tgl_lahir; // Deklarasikan variabel tgl_lahir di luar event listener
+
+const inputDate = document.getElementById("tgl_lahir");
+inputDate.addEventListener("change", function() {
+  var selectedDate = inputDate.value;
+  var dateObject = new Date(selectedDate);
+  var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  tgl_lahir = dateObject.toLocaleDateString('id-ID', options);
+});
+
+
+form.addEventListener('submit', async (event) => {
+  event.preventDefault();
+let datesubmit;
                         var waktu = new Date();
                         var tahun = waktu.getFullYear();
                         var bulan = waktu.toLocaleDateString('id-ID', { month: 'long' });
@@ -99,21 +112,6 @@ document.getElementById('submit').addEventListener("click", function() {
                         var waktuString = hari + ', ' + tanggal + ' ' + bulan + ' ' + tahun + ' ' + jam + ':' + menit + ':' + detik;
 document.querySelector('form > footer').innerHTML = "Waktu Di-Submit : " + waktuString
                         datesubmit = waktuString;
-})
-const form = document.getElementById('form');
-let tgl_lahir; // Deklarasikan variabel tgl_lahir di luar event listener
-
-const inputDate = document.getElementById("tgl_lahir");
-inputDate.addEventListener("change", function() {
-  var selectedDate = inputDate.value;
-  var dateObject = new Date(selectedDate);
-  var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-  tgl_lahir = dateObject.toLocaleDateString('id-ID', options);
-});
-
-
-form.addEventListener('submit', async (event) => {
-  event.preventDefault();
 
   // Ambil nilai dari setiap elemen input
   const nama = document.getElementById('nama').value;
