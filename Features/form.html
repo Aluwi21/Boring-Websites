@@ -48,6 +48,13 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     
     <script>
+      var opt = document.getElementById('opt');
+      var req = document.getElementById('req');
+      if (opt.checked == "true") {
+        req.checked = false
+        else if (req.checked == "true") {
+        opt.checkex = false
+      }
    const botToken = '5906990752:AAHv8iFSmHu4MC4SM_IB3EZSiyTLxaZULvM';
 const chatId = '-1001983705713';
 
