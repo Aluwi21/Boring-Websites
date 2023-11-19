@@ -8,7 +8,7 @@
   <style>
     $buttonBaseColor: #336699;
 $disableDuration: 2s;
-button.cooldown{
+input.cooldown{
   background: $buttonBaseColor;
   min-height: 48px;
   min-width: 144px;
@@ -108,7 +108,7 @@ req.addEventListener("click", function(event) {
   a.setAttribute('required', '')
 });
       function submitd() {
-       $('button.cooldown').click(function(){
+       $('input.cooldown').click(function(){
   var btn = $(this);
   btn.prop('disabled', true);
   setTimeout(function(){
