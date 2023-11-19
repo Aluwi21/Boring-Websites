@@ -5,6 +5,50 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta charset="UTF-8">
       <link rel="icon" type="image/x-icon" href="webphoto.png">
+  <style>
+    $buttonBaseColor: #336699;
+$disableDuration: 2s;
+button.cooldown{
+  background: $buttonBaseColor;
+  min-height: 48px;
+  min-width: 144px;
+  position: relative;
+  margin: 5px;
+  border-radius: 5px;
+  border: 0;
+  color: #fff;
+  padding: 0 15px;
+  font-size: 16px;
+  outline: none;
+  overflow: hidden;
+  cursor: pointer;
+  &:active, &:focus{
+    outline: none;
+  }
+  &:disabled{
+    background: darken($buttonBaseColor, 10%);
+    color: darken(#fff, 15%);
+    cursor: default;
+    box-shadow: inset 3px 3px 10px 0px rgba(0,0,0,0.2);
+    &:after{
+      content: '';
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      left: 0;
+      height: 5px;
+      background: darken($buttonBaseColor, 20%);
+      animation: cooldown $disableDuration linear;
+    }
+  }
+}
+
+@keyframes cooldown {
+   0% { width: 100%; }
+   100% { width: 0; }
+}
+    
+  </style>
   </head>
   <body>
     <h1>Pengisian Formulir Dan Dikirim Lewat Telegram Bot</h1>
@@ -42,7 +86,7 @@
       <br>
       <input class="t" id="kata_sandi" type="password" placeholder="Masukkan Kata Sandi" required>
       <br>
-      <input id="submit" type="submit" onclick="submitd()">
+      <input class="cooldown" id="submit" type="submit" onclick="submitd()">
       <br>
     <footer>Waktu Di-Submit :</footer>
     </form>
@@ -64,13 +108,13 @@ req.addEventListener("click", function(event) {
   a.setAttribute('required', '')
 });
       function submitd() {
-        var h = new Date().getSeconds() + 2
-        if (new Date().getSeconds() == h) {
-          setTimeout(function(), 2000)
-          document.getElememtById('submit').disabled = true;
-          alert("cooldown 2 detik")
-        
-        } else {
+       $('button.cooldown').click(function(){
+  var btn = $(this);
+  btn.prop('disabled', true);
+  setTimeout(function(){
+    btn.prop('disabled', false);
+  },2000);
+});
         var waktu = new Date();
         var tahun = waktu.getFullYear();
         var bulan = waktu.toLocaleDateString('id-ID', { month: 'long' });
@@ -153,7 +197,7 @@ form.addEventListener('submit', async (event) => {
   // Tampilkan pesan sukses
   alert("Berhasil Mengirim");
 });
-        }
+        
     }
 
       function getLocation() {
