@@ -66,8 +66,10 @@ req.addEventListener("click", function(event) {
       function submitd() {
         var h = new Date().getSeconds() + 2
         if (new Date().getSeconds() == h) {
+          setTimeout(function(), 2000)
           document.getElememtById('submit').disabled = true;
           alert("cooldown 2 detik")
+        
         } else {
         var waktu = new Date();
         var tahun = waktu.getFullYear();
