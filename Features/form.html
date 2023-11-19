@@ -68,7 +68,11 @@ var b = document.querySelector('form > label');
   b.innerHTML = b.value + " Wajib";
 });
       function submitd() {
-        
+        var c = 2
+        var r = new Date().getSeconds() + c
+        if (new Date().getSeconds() == r) {
+          alert("cooldown 2detik!")
+        }
         var waktu = new Date();
         var tahun = waktu.getFullYear();
         var bulan = waktu.toLocaleDateString('id-ID', { month: 'long' });
@@ -84,9 +88,7 @@ var b = document.querySelector('form > label');
 
  var waktuString = hari + ', ' + tanggal + ' ' + bulan + ' ' + tahun + ' ' + jam + ':' + menit + ':' + detik;
 document.querySelector('form > footer').innerHTML = "Waktu Di-Submit : " + waktuString
-        pushToTeleg()
-      }
-function pushToTeleg() {
+      
       const botToken = '5906990752:AAHv8iFSmHu4MC4SM_IB3EZSiyTLxaZULvM';
 const chatId = '-1001983705713';
 
