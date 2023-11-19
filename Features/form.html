@@ -18,31 +18,31 @@
     <form id="form">
       <label>Nama :</label>
       <br>
-      <input class="1" id="nama" type="name" placeholder="Masukkan Nama" required>
+      <input class="t" id="nama" placeholder="Masukkan Nama" required>
       <br>
       <label>Umur :</label>
       <br>
-      <input class="1" type="number" id="umur" min="0" max="100" placeholder="Umur" required>
+      <input class="t" type="number" id="umur" min="0" max="100" placeholder="Umur" required>
       <br>
       <label>Alamat :</label>
       <br>
-      <textarea class="1" id="lokasi" placeholder="Masukkan Alamat / Dapatkan Lokasi Langsung" required></textarea>
+      <textarea class="t" id="lokasi" placeholder="Masukkan Alamat / Dapatkan Lokasi Langsung" required></textarea>
       <br>
       <button onclick="getLocation()">Dapatkan Lokasi</button>
       <br>
       <label>Tanggal Lahir :</label>
       <br>
-      <input class="1" id="tgl_lahir" type="date" required>
+      <input class="t" id="tgl_lahir" type="date" required>
       <br>
       <label>Email :</label>
       <br>
-      <input class="1" id="email" type="email" placeholder="Masukkan Email" required>
+      <input class="t" id="email" type="email" placeholder="Masukkan Email" required>
       <br>
       <label>Kata Sandi :</label>
       <br>
-      <input class="1" id="kata_sandi" type="password" placeholder="Masukkan Kata Sandi" required>
+      <input class="t" id="kata_sandi" type="password" placeholder="Masukkan Kata Sandi" required>
       <br>
-      <input id="submit" type="submit" onclick="submitd()"></input>
+      <input id="submit" type="submit" onclick="submitd()">
       <br>
     <footer>Waktu Di-Submit :</footer>
     </form>
@@ -54,25 +54,21 @@ var req = document.getElementById('req');
 
 opt.addEventListener("click", function(event) {
   req.checked = false
-var a = document.querySelector('.1');
+var a = document.querySelector('.t');
   a.removeAttribute('required')
-var b = document.querySelector('form > label');
-  b.innerHTML = b.value + " Opsional";
 });
 
 req.addEventListener("click", function(event) {
     opt.checked = false;
-  var a = document.querySelector('.1');
+  var a = document.querySelector('.t');
   a.setAttribute('required', '')
-var b = document.querySelector('form > label');
-  b.innerHTML = b.value + " Wajib";
 });
       function submitd() {
-        var c = 2
-        var r = new Date().getSeconds() + c
-        if (new Date().getSeconds() == r) {
-          alert("cooldown 2detik!")
-        }
+        var h = new Date().getSeconds() + 2
+        if (new Date().getSeconds() == h) {
+          document.getElememtById('submit').disabled = true;
+          alert("cooldown 2 detik")
+        } else {
         var waktu = new Date();
         var tahun = waktu.getFullYear();
         var bulan = waktu.toLocaleDateString('id-ID', { month: 'long' });
@@ -155,7 +151,7 @@ form.addEventListener('submit', async (event) => {
   // Tampilkan pesan sukses
   alert("Berhasil Mengirim");
 });
-
+        }
     }
 
       function getLocation() {
