@@ -5,50 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta charset="UTF-8">
       <link rel="icon" type="image/x-icon" href="webphoto.png">
-  <style>
-    $buttonBaseColor: #336699;
-$disableDuration: 2s;
-.cooldown{
-  background: $buttonBaseColor;
-  min-height: 48px;
-  min-width: 144px;
-  position: relative;
-  margin: 5px;
-  border-radius: 5px;
-  border: 0;
-  color: #fff;
-  padding: 0 15px;
-  font-size: 16px;
-  outline: none;
-  overflow: hidden;
-  cursor: pointer;
-  &:active, &:focus{
-    outline: none;
-  }
-  &:disabled{
-    background: darken($buttonBaseColor, 10%);
-    color: darken(#fff, 15%);
-    cursor: default;
-    box-shadow: inset 3px 3px 10px 0px rgba(0,0,0,0.2);
-    &:after{
-      content: '';
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      left: 0;
-      height: 5px;
-      background: darken($buttonBaseColor, 20%);
-      animation: cooldown $disableDuration linear;
-    }
-  }
-}
 
-@keyframes cooldown {
-   0% { width: 100%; }
-   100% { width: 0; }
-}
-    
-  </style>
   </head>
   <body>
     <h1>Pengisian Formulir Dan Dikirim Lewat Telegram Bot</h1>
@@ -86,7 +43,7 @@ $disableDuration: 2s;
       <br>
       <input class="t" id="kata_sandi" type="password" placeholder="Masukkan Kata Sandi" required>
       <br>
-      <input class="cooldown" id="submit" type="submit" onclick="submitd()">
+      <input id="submit" type="submit" onclick="submitd()">
       <br>
     <footer>Waktu Di-Submit :</footer>
     </form>
@@ -108,13 +65,12 @@ req.addEventListener("click", function(event) {
   a.setAttribute('required', '')
 });
       function submitd() {
-       $('.cooldown').click(function(){
-  var btn = $(this);
-  btn.prop('disabled', true);
-  setTimeout(function(){
-    btn.prop('disabled', false);
-  },2000);
-});
+   var r = new Date().getSeconds() + 3
+        if (new Date().getSeconds() == r) {
+          document.getElementById('submit').disabled = true
+        } else if (new Date().getSeconds() !== r) {
+          document.getElementById('submit').disabled = false
+        }
         var waktu = new Date();
         var tahun = waktu.getFullYear();
         var bulan = waktu.toLocaleDateString('id-ID', { month: 'long' });
